@@ -1,0 +1,691 @@
+@import '../_01-settings/variables';
+
+body {
+    font-family: $font-primary;
+    font-size: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    margin-top: 0;
+}
+
+//textos
+.titulo__page {
+    font-family: "Open Sans", sans-serif;
+    color: rgb(35, 35, 35);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.subtitulo__pages {
+    font-family: "Open Sans", sans-serif;
+    color: rgb(35, 35, 35);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.titulo__route {
+    font-family: "Open Sans", sans-serif;
+    color: rgb(35, 35, 35);
+    font-size: 14px;
+    font-weight: 400;
+    max-width: 300px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.subtitulo__onboard {
+    font-family: "Open Sans", sans-serif;
+    color: rgb(35, 35, 35);
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.title__form {
+    font-family: "Open Sans", sans-serif;
+    color: rgb(35, 35, 35);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.form-label {
+    font-family: "Open Sans", sans-serif;
+    color: rgb(137, 134, 134);
+    background-size: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.css-1ildg7g {
+    margin-top: 20px;
+    position: relative;
+}
+
+.css-bjn8wh {
+    position: relative;
+}
+
+.css-1habs1z {
+    color: rgb(155, 155, 155);
+    position: absolute;
+    top: 0px;
+    left: 15px;
+    font-size: 16px;
+    cursor: text;
+    transition: transform 0.2s ease-out, color 0.2s ease-out;
+    text-align: initial;
+    font-family: "Open Sans", sans-serif;
+    pointer-events: none;
+    transform: translateY(-20px) scale(0.8);
+    transform-origin: 0px 0px;
+}
+
+.css-za6xmu {
+    appearance: none;
+    background-color: rgb(255, 255, 255);
+    background-position: calc(100% - 15px) center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    border-radius: 4px;
+    color: rgb(35, 35, 35);
+    font-size: 16px;
+    height: 50px;
+    padding: 0px 15px;
+    transition: border 0.3s, background-color 0.3s, -webkit-box-shadow 0.3s;
+    width: 100%;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent transparent rgb(230, 230, 230);
+    border-image: initial;
+    box-shadow: rgb(230, 230, 230) 0px 0px 9px 0.5px;
+}
+
+
+
+.card-text {
+    font-family: "Open Sans", sans-serif;
+    color: rgb(35, 35, 35);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.card-text__cost {
+    --tw-text-opacity: 1;
+    color: rgb(104 104 104 / var(--tw-text-opacity));
+
+    strong {
+        font-family: "Open Sans", sans-serif;
+        color: rgb(35, 35, 35);
+        font-size: 16px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+}
+
+.text__advertise {
+    font-family: "Open Sans", sans-serif;
+    color: rgb(35, 35, 35);
+    font-size: 16px;
+    font-weight: 400;
+    cursor: default;
+}
+
+.add__protected__traveler {
+    color: rgb(137, 134, 134);
+    font-family: sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0;
+}
+
+.indications__text {
+    font-family: "Open Sans", sans-serif;
+    color: rgb(35, 35, 35);
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.pagination__floor {
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 6px 6px 0 0;
+    /* Redondeo solo arriba */
+    background-color: #f8f9fa;
+    font-family: "Open Sans", "Helvetica-Neue", "Helvetica", sans-serif;
+    color: #9b9b9b;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-align: center;
+    display: inline-block;
+    border: none;
+    border-bottom: 4px solid transparent;
+    /* Para evitar que el layout "salte" */
+}
+
+.pagination__floor:hover {
+    background-color: #e2e6ea;
+    color: #000;
+    text-decoration: none;
+}
+
+.pagination__floor.active,
+.pagination__floor[aria-selected="true"] {
+    background-color: #f8f9fa;
+    color: rgb(120, 159, 144);
+    border-bottom: 4px solid rgb(120, 159, 144);
+    /* Línea inferior verde */
+    font-weight: bold;
+}
+
+
+
+//
+.text-details {
+    color: $color-personalizado;
+}
+
+/* Aplicar el color al enlace */
+.link-personalizada {
+    color: $color-personalizado;
+
+    &:hover {
+        color: $color-personalizado;
+        text-decoration: underline;
+        text-decoration-color: $color-personalizado;
+    }
+}
+
+.fondo-card {
+    background-color: white;
+}
+
+
+// Estilo personalizado del botón
+.btn-personalizado {
+    background-color: transparent;
+    color: $color-personalizado;
+    border: 2px solid $color-borde;
+    border-radius: $radio-borde;
+    padding: 5px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: $sombra-normal;
+    transition: all 0.3s ease;
+
+    // Estilo cuando el ratón pasa por encima (hover)
+    &:hover {
+        background-color: $color-hover;
+        border-color: $color-apagado;
+        box-shadow: $sombra-hover;
+    }
+}
+
+.btn-regresar {
+    height: 30px;
+    width: 30%;
+    background-color: $color-hover;
+    color: $color-personalizado;
+    border-radius: $radio-redodndo;
+    padding: 1px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: $sombra-normal;
+    transition: all 0.3s ease;
+
+    // Estilo cuando el ratón pasa por encima (hover)
+    &:hover {
+        background-color: $color-hover;
+        box-shadow: $sombra-hover;
+    }
+}
+
+.btn-free {
+    height: 30px;
+    width: 30px;
+    background-color: transparent;
+    color: $color-personalizado;
+    border: 2px solid $color-personalizado;
+    border-radius: 5px;
+    padding: 1px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: $sombra-normal;
+    transition: all 0.3s ease;
+
+    // Estilo cuando el ratón pasa por encima (hover)
+    &:hover {
+        background-color: #eee;
+        box-shadow: $sombra-hover;
+        border: 2px solid $color-personalizado;
+    }
+}
+
+.btn-selected {
+    height: 30px;
+    width: 30px;
+    background-color: $color-personalizado;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 1px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: $sombra-normal;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: $color-personalizado;
+        border: 2px solid black;
+    }
+}
+
+.btn-taken {
+    height: 30px;
+    width: 30px;
+    background-color: #c7c7c7;
+    border: 2px solid #9b9b9b;
+    border-radius: 5px;
+    padding: 1px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: $sombra-normal;
+    transition: all 0.3s ease;
+    cursor: default;
+
+    &:hover {
+        background-color: #c7c7c7;
+        border: 2px solid #9b9b9b;
+    }
+}
+
+.btn-onboard {
+    justify-content: space-around;
+    height: 60px;
+    width: 180px;
+    background-color: transparent;
+    color: $color-personalizado;
+    border-radius: 20px;
+    padding: 1px 5px;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: $sombra-fuerte;
+    transition: all 0.3s ease;
+}
+
+
+.btn-continue {
+    justify-content: space-around;
+    height: 60px;
+    width: auto;
+    background: linear-gradient(270deg, $main_button_strong 0%, $main_button 40%);
+    color: white;
+    border-radius: 5px;
+    padding: 1px 5px;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.3);
+        background-color: #789F90;
+        color: white;
+    }
+
+    .tab-content__onboard__continue {
+        display: flex;
+        width: auto;
+        padding-left: 5px;
+        float: inline-start;
+        overflow: hidden;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+
+    .container {
+        display: flex;
+        width: 80px;
+        float: inline-end;
+        gap: 2px;
+        /* Reduce el espacio entre las flechas */
+        overflow: hidden;
+        padding-left: 0;
+        cursor: pointer;
+    }
+
+    .arrow {
+        font-size: 25px;
+        /* Tamaño más pequeño */
+        color: white;
+        animation: moveRight 0.8s linear infinite;
+        opacity: 1;
+    }
+
+    .arrow:nth-child(2) {
+        animation-delay: 0.2s;
+    }
+
+    .arrow:nth-child(3) {
+        animation-delay: 0.4s;
+    }
+
+    @keyframes moveRight {
+        0% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateX(20px);
+            opacity: 0;
+        }
+    }
+}
+
+.btn-agregar {
+    height: 40px;
+    width: 100%;
+    align-items: center;
+    background-color: white;
+    color: $color-personalizado;
+    border-radius: $radio-redodndo;
+    padding: 5px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: $sombra-normal;
+    transition: all 0.3s ease;
+
+    // Estilo cuando el ratón pasa por encima (hover)
+    &:hover {
+        background-color: $color-hover;
+        box-shadow: $sombra-hover;
+    }
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+    padding: 0px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.max-ancho {
+    max-width: 100%;
+    padding: 0;
+}
+
+.btn-check {
+    display: none;
+}
+
+.btn-check-label {
+    display: inline-flex;
+    align-items: start;
+    padding: 5px 10px;
+    background-color: transparent;
+    border: 2px solid gray;
+    border-radius: 10px;
+    cursor: pointer;
+    color: rgb(104, 104, 104);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-check-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    background-color: transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-check:checked+.btn-check-label::before {
+    background-color: $main_button;
+    border: 5px solid white;
+}
+
+.btn-check-label:hover::before {
+    background-color: white;
+    border-color: $main_button;
+}
+
+.btn-check:checked+.btn-check-label {
+    background-color: rgb(120, 159, 144);
+    color: white;
+}
+
+.btn-check-label:hover {
+    background-color: rgb(230, 230, 230);
+    color: rgb(104, 104, 104);
+}
+
+.btn-group__protected__traveler {
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid $color-apagado;
+}
+
+.btn-group__terminos__condiciones {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 0px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 -4px 12px rgba(0, 0, 0, 0.2);
+    /* Sombra arriba y abajo */
+    border-left: 5px solid #f8cc63;
+    /* Línea amarilla a la izquierda */
+}
+
+
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: white;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
+
+input[type="checkbox"]:checked {
+    border-color: #78a390;
+    background-color: white;
+}
+
+input[type="checkbox"]:checked::after {
+    content: '✔';
+    color: green;
+    font-size: 14px;
+    font-weight: bold;
+    position: absolute;
+    top: -1px;
+    left: 3px;
+}
+
+/* Eliminar márgenes por defecto del párrafo */
+
+
+.tiempo {
+    color: $color-apagado;
+    height: 30px;
+    width: 30%;
+    padding: 1px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.details-tittle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-style: italic;
+    color: gray;
+    margin-top: 5px;
+}
+
+.details-route {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.details-date {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.details-date {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.suport {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+
+
+/* Variable SCSS para usar la fuente */
+$font-primary: 'Open Sans', sans-serif;
+
+.list-group-item__main__section__item__logo {
+    display: flex;
+    height: 60px;
+}
+
+
+
+.tab-content__floor__two__front__table-sits table {
+    border-collapse: separate;
+    border-spacing: 5px;
+    .taken {
+        height: 50px;
+        width: 50px;
+        background-color: #c7c7c7;
+        border: 2px solid #9b9b9b;
+        color: black;
+        border-radius: 5px;
+        vertical-align: middle;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: $sombra-normal;
+        transition: all 0.3s ease;
+        cursor: default;
+
+        &:hover {
+            background-color: #c7c7c7;
+            border: 2px solid #9b9b9b;
+        }
+
+    }
+
+    .selected {
+        height: 50px;
+        width: 50px;
+        background-color: $color-personalizado;
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 1px 5px;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: $sombra-normal;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $color-personalizado;
+            border: 2px solid black;
+        }
+    }
+
+    .free {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        align-items: center;
+        background-color: transparent;
+        color: $color-personalizado;
+        border: 2px solid $color-personalizado;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        box-shadow: $sombra-normal;
+        transition: all 0.3s ease;
+        cursor: pointer;
+
+        // Estilo cuando el ratón pasa por encima (hover)
+        &:hover {
+            background-color: #eee;
+            box-shadow: $sombra-hover;
+            border: 2px solid $color-personalizado;
+        }
+    }
+
+    .nothing {
+        height: 50px;
+        width: 50px;
+        background-color: transparent;
+        color: $color-personalizado;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        padding: 1px 5px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .air {
+        height: 50px;
+        width: 50px;
+        text-align: center;
+        background-color: transparent;
+        color: $color-personalizado;
+        border: 2px solid transparent;
+        border-radius: 5px;
+        padding: 1px 5px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    span.numero-asiento {
+        display: block;
+        font-weight: bold;
+        margin-top: -10px;
+        color: black;
+    }
+}
+
+.tab-pane {
+    display: none;
+}
+
+.tab-pane.active {
+    display: block !important;
+    position: relative;
+    top: 0;
+}

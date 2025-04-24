@@ -1,0 +1,34 @@
+@import "../_02-tools/mixin";
+
+main {
+    display: flex;
+    margin-top: 100px;
+    min-height: calc(100vh - 100px);
+    height: 100%;
+    width: 100%;
+    @include media("xl") {
+        flex-direction: column;
+        margin-top: 57px;
+        width: 100%;
+        min-height: calc(100vh - 57px);
+    }
+}
+
+aside {
+    width: 30%;
+    height: 100%;
+    padding: 20px;
+    @include media("xl") {
+        width: 100%;
+        padding: 10px 0px 10px 0px;
+    }
+}
+
+section {
+    width: 70%;
+    padding: 20px;
+    @include media("xl") {
+        width: 100%;
+        padding: 10px 0px 0px 0px;
+    }
+}

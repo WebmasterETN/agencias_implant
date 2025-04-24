@@ -1,0 +1,40 @@
+@import "../_01-settings/variables";
+
+.__payment-selector-badge {
+  button {
+    max-width: 200px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+
+    .__method-payment-icon {
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+    }
+    
+    .__method-payment-one-icon {
+      font-size: clamp(0.9rem, 3vw, 2rem);
+    }
+
+    .__new-method {
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #99da93;
+      color: #fff;
+      border-radius: 20px;
+      max-width: 120px;
+      width: 100%;
+      height: 30px;
+      z-index: 1;
+    }
+  }
+}
+.__btn-continue {
+  background-color: $primary-color;
+}

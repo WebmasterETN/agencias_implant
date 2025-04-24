@@ -1,0 +1,53 @@
+/*--------BREAKPOINTS--------*/
+$breakpoints: (
+  'xs': 320px,
+  // Móvil pequeño
+  'sm': 481px,
+  // Móvil estándar
+  'md': 990px,
+  // Tableta
+  'lg': 1025px,
+  // Laptop pequeña
+  'xl': 1200px,
+  // Escritorio estándar
+  'xxl': 1400px // Pantallas grandes
+);
+
+// Colors primarys
+$primary-color: #1e3b5a;
+$secondary-color: #98ced6;
+$bottom-top-color: #eee;
+
+// Colors hover
+$hover-header-color: #2f6e76;
+$hover-primary-color: #275280;
+
+//------modal detalles
+$color-primary: #1e3b5a;
+$color-secondary: #4D87A1;
+
+//------ Text colors
+$color-text: #fff; // Color del texto
+$color-text--hover: #fff; // Color del texto al hacer hover
+$color-text--fuerte: #1e3b5a; // Color del texto fuerte
+
+//other colors
+
+$radio-borde: 10px;
+$radio-redodndo: 50px; // Radio de los bordes
+$sombra-normal: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra normal
+$sombra-hover: 0 6px 8px rgba(0, 0, 0, 0.2); // Sombra al hacer hover
+$sombra-fuerte: 10px 10px 30px rgba(0, 0, 0, 0.3);
+$main_button_strong: #587C6E;
+$main_button: #789F90;
+$color-personalizado: #1e3b5a;
+$color-apagado: #68849b;
+$color--texto: white; // Color del texto
+$color-borde: #1e3b5a; // Color del borde
+$color-hover: #eee; // Color de hover
+$radio-borde: 10px;
+$radio-redodndo: 50px; // Radio de los bordes
+$sombra-normal: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra normal
+$sombra-hover: 0 6px 8px rgba(0, 0, 0, 0.2); // Sombra al hacer hover
+$font-primary: 'Open Sans', sans-serif;
+

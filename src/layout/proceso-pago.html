@@ -1,0 +1,2187 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pruebas</title>
+  <link rel="stylesheet" href="../styles/css/css-librerias/bootstrap/bootstrap.min.css?v=1.0.0" />
+  <link rel="stylesheet" href="../styles/css/css-components/styles.min.css?v=1.0.0" />
+  <script type="module" src="./main.js"></script>
+
+<body>
+  <header class="header container-fluid flex-column justify-content-center align-items-center text-white p-0 m-0">
+    <nav class="header__nav navbar fixed-top" role="navigation">
+      <div class="header__nav__items container-fluid justify-content-center m-0 p-0">
+        <a href="#" class="header__nav__item header__nav__button--logo navbar-brand" type="button"
+          aria-label="Ir al inicio">
+          <h1 class="header__nav__button__logo__title d-none">
+            Autovías La Línea
+          </h1>
+          <img class="header__nav__button__logo__img" src="..\img\extra-icons\amealcenses-logo.webp"
+            alt="Logo de Amealcenses" />
+        </a>
+        <p class="header__nav__text fst-italic p-0 m-0">
+          ¡Bienvenido a la nueva experiencia de compra de GHO, una forma más
+          sencilla de comprar tus boletos
+        </p>
+
+        <!-- Contenedor para elementos que se mueven -->
+
+        <ul class="header__nav__list d-flex gap-4" id="navbarToggler">
+          <li class="header__nav__list__button nav-item">
+            <a class="header__nav__list__button--travelpass nav-link btn bg-white border-0 rounded-5 pt-1 pb-1 px-3"
+              type="button">
+              <img class="header__nav__button__travelpass__img" src="..\img\extra-icons\logo-travel-pass.webp"
+                alt="Travel Pass" />
+            </a>
+          </li>
+          <li class="header__nav__list__button nav-item">
+            <a class="header__nav__button--language nav-link btn bg-transparent border-0" type="button"
+              onclick="toggleVisibility()">
+              <span class="header__nav__button__language__icon icon-mx-flag d-inline-block" id="Lanaguage-Icon-Mx">
+                <span class="path1"></span><span class="path2"></span><span class="path3"></span><span
+                  class="path4"></span><span class="path5"></span><span class="path6"></span><span
+                  class="path7"></span><span class="path8"></span><span class="path9"></span><span
+                  class="path10"></span><span class="path11"></span><span class="path12"></span><span
+                  class="path13"></span><span class="path14"></span><span class="path15"></span><span
+                  class="path16"></span><span class="path17"></span><span class="path18"></span><span
+                  class="path19"></span><span class="path20"></span><span class="path21"></span><span
+                  class="path22"></span>
+              </span>
+
+              <span class="header__nav__button__language__icon icon-us-flag d-none" id="Lanaguage-Icon-US">
+                <span class="path1"></span><span class="path2"></span><span class="path3"></span><span
+                  class="path4"></span><span class="path5"></span><span class="path6"></span><span
+                  class="path7"></span><span class="path8"></span><span class="path9"></span><span
+                  class="path10"></span><span class="path11"></span><span class="path12"></span><span
+                  class="path13"></span><span class="path14"></span><span class="path15"></span><span
+                  class="path16"></span><span class="path17"></span><span class="path18"></span><span
+                  class="path19"></span><span class="path20"></span><span class="path21"></span><span
+                  class="path22"></span><span class="path23"></span><span class="path24"></span><span
+                  class="path25"></span><span class="path26"></span><span class="path27"></span><span
+                  class="path28"></span><span class="path29"></span><span class="path30"></span><span
+                  class="path31"></span><span class="path32"></span><span class="path33"></span><span
+                  class="path34"></span><span class="path35"></span><span class="path36"></span><span
+                  class="path37"></span><span class="path38"></span><span class="path39"></span><span
+                  class="path40"></span><span class="path41"></span><span class="path42"></span><span
+                  class="path43"></span><span class="path44"></span><span class="path45"></span><span
+                  class="path46"></span><span class="path47"></span><span class="path48"></span><span
+                  class="path49"></span><span class="path50"></span>
+              </span>
+            </a>
+          </li>
+          <button class="header__nav__list_button--menu navbar-toggler" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <i class="icon-bars-menu" :before></i>
+          </button>
+        </ul>
+
+        <!-- Menú Offcanvas -->
+
+        <div class="header__nav__offcanvas offcanvas offcanvas-end align-items-start" tabindex="-1" id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel">
+          <div class="header__nav__offcanvas__container__button offcanvas-header">
+            <button type="button" class="header__nav__offcanvas__container__button--close btn-close"
+              data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="header__nav__offcanvas__content__list offcanvas-body w-100">
+            <ul
+              class="header__nav__offcanvas__content__list__items navbar-nav list-group justify-content-end flex-grow-1">
+              <!-- Aquí se moverán los nav-items en móviles -->
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+              </li>
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link" href="#">Nosotros</a>
+              </li>
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link" href="#">Facture su viaje</a>
+              </li>
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link" href="#">Imprimir pase de abordar</a>
+              </li>
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link" href="#">Modifique su itinerario</a>
+              </li>
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link" href="#">Taquillas</a>
+              </li>
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link" href="#">Servicios a bordo</a>
+              </li>
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link" href="#">Agencias</a>
+              </li>
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link" href="#">Utilice su boleto abierto</a>
+              </li>
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link" href="#">Viajo protejido</a>
+              </li>
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link" href="#">Bus Protect</a>
+              </li>
+              <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                <a class="nav-link" href="#">Bas Protegido</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="container-fluid bg-light m-0 border-bottom pt-5 mt-4" style="height: 100%">
+      <div class="container-fluid border-bottom fondo-card mt-2">
+        <div class="container">
+          <div class="row text-details">
+            <div class="col-6 p-2">
+              <a href="#"
+                class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-personalizada">
+                <span class="icon-filled-pointer">Guadalajara - Ciudad de México</span>
+              </a>
+            </div>
+            <div class="col-3">
+              <div class="d-flex align-items-center">
+                <button class="btn btn-light d-flex align-items-center me-0">
+                  <span class="icon-user"></span>
+                  1
+                </button>
+                <span class="ms-2">Viaje redondo</span>
+              </div>
+            </div>
+            <div class="col-3 text-end">
+              <button type="button" class="btn btn-personalizado">
+                Detalles
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row mt-4">
+          <div class="col-3 me-5">
+            <div class="row">
+              Regresar a
+              <button type="button" class="btn btn-regresar ms-2">
+                Horarios
+              </button>
+            </div>
+            <div class="col mt-5 border p-2 fondo-card d-flex justify-content-between align-items-center">
+              <span class="icon-on-time"><span class="path1"></span><span class="path2"></span><span
+                  class="path3"></span><span class="path4"></span></span>
+              <span>Completa tu compra en:</span>
+              <label class="tiempo">13:31</label>
+            </div>
+            <div class="row mt-4">Detalles del viaje</div>
+            <div class="row">
+              <div class="card p-0" style="width: 100%">
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <div class="row">
+                      <label class="details-tittle">Viaje de ida</label>
+                      <div class="list-group-item__main__section__item__logo">
+                        <img src="../../img/extra-icons/amealcenses-logo.webp" class="main__section__item__logo__img"
+                          alt="logo de amealcenses" />
+                      </div>
+                      <label class="details-route">Guadalajara - Ciudad de Mexico</label>
+                      <label class="details-date">15 Abr 2025 01:00 P:M</label>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="row">
+                      <label class="details-tittle">Viaje de regreso</label>
+                      <div class="list-group-item__main__section__item__logo">
+                        <img src="../../img/extra-icons/amealcenses-logo.webp" class="main__section__item__logo__img"
+                          alt="logo de amealcenses" />
+                      </div>
+                      <label class="details-route">Guadalajara - Ciudad de Mexico</label>
+                      <label class="details-date">24 Abr 2025 10:30 P:M</label>
+                    </div>
+                  </li>
+                </ul>
+                <div class="card-footer">
+                  <a href="#detalles-modal"
+                    class="d-block w-100 text-center link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-personalizada">
+                    Detalles
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <button type="button" class="btn btn-travelPass">
+                <img src="../../img/extra-icons/logo-travel-pass-medio.png" alt="Icono"
+                  style="width: 20px; height: 20px; margin-right: 5px" />Iniciar sesión en TravelPass
+              </button>
+            </div>
+            <div class="row">
+              <label class="suport">Atencion a clientes</label>
+              <a href="#contact"
+                class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-personalizada">
+                800 622 22 22
+              </a>
+            </div>
+          </div>
+          <div class="col-8 p-0">
+            <div class="container">
+              <ul class="nav nav-tabs w-100 main-tabs" id="myTab" role="tablist">
+                <li class="nav-item flex-fill" role="presentation">
+                  <a class="nav-link active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab"
+                    aria-controls="home" aria-selected="true">Asientos de ida</a>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                  <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab"
+                    aria-controls="profile" aria-selected="false">Pasajeros</a>
+                </li>
+                <li class="nav-item flex-fill" role="presentation">
+                  <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#contact" role="tab"
+                    aria-controls="contact" aria-selected="false">Pago</a>
+                </li>
+                <li class="nav-item ms-auto nav-item-small" id="tabStatus">
+                  <span class="nav-link disabled" aria-current="page" id="statusText">Paso 1 de 3</span>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="row p-4 border rounded fondo-card">
+                        <div class="tad-container__your seats col-8">
+                          <h5>Tus asientos</h5>
+                          <p>
+                            Elige los asientos que necesites, en seguida te
+                            solicitaremos los datos de los pasajeros
+                          </p>
+                        </div>
+                        <div class="tab-container__types-of-seats col-4">
+                          <div class="container">
+                            <div class="row justify-content-between">
+                              <div
+                                class="tab-container__types-of-seats__free col-4 pe-5 d-flex flex-column align-items-center">
+                                <button type="button" class="btn btn-free"></button>
+                                <label for="">50</label>
+                                <label for="">LIBRES</label>
+                              </div>
+
+                              <div
+                                class="tab-container__types-of-seats__selected col-4 d-flex flex-column align-items-center">
+                                <button type="button" class="btn btn-selected"></button>
+                                <label for="">0</label>
+                                <label for="">ELEGIDOS</label>
+                              </div>
+                              <div
+                                class="tab-container__types-of-seats__taken col-4 ps-5 d-flex flex-column align-items-center">
+                                <button type="button" class="btn btn-taken"></button>
+                                <label for="">0</label>
+                                <label for="">OCUPADOS</label>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="container col-12 mt-3">
+                          <!-- Pestañas -->
+                          <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <a class="nav-link active" id="piso2-tab" data-bs-toggle="tab" href="#piso2" role="tab"
+                                aria-controls="piso2" aria-selected="true">Piso 2</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <a class="nav-link" id="piso1-tab" data-bs-toggle="tab" href="#piso1" role="tab"
+                                aria-controls="piso1" aria-selected="false">Piso 1</a>
+                            </li>
+                          </ul>
+
+                          <!-- Contenido de las pestañas -->
+                          <div class="tab-content__floor" id="myTabContent">
+                            <div class="tab-pane fade show active" id="piso2" role="tabpanel"
+                              aria-labelledby="piso2-tab">
+                              <div class="container col-12 p-2">
+                                <div class="row">
+                                  <div class="tab-content__floor__two__front col-2 mt-3">
+                                    <span class="icon-front-second-bus" style="
+                                          font-size: 300px;
+                                          margin-left: -100px;
+                                        "><span class="path1 ps-0 ms-0"></span><span class="path2"></span><span
+                                        class="path3"></span><span class="path4"></span><span class="path5"></span><span
+                                        class="path6"></span><span class="path7"></span></span>
+                                  </div>
+                                  <div class="tab-content__floor__two__front__table-sits col-8 mt-3 p-0">
+                                    <table>
+                                      <tr>
+                                        <td class="free" data-asiento="1A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">12</span>
+                                        </td>
+                                        <td class="nothing" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento"></span>
+                                        </td>
+                                        <td class="free" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">18</span>
+                                        </td>
+                                        <td class="taken" data-asiento="1D">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">22</span>
+                                        </td>
+                                        <td class="free" data-asiento="1A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">26</span>
+                                        </td>
+                                        <td class="free" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">30</span>
+                                        </td>
+                                        <td class="nothing" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento"></span>
+                                        </td>
+                                        <td class="nothing" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento"></span>
+                                        </td>
+                                        <td class="free" data-asiento="1D">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">38</span>
+                                        </td>
+                                        <td class="free" data-asiento="1A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">42</span>
+                                        </td>
+                                        <td class="free" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">46</span>
+                                        </td>
+                                        <td class="free" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">50</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="free" data-asiento="1A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">11</span>
+                                        </td>
+                                        <td class="nothing" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento"></span>
+                                        </td>
+                                        <td class="free" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">17</span>
+                                        </td>
+                                        <td class="free" data-asiento="1D">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">21</span>
+                                        </td>
+                                        <td class="free" data-asiento="1A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">25</span>
+                                        </td>
+                                        <td class="free" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">29</span>
+                                        </td>
+                                        <td class="nothing" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento"></span>
+                                        </td>
+                                        <td class="nothing" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento"></span>
+                                        </td>
+                                        <td class="free" data-asiento="1D">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">37</span>
+                                        </td>
+                                        <td class="free" data-asiento="1A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">41</span>
+                                        </td>
+                                        <td class="free" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">45</span>
+                                        </td>
+                                        <td class="free" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">49</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="nothing" data-asiento="3A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="free" data-asiento="1A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">10</span>
+                                        </td>
+                                        <td class="free" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">14</span>
+                                        </td>
+                                        <td class="free" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">16</span>
+                                        </td>
+                                        <td class="free" data-asiento="1D">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">20</span>
+                                        </td>
+                                        <td class="free" data-asiento="1A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">24</span>
+                                        </td>
+                                        <td class="free" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">28</span>
+                                        </td>
+                                        <td class="free" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">32</span>
+                                        </td>
+                                        <td class="free" data-asiento="1D">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">34</span>
+                                        </td>
+                                        <td class="free" data-asiento="1A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">36</span>
+                                        </td>
+                                        <td class="free" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">40</span>
+                                        </td>
+                                        <td class="free" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">44</span>
+                                        </td>
+                                        <td class="free" data-asiento="1D">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">48</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="free" data-asiento="2A">
+                                          <img src="resources/asiento_ocupado.webp" alt="" />
+                                          <span class="numero-asiento">9</span>
+                                        </td>
+                                        <td class="free" data-asiento="2B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">13</span>
+                                        </td>
+                                        <td class="free" data-asiento="2C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">15</span>
+                                        </td>
+                                        <td class="free" data-asiento="2D">
+                                          <img src="resources/asiento_ocupado.webp" alt="" />
+                                          <span class="numero-asiento">19</span>
+                                        </td>
+                                        <td class="free" data-asiento="2A">
+                                          <img src="resources/asiento_ocupado.webp" alt="" />
+                                          <span class="numero-asiento">23</span>
+                                        </td>
+                                        <td class="free" data-asiento="2B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">27</span>
+                                        </td>
+                                        <td class="free" data-asiento="2C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">31</span>
+                                        </td>
+                                        <td class="free" data-asiento="2D">
+                                          <img src="resources/asiento_ocupado.webp" alt="" />
+                                          <span class="numero-asiento">33</span>
+                                        </td>
+                                        <td class="free" data-asiento="2A">
+                                          <img src="resources/asiento_ocupado.webp" alt="" />
+                                          <span class="numero-asiento">35</span>
+                                        </td>
+                                        <td class="free" data-asiento="2B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">39</span>
+                                        </td>
+                                        <td class="free" data-asiento="2C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">43</span>
+                                        </td>
+                                        <td class="free" data-asiento="2D">
+                                          <img src="resources/asiento_ocupado.webp" alt="" />
+                                          <span class="numero-asiento">47</span>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </div>
+                                  <div class="tab-content__floor__two__back col-2 mt-3">
+                                    <span class="icon-back-bus" style="
+                                          font-size: 300px;
+                                          margin-left: -50px;
+                                        "><span class="path1"></span><span class="path2"></span></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="tab-pane fade" id="piso1" role="tabpanel" aria-labelledby="piso1-tab">
+                              <div class="container col-12 p-2">
+                                <div class="row">
+                                  <div class="tab-content__floor__one__front col-2 mt-3">
+                                    <span class="icon-front-second-bus" style="
+                                          font-size: 300px;
+                                          margin-left: -100px;
+                                        "><span class="path1 ps-0 ms-0"></span><span class="path2"></span><span
+                                        class="path3"></span><span class="path4"></span><span class="path5"></span><span
+                                        class="path6"></span><span class="path7"></span></span>
+                                  </div>
+                                  <div
+                                    class="tab-content__floor__two__front__table-sits col-8 mt-3 pe-5 d-flex justify-content-center">
+                                    <table>
+                                      <tr>
+                                        <td class="free" data-asiento="1A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">4</span>
+                                        </td>
+                                        <td class="air" data-asiento="1B">
+                                          <span class="icon-stairs" style="font-size: 30px"><span
+                                              class="path1"></span><span class="path2"></span><span
+                                              class="path3"></span></span>
+                                        </td>
+                                        <td class="free" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">8</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="free" data-asiento="1A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">3</span>
+                                        </td>
+                                        <td class="air" data-asiento="1B">
+                                          <span class="icon-stairs" style="font-size: 30px"><span
+                                              class="path1"></span><span class="path2"></span><span
+                                              class="path3"></span></span>
+                                        </td>
+                                        <td class="free" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">7</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="nothing" data-asiento="3A">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento"></span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="free" data-asiento="1B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">2</span>
+                                        </td>
+                                        <td class="nothing" data-asiento="1C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento"></span>
+                                        </td>
+                                        <td class="free" data-asiento="1D">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">6</span>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td class="free" data-asiento="2B">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento">1</span>
+                                        </td>
+                                        <td class="nothing" data-asiento="2C">
+                                          <img src="resources/asiento_disponible.webp" alt="" />
+                                          <span class="numero-asiento"></span>
+                                        </td>
+                                        <td class="free" data-asiento="2D">
+                                          <img src="resources/asiento_ocupado.webp" alt="" />
+                                          <span class="numero-asiento">5</span>
+                                        </td>
+                                      </tr>
+                                    </table>
+                                  </div>
+                                  <div class="tab-content__floor__one__back col-2 mt-3">
+                                    <span class="icon-back-bus" style="
+                                          font-size: 300px;
+                                          margin-left: -50px;
+                                        "><span class="path1"></span><span class="path2"></span></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-content__onboard col-12 mt-5">
+                          <div class="row">
+                            <button class="btn btn-onboard d-flex align-items-center me-0">
+                              A bordo
+                              <span class="icon-bus" style="font-size: 30px"><span class="path1"></span><span
+                                  class="path2"></span></span>
+                              <div class="badge text-wrap center" style="width: 3rem; background-color: #1e3b5a">
+                                22
+                              </div>
+                            </button>
+                            <button class="btn btn-continue d-flex align-items-center me-0">
+                              <label class="tab-content__onboard__continue">Continuar con 1 asiento</label>
+                              <div class="container">
+                                <div class="arrow">&#62;</div>
+                                <div class="arrow">&#62;</div>
+                                <div class="arrow">&#62;</div>
+                              </div>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="p-4 border rounded fondo-card">
+                        <h2>
+                          ¡Asegura tu asiento de regreso!
+                          <span class="icon-on-time"><span class="path1"></span><span class="path2"></span><span
+                              class="path3"></span><span class="path4"></span></span>
+                        </h2>
+                        <span class="icon-filled-pointer">Guadalajara - Ciudad de México</span>
+                        <div class="row mt-3">
+                          <div class="card ms-3" style="
+                                width: 18rem;
+                                height: 8rem;
+                                background-color: rgb(249, 250, 249);
+                                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+                              ">
+                            <div class="card-body">
+                              <div class="col d-flex flex-column">
+                                <p class="card-text mb-0 me-2" style="font-size: 15px; text-align: start">
+                                  Elige horario
+                                </p>
+                                <p class="card-text mb-0" style="font-size: 15px; text-align: end">
+                                  Desde: <strong>$955</strong>
+                                </p>
+                              </div>
+                              <a href="#" class="btn btn-agregar mt-3">Agregar</a>
+                            </div>
+                          </div>
+
+                          <div class="card ms-3" style="
+                                width: 18rem;
+                                height: 8rem;
+                                background-color: rgb(249, 250, 249);
+                                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+                              ">
+                            <div class="card-body">
+                              <div class="col d-flex flex-column">
+                                <p class="card-text mb-0 me-2" style="font-size: 15px; text-align: start">
+                                  Elige horario
+                                </p>
+                                <p class="card-text mb-0" style="font-size: 15px; text-align: end">
+                                  Desde: <strong>$955</strong>
+                                </p>
+                              </div>
+                              <a href="#" class="btn btn-agregar mt-3">Agregar</a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col d-flex align-items-center justify-content-between">
+                          <h2 class="mb-0 me-2">¿Quiénes viajan?</h2>
+                          <span class="mb-0">1 a bordo</span>
+                        </div>
+
+                        <span>
+                          <img src="..\img\extra-icons\passenger.webp" style="height: 20px; margin: 15px"
+                            alt="logo de amealcenses" />Pasajero 1
+                          <div class="badge text-wrap center" style="width: 3rem; background-color: #1e3b5a">
+                            22
+                          </div>
+                        </span>
+                        <form>
+                          <div class="row mb-3">
+                            <!-- Nombres -->
+                            <div class="col">
+                              <label for="nombres" class="form-label">Nombres</label>
+                              <input type="text" class="form-control" id="nombres" placeholder="Ingresa tu nombre" />
+                            </div>
+                            <!-- Apellido Paterno -->
+                            <div class="col">
+                              <label for="apellidoPaterno" class="form-label">Apellido Paterno</label>
+                              <input type="text" class="form-control" id="apellidoPaterno"
+                                placeholder="Ingresa tu apellido paterno" />
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <!-- Apellido Materno (mitad del ancho) -->
+                            <div class="col-6">
+                              <label for="apellidoMaterno" class="form-label">Apellido Materno</label>
+                              <input type="text" class="form-control" id="apellidoMaterno"
+                                placeholder="Ingresa tu apellido materno" />
+                            </div>
+                          </div>
+                          <div class="row mb-3">
+                            <!-- Correo Electrónico -->
+                            <div class="col-12">
+                              <label for="email" class="form-label">Correo Electrónico</label>
+                              <input type="email" class="form-control" id="email"
+                                placeholder="Ingresa tu correo electrónico" />
+                            </div>
+                          </div>
+                        </form>
+                        <span><strong>Categoría (Adulto, INSEN, Estudiante,
+                            etc...)</strong></span>
+                        <div class="container mt-5">
+                          <div class="btn-group">
+                            <input type="radio" class="btn-check" id="check1" name="checkGroup" />
+                            <label class="btn-check-label" for="check1">Adulto</label>
+                            <input type="radio" class="btn-check" id="check2" name="checkGroup" />
+                            <label class="btn-check-label" for="check2">INSEN</label>
+                            <span class="icon-block">Estudiante, profesor, PCD, no disponibles</span>
+                          </div>
+                        </div>
+                        <span><strong>Por seguridad, no se permite que ningun menor
+                            viaje solo</strong></span>
+                        <div class="container mt-5 p-0">
+                          <div class="btn-group__protected__traveler">
+                            <span>
+                              <img src="..\img\extra-icons\logo-viajero-protegido.webp"
+                                style="height: 20px; margin: 15px" alt="Viajero protegido" />Viajero protegido
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="p-4 border rounded bg-light">
+                        <h5>Contenido de la Pestaña 3</h5>
+                        <p>
+                          Aquí va el contenido de la tercera sección de la
+                          paginación o pestaña.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pruebas</title>
+    <link rel="stylesheet" href="../styles/css/css-librerias/bootstrap/bootstrap.min.css?v=1.0.0" />
+    <link rel="stylesheet" href="../styles/css/css-components/styles.min.css?v=1.0.0" />
+    <script type="module" src="./main.js"></script>
+  <body>
+    <header
+      class="header container-fluid flex-column justify-content-center align-items-center text-white p-0 m-0"
+    >
+      <nav class="header__nav navbar fixed-top" role="navigation">
+        <div
+          class="header__nav__items container-fluid justify-content-center m-0 p-0"
+        >
+          <a
+            href="#"
+            class="header__nav__item header__nav__button--logo navbar-brand"
+            type="button"
+            aria-label="Ir al inicio"
+          >
+            <h1 class="header__nav__button__logo__title d-none">
+              Autovías La Línea
+            </h1>
+            <img
+              class="header__nav__button__logo__img"
+              src="..\img\extra-icons\amealcenses-logo.webp"
+              alt="Logo de Amealcenses"
+            />
+          </a>
+          <p class="header__nav__text fst-italic p-0 m-0">
+            ¡Bienvenido a la nueva experiencia de compra de GHO, una forma más
+            sencilla de comprar tus boletos
+          </p>
+
+          <!-- Contenedor para elementos que se mueven -->
+
+          <ul class="header__nav__list d-flex gap-4" id="navbarToggler">
+            <li class="header__nav__list__button nav-item">
+              <a
+                class="header__nav__list__button--travelpass nav-link btn bg-white border-0 rounded-5 pt-1 pb-1 px-3"
+                type="button"
+              >
+                <img
+                  class="header__nav__button__travelpass__img"
+                  src="..\img\extra-icons\logo-travel-pass.webp"
+                  alt="Travel Pass"
+                />
+              </a>
+            </li>
+            <li class="header__nav__list__button nav-item">
+              <a
+                class="header__nav__button--language nav-link btn bg-transparent border-0"
+                type="button"
+                onclick="toggleVisibility()"
+              >
+                <span
+                  class="header__nav__button__language__icon icon-mx-flag d-inline-block"
+                  id="Lanaguage-Icon-Mx"
+                >
+                  <span class="path1"></span><span class="path2"></span
+                  ><span class="path3"></span><span class="path4"></span
+                  ><span class="path5"></span><span class="path6"></span
+                  ><span class="path7"></span><span class="path8"></span
+                  ><span class="path9"></span><span class="path10"></span
+                  ><span class="path11"></span><span class="path12"></span
+                  ><span class="path13"></span><span class="path14"></span
+                  ><span class="path15"></span><span class="path16"></span
+                  ><span class="path17"></span><span class="path18"></span
+                  ><span class="path19"></span><span class="path20"></span
+                  ><span class="path21"></span><span class="path22"></span>
+                </span>
+
+                <span
+                  class="header__nav__button__language__icon icon-us-flag d-none"
+                  id="Lanaguage-Icon-US"
+                >
+                  <span class="path1"></span><span class="path2"></span
+                  ><span class="path3"></span><span class="path4"></span
+                  ><span class="path5"></span><span class="path6"></span
+                  ><span class="path7"></span><span class="path8"></span
+                  ><span class="path9"></span><span class="path10"></span
+                  ><span class="path11"></span><span class="path12"></span
+                  ><span class="path13"></span><span class="path14"></span
+                  ><span class="path15"></span><span class="path16"></span
+                  ><span class="path17"></span><span class="path18"></span
+                  ><span class="path19"></span><span class="path20"></span
+                  ><span class="path21"></span><span class="path22"></span
+                  ><span class="path23"></span><span class="path24"></span
+                  ><span class="path25"></span><span class="path26"></span
+                  ><span class="path27"></span><span class="path28"></span
+                  ><span class="path29"></span><span class="path30"></span
+                  ><span class="path31"></span><span class="path32"></span
+                  ><span class="path33"></span><span class="path34"></span
+                  ><span class="path35"></span><span class="path36"></span
+                  ><span class="path37"></span><span class="path38"></span
+                  ><span class="path39"></span><span class="path40"></span
+                  ><span class="path41"></span><span class="path42"></span
+                  ><span class="path43"></span><span class="path44"></span
+                  ><span class="path45"></span><span class="path46"></span
+                  ><span class="path47"></span><span class="path48"></span
+                  ><span class="path49"></span><span class="path50"></span>
+                </span>
+              </a>
+            </li>
+            <button
+              class="header__nav__list_button--menu navbar-toggler"
+              type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasNavbar"
+              aria-controls="offcanvasNavbar"
+              aria-label="Toggle navigation"
+            >
+              <i class="icon-bars-menu" :before></i>
+            </button>
+          </ul>
+
+          <!-- Menú Offcanvas -->
+
+          <div
+            class="header__nav__offcanvas offcanvas offcanvas-end align-items-start"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div
+              class="header__nav__offcanvas__container__button offcanvas-header"
+            >
+              <button
+                type="button"
+                class="header__nav__offcanvas__container__button--close btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div
+              class="header__nav__offcanvas__content__list offcanvas-body w-100"
+            >
+              <ul
+                class="header__nav__offcanvas__content__list__items navbar-nav list-group justify-content-end flex-grow-1"
+              >
+                <!-- Aquí se moverán los nav-items en móviles -->
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Inicio</a
+                  >
+                </li>
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link" href="#">Nosotros</a>
+                </li>
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link" href="#">Facture su viaje</a>
+                </li>
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link" href="#">Imprimir pase de abordar</a>
+                </li>
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link" href="#">Modifique su itinerario</a>
+                </li>
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link" href="#">Taquillas</a>
+                </li>
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link" href="#">Servicios a bordo</a>
+                </li>
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link" href="#">Agencias</a>
+                </li>
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link" href="#">Utilice su boleto abierto</a>
+                </li>
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link" href="#">Viajo protejido</a>
+                </li>
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link" href="#">Bus Protect</a>
+                </li>
+                <li
+                  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action"
+                >
+                  <a class="nav-link" href="#">Bas Protegido</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div
+        class="container-fluid bg-light m-0 border-bottom pt-5 mt-4"
+        style="height: 100%"
+      >
+        <div class="container-fluid border-bottom fondo-card mt-2">
+          <div class="container">
+            <div class="row text-details">
+              <div class="col-6 p-2">
+                <a
+                  href="#"
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-personalizada"
+                >
+                  <span class="icon-filled-pointer"
+                    >Guadalajara - Ciudad de México</span
+                  >
+                </a>
+              </div>
+              <div class="col-3">
+                <div class="d-flex align-items-center">
+                  <button class="btn btn-light d-flex align-items-center me-0">
+                    <span class="icon-user"></span>
+                    1
+                  </button>
+                  <span class="ms-2">Viaje redondo</span>
+                </div>
+              </div>
+              <div class="col-3 text-end">
+                <button type="button" class="btn btn-personalizado">
+                  Detalles
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row mt-4">
+            <div class="col-3 me-5">
+              <div class="row">
+                Regresar a
+                <button type="button" class="btn btn-regresar ms-2">
+                  Horarios
+                </button>
+              </div>
+              <div
+                class="col mt-5 border p-2 fondo-card d-flex justify-content-between align-items-center"
+              >
+                <span class="icon-on-time"
+                  ><span class="path1"></span><span class="path2"></span
+                  ><span class="path3"></span><span class="path4"></span
+                ></span>
+                <span>Completa tu compra en:</span>
+                <label class="tiempo">13:31</label>
+              </div>
+              <div class="row mt-4">Detalles del viaje</div>
+              <div class="row">
+                <div class="card p-0" style="width: 100%">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                      <div class="row">
+                        <label class="details-tittle">Viaje de ida</label>
+                        <div class="list-group-item__main__section__item__logo">
+                          <img
+                            src="../../img/extra-icons/amealcenses-logo.webp"
+                            class="main__section__item__logo__img"
+                            alt="logo de amealcenses"
+                          />
+                        </div>
+                        <label class="details-route"
+                          >Guadalajara - Ciudad de Mexico</label
+                        >
+                        <label class="details-date"
+                          >15 Abr 2025 01:00 P:M</label
+                        >
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="row">
+                        <label class="details-tittle">Viaje de regreso</label>
+                        <div class="list-group-item__main__section__item__logo">
+                          <img
+                            src="../../img/extra-icons/amealcenses-logo.webp"
+                            class="main__section__item__logo__img"
+                            alt="logo de amealcenses"
+                          />
+                        </div>
+                        <label class="details-route"
+                          >Guadalajara - Ciudad de Mexico</label
+                        >
+                        <label class="details-date"
+                          >24 Abr 2025 10:30 P:M</label
+                        >
+                      </div>
+                    </li>
+                  </ul>
+                  <div class="card-footer">
+                    <a
+                      href="#detalles-modal"
+                      class="d-block w-100 text-center link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-personalizada"
+                    >
+                      Detalles
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <button type="button" class="btn btn-travelPass">
+                  <img
+                    src="../../img/extra-icons/logo-travel-pass-medio.png"
+                    alt="Icono"
+                    style="width: 20px; height: 20px; margin-right: 5px"
+                  />Iniciar sesión en TravelPass
+                </button>
+              </div>
+              <div class="row">
+                <label class="suport">Atencion a clientes</label>
+                <a
+                  href="#contact"
+                  class="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover link-personalizada"
+                >
+                  800 622 22 22
+                </a>
+              </div>
+            </div>
+            <div class="col-8 p-0">
+              <div class="container">
+                <ul
+                  class="nav nav-tabs w-100 main-tabs"
+                  id="myTab"
+                  role="tablist"
+                >
+                  <li class="nav-item flex-fill" role="presentation">
+                    <a
+                      class="nav-link active"
+                      id="home-tab"
+                      data-bs-toggle="tab"
+                      href="#home"
+                      role="tab"
+                      aria-controls="home"
+                      aria-selected="true"
+                      >Asientos de ida</a
+                    >
+                  </li>
+                  <li class="nav-item flex-fill" role="presentation">
+                    <a
+                      class="nav-link"
+                      id="profile-tab"
+                      data-bs-toggle="tab"
+                      href="#profile"
+                      role="tab"
+                      aria-controls="profile"
+                      aria-selected="false"
+                      >Pasajeros</a
+                    >
+                  </li>
+                  <li class="nav-item flex-fill" role="presentation">
+                    <a
+                      class="nav-link"
+                      id="contact-tab"
+                      data-bs-toggle="tab"
+                      href="#contact"
+                      role="tab"
+                      aria-controls="contact"
+                      aria-selected="false"
+                      >Pago</a
+                    >
+                  </li>
+                  <li class="nav-item ms-auto nav-item-small" id="tabStatus">
+                    <span
+                      class="nav-link disabled"
+                      aria-current="page"
+                      id="statusText"
+                      >Paso 1 de 3</span
+                    >
+                  </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="home"
+                    role="tabpanel"
+                    aria-labelledby="home-tab"
+                  >
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="row p-4 border rounded fondo-card">
+                          <div class="tad-container__your seats col-8">
+                            <h5>Tus asientos</h5>
+                            <p>
+                              Elige los asientos qe necesites, en seguida te
+                              solicitaremos los datos de los pasajeros
+                            </p>
+                          </div>
+                          <div class="tab-container__types-of-seats col-4">
+                            <div class="container">
+                              <div class="row justify-content-between">
+                                <div
+                                  class="tab-container__types-of-seats__free col-4 pe-5 d-flex flex-column align-items-center"
+                                >
+                                  <button
+                                    type="button"
+                                    class="btn btn-free"
+                                  ></button>
+                                  <label for="">50</label>
+                                  <label for="">LIBRES</label>
+                                </div>
+
+                                <div
+                                  class="tab-container__types-of-seats__selected col-4 d-flex flex-column align-items-center"
+                                >
+                                  <button
+                                    type="button"
+                                    class="btn btn-selected"
+                                  ></button>
+                                  <label for="">0</label>
+                                  <label for="">ELEGIDOS</label>
+                                </div>
+                                <div
+                                  class="tab-container__types-of-seats__taken col-4 ps-5 d-flex flex-column align-items-center"
+                                >
+                                  <button
+                                    type="button"
+                                    class="btn btn-taken"
+                                  ></button>
+                                  <label for="">0</label>
+                                  <label for="">OCUPADOS</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="container col-12 mt-3">
+                            <!-- Pestañas -->
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                              <li class="nav-item" role="presentation">
+                                <a
+                                  class="nav-link active"
+                                  id="piso2-tab"
+                                  data-bs-toggle="tab"
+                                  href="#piso2"
+                                  role="tab"
+                                  aria-controls="piso2"
+                                  aria-selected="true"
+                                  >Piso 2</a
+                                >
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <a
+                                  class="nav-link"
+                                  id="piso1-tab"
+                                  data-bs-toggle="tab"
+                                  href="#piso1"
+                                  role="tab"
+                                  aria-controls="piso1"
+                                  aria-selected="false"
+                                  >Piso 1</a
+                                >
+                              </li>
+                            </ul>
+
+                            <!-- Contenido de las pestañas -->
+                            <div class="tab-content__floor" id="myTabContent">
+                              <div
+                                class="tab-pane fade show active"
+                                id="piso2"
+                                role="tabpanel"
+                                aria-labelledby="piso2-tab"
+                              >
+                                <div class="container col-12 p-2">
+                                  <div class="row">
+                                    <div
+                                      class="tab-content__floor__two__front col-2 mt-3"
+                                    >
+                                      <span
+                                        class="icon-front-second-bus"
+                                        style="
+                                          font-size: 300px;
+                                          margin-left: -100px;
+                                        "
+                                        ><span class="path1 ps-0 ms-0"></span
+                                        ><span class="path2"></span
+                                        ><span class="path3"></span
+                                        ><span class="path4"></span
+                                        ><span class="path5"></span
+                                        ><span class="path6"></span
+                                        ><span class="path7"></span
+                                      ></span>
+                                    </div>
+                                    <div
+                                      class="tab-content__floor__two__front__table-sits col-8 mt-3 p-0"
+                                    >
+                                      <table>
+                                        <tr>
+                                          <td class="free" data-asiento="1A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >12</span
+                                            >
+                                          </td>
+                                          <td class="nothing" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"></span>
+                                          </td>
+                                          <td class="free" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >18</span
+                                            >
+                                          </td>
+                                          <td class="taken" data-asiento="1D">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >22</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >26</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >30</span
+                                            >
+                                          </td>
+                                          <td class="nothing" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"></span>
+                                          </td>
+                                          <td class="nothing" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"></span>
+                                          </td>
+                                          <td class="free" data-asiento="1D">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >38</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >42</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >46</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >50</span
+                                            >
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td class="free" data-asiento="1A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >11</span
+                                            >
+                                          </td>
+                                          <td class="nothing" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"></span>
+                                          </td>
+                                          <td class="free" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >17</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1D">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >21</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >25</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >29</span
+                                            >
+                                          </td>
+                                          <td class="nothing" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"></span>
+                                          </td>
+                                          <td class="nothing" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"></span>
+                                          </td>
+                                          <td class="free" data-asiento="1D">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >37</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >41</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >45</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >49</span
+                                            >
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td class="nothing" data-asiento="3A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"></span>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td class="free" data-asiento="1A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >10</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >14</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >16</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1D">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >20</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >24</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >28</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >32</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1D">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >34</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >36</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >40</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >44</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="1D">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >48</span
+                                            >
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td class="free" data-asiento="2A">
+                                            <img
+                                              src="resources/asiento_ocupado.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >9</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="2B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >13</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="2C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >15</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="2D">
+                                            <img
+                                              src="resources/asiento_ocupado.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >19</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="2A">
+                                            <img
+                                              src="resources/asiento_ocupado.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >23</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="2B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >27</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="2C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >31</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="2D">
+                                            <img
+                                              src="resources/asiento_ocupado.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >33</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="2A">
+                                            <img
+                                              src="resources/asiento_ocupado.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >35</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="2B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >39</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="2C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >43</span
+                                            >
+                                          </td>
+                                          <td class="free" data-asiento="2D">
+                                            <img
+                                              src="resources/asiento_ocupado.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >47</span
+                                            >
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </div>
+                                    <div
+                                      class="tab-content__floor__two__back col-2 mt-3"
+                                    >
+                                      <span
+                                        class="icon-back-bus"
+                                        style="
+                                          font-size: 300px;
+                                          margin-left: -50px;
+                                        "
+                                        ><span class="path1"></span
+                                        ><span class="path2"></span
+                                      ></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div
+                                class="tab-pane fade"
+                                id="piso1"
+                                role="tabpanel"
+                                aria-labelledby="piso1-tab"
+                              >
+                                <div class="container col-12 p-2">
+                                  <div class="row">
+                                    <div
+                                      class="tab-content__floor__one__front col-2 mt-3"
+                                    >
+                                      <span
+                                        class="icon-front-second-bus"
+                                        style="
+                                          font-size: 300px;
+                                          margin-left: -100px;
+                                        "
+                                        ><span class="path1 ps-0 ms-0"></span
+                                        ><span class="path2"></span
+                                        ><span class="path3"></span
+                                        ><span class="path4"></span
+                                        ><span class="path5"></span
+                                        ><span class="path6"></span
+                                        ><span class="path7"></span
+                                      ></span>
+                                    </div>
+                                    <div
+                                      class="tab-content__floor__two__front__table-sits col-8 mt-3 pe-5 d-flex justify-content-center"
+                                    >
+                                      <table>
+                                        <tr>
+                                          <td class="free" data-asiento="1A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >4</span
+                                            >
+                                          </td>
+                                          <td class="air" data-asiento="1B">
+                                            <span
+                                              class="icon-stairs"
+                                              style="font-size: 30px"
+                                              ><span class="path1"></span
+                                              ><span class="path2"></span
+                                              ><span class="path3"></span
+                                            ></span>
+                                          </td>
+                                          <td class="free" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >8</span
+                                            >
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td class="free" data-asiento="1A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >3</span
+                                            >
+                                          </td>
+                                          <td class="air" data-asiento="1B">
+                                            <span
+                                              class="icon-stairs"
+                                              style="font-size: 30px"
+                                              ><span class="path1"></span
+                                              ><span class="path2"></span
+                                              ><span class="path3"></span
+                                            ></span>
+                                          </td>
+                                          <td class="free" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >7</span
+                                            >
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td class="nothing" data-asiento="3A">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"></span>
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td class="free" data-asiento="1B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >2</span
+                                            >
+                                          </td>
+                                          <td class="nothing" data-asiento="1C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"></span>
+                                          </td>
+                                          <td class="free" data-asiento="1D">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >6</span
+                                            >
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <td class="free" data-asiento="2B">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >1</span
+                                            >
+                                          </td>
+                                          <td class="nothing" data-asiento="2C">
+                                            <img
+                                              src="resources/asiento_disponible.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"></span>
+                                          </td>
+                                          <td class="free" data-asiento="2D">
+                                            <img
+                                              src="resources/asiento_ocupado.webp"
+                                              alt=""
+                                            />
+                                            <span class="numero-asiento"
+                                              >5</span
+                                            >
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </div>
+                                    <div
+                                      class="tab-content__floor__one__back col-2 mt-3"
+                                    >
+                                      <span
+                                        class="icon-back-bus"
+                                        style="
+                                          font-size: 300px;
+                                          margin-left: -50px;
+                                        "
+                                        ><span class="path1"></span
+                                        ><span class="path2"></span
+                                      ></span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="tab-content__onboard col-12 mt-5">
+                            <div class="row">
+                              <button
+                                class="btn btn-onboard d-flex align-items-center me-0"
+                              >
+                                A bordo
+                                <span class="icon-bus" style="font-size: 30px"
+                                  ><span class="path1"></span
+                                  ><span class="path2"></span
+                                ></span>
+                                <div
+                                  class="badge text-wrap center"
+                                  style="width: 3rem; background-color: #1e3b5a"
+                                >
+                                  22
+                                </div>
+                              </button>
+                              <button
+                                class="btn btn-continue d-flex align-items-center me-0"
+                              >
+                                <label class="tab-content__onboard__continue"
+                                  >Continuar con 1 asiento</label
+                                >
+                                <div class="container">
+                                  <div class="arrow">&#62;</div>
+                                  <div class="arrow">&#62;</div>
+                                  <div class="arrow">&#62;</div>
+                                </div>
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="profile"
+                    role="tabpanel"
+                    aria-labelledby="profile-tab"
+                  >
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="p-4 border rounded fondo-card">
+                          <h2>
+                            ¡Asegura tu asiento de regreso!
+                            <span class="icon-on-time"
+                              ><span class="path1"></span
+                              ><span class="path2"></span
+                              ><span class="path3"></span
+                              ><span class="path4"></span
+                            ></span>
+                          </h2>
+                          <span class="icon-filled-pointer"
+                            >Guadalajara - Ciudad de México</span
+                          >
+                          <div class="row mt-3">
+                            <div
+                              class="card ms-3"
+                              style="
+                                width: 18rem;
+                                height: 8rem;
+                                background-color: rgb(249, 250, 249);
+                                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+                              "
+                            >
+                              <div class="card-body">
+                                <div class="col d-flex flex-column">
+                                  <p
+                                    class="card-text mb-0 me-2"
+                                    style="font-size: 15px; text-align: start"
+                                  >
+                                    Elige horario
+                                  </p>
+                                  <p
+                                    class="card-text mb-0"
+                                    style="font-size: 15px; text-align: end"
+                                  >
+                                    Desde: <strong>$955</strong>
+                                  </p>
+                                </div>
+                                <a href="#" class="btn btn-agregar mt-3"
+                                  >Agregar</a
+                                >
+                              </div>
+                            </div>
+
+                            <div
+                              class="card ms-3"
+                              style="
+                                width: 18rem;
+                                height: 8rem;
+                                background-color: rgb(249, 250, 249);
+                                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+                              "
+                            >
+                              <div class="card-body">
+                                <div class="col d-flex flex-column">
+                                  <p
+                                    class="card-text mb-0 me-2"
+                                    style="font-size: 15px; text-align: start"
+                                  >
+                                    Elige horario
+                                  </p>
+                                  <p
+                                    class="card-text mb-0"
+                                    style="font-size: 15px; text-align: end"
+                                  >
+                                    Desde: <strong>$955</strong>
+                                  </p>
+                                </div>
+                                <a href="#" class="btn btn-agregar mt-3"
+                                  >Agregar</a
+                                >
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="col d-flex align-items-center justify-content-between"
+                          >
+                            <h2 class="mb-0 me-2">¿Quiénes viajan?</h2>
+                            <span class="mb-0">1 a bordo</span>
+                          </div>
+
+                          <span>
+                            <img
+                              src="..\img\extra-icons\passenger.webp"
+                              style="height: 20px; margin: 15px"
+                              alt="logo de amealcenses"
+                            />Pasajero 1
+                            <div
+                              class="badge text-wrap center"
+                              style="width: 3rem; background-color: #1e3b5a"
+                            >
+                              22
+                            </div></span
+                          >
+                          <form>
+                            <div class="row mb-3">
+                              <!-- Nombres -->
+                              <div class="col">
+                                <label for="nombres" class="form-label"
+                                  >Nombres</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="nombres"
+                                  placeholder="Ingresa tu nombre"
+                                />
+                              </div>
+                              <!-- Apellido Paterno -->
+                              <div class="col">
+                                <label for="apellidoPaterno" class="form-label"
+                                  >Apellido Paterno</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="apellidoPaterno"
+                                  placeholder="Ingresa tu apellido paterno"
+                                />
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <!-- Apellido Materno (mitad del ancho) -->
+                              <div class="col-6">
+                                <label for="apellidoMaterno" class="form-label"
+                                  >Apellido Materno</label
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="apellidoMaterno"
+                                  placeholder="Ingresa tu apellido materno"
+                                />
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <!-- Correo Electrónico -->
+                              <div class="col-12">
+                                <label for="email" class="form-label"
+                                  >Correo Electrónico</label
+                                >
+                                <input
+                                  type="email"
+                                  class="form-control"
+                                  id="email"
+                                  placeholder="Ingresa tu correo electrónico"
+                                />
+                              </div>
+                            </div>
+                          </form>
+                          <span
+                            ><strong
+                              >Categoría (Adulto, INSEN, Estudiante,
+                              etc...)</strong
+                            ></span
+                          >
+                          <div class="container mt-5">
+                            <div class="btn-group">
+                              <input
+                                type="radio"
+                                class="btn-check"
+                                id="check1"
+                                name="checkGroup"
+                              />
+                              <label class="btn-check-label" for="check1"
+                                >Adulto</label
+                              >
+                              <input
+                                type="radio"
+                                class="btn-check"
+                                id="check2"
+                                name="checkGroup"
+                              />
+                              <label class="btn-check-label" for="check2"
+                                >INSEN</label
+                              >
+                              <span class="icon-block"
+                                >Estudiante, profesor, PCD, no disponibles</span
+                              >
+                            </div>
+                          </div>
+                          <span
+                            ><strong
+                              >Por seguridad, no se permite que ningun menor
+                              viaje solo</strong
+                            ></span
+                          >
+                          <div class="container mt-5 p-0">
+                            <div class="btn-group__protected__traveler">
+                              <span>
+                                <img
+                                  src="..\img\extra-icons\logo-viajero-protegido.webp"
+                                  style="height: 20px; margin: 15px"
+                                  alt="Viajero protegido"
+                                />Viajero protegido
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="contact"
+                    role="tabpanel"
+                    aria-labelledby="contact-tab"
+                  >
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="p-4 border rounded bg-light">
+                          <h5>Contenido de la Pestaña 3</h5>
+                          <p>
+                            Aquí va el contenido de la tercera sección de la
+                            paginación o pestaña.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

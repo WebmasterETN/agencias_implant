@@ -1,0 +1,23 @@
+//--------------------------------- Import settings -------------------------------------
+
+@import '../_01-settings/fonts';
+@import '../_01-settings/icons';
+@import '../_01-settings/variables';
+@import'../_04-elements/elements';
+@import '../_03-generic/reset';
+
+//--------------------------------- Import components styles ----------------------------
+
+@import './header';
+@import './card-login';
+@import './filters';
+@import './modal-filters';
+@import './card-select-trip';
+@import './modal-detalles';
+@import './proceso-pago';
+@import './footer';
+
+//--------------------------------- Import layouts styles -------------------------------
+
+@import './layout-select-time';
+@import './payment-form';

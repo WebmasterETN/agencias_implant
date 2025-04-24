@@ -1,0 +1,103 @@
+@import "../_01-settings/variables";
+@import "../_02-tools/mixin";
+
+.__section__item {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    height: 70px;
+
+    & .__section__item__logo {
+        width: 13%;
+
+        & .__section__item__logo__img {
+            max-width: 100px;
+            width: 100%;
+        }
+    }
+
+    & .__section__item__details {
+        display: grid;
+        box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.3);
+        width: 87%;
+        grid-template-columns: repeat(5, ifr);
+        grid-template-rows: repeat(2, ifr);
+        grid-template-areas:
+            "icon-time-trip time-trip-text level-cost prices-points see-seats"
+            "icon-time-trip btn-time-details level-cost prices-points see-seats";
+        
+        .__section__item__logo-grid {
+            grid-area: logo-floors;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 100%;
+            .__section__item__logo__img-grid {
+                max-height: 30px;
+                height: 100%;
+                @include media("md") {
+                    max-width: 130px;
+                    width: 100%;
+                }
+            }
+        }
+
+        .main__section__item__details__icon {
+            grid-area: icon-time-trip;
+        }
+        .main__section__item__details__time__text__time {
+            grid-area: time-trip-text;
+            & .__section__item__details__time__text__time__hour {
+                & .outline {
+                    display: block;
+                    width: 15px;
+                    height: 0.5px;
+                    background-color: #000;
+                }
+
+                & .arrow {
+                    font-weight: 0.5px;
+                }
+            }
+        }
+        .main__section__item__details__time__text__info {
+            grid-area: btn-time-details;
+            .main__section__item__details__link {
+                color: $primary-color;
+            }
+        }
+        .__item__level-cost {
+            grid-area: level-cost;
+        }
+        .__item__prices-points {
+            grid-area: prices-points;
+        }
+
+        & .__section__item__details__button--choose {
+            grid-area: see-seats;
+            padding: auto 20px;
+            color: $color-text--fuerte;
+            border-color: $primary-color;
+
+            &:hover {
+                background-color: $primary-color;
+                color: $color-text;
+            }
+        }
+        @include media("xl") {
+            width: 100%;
+            grid-template-columns: repeat(3, ifr);
+            grid-template-rows: repeat(3, ifr);
+            grid-template-areas:
+                "logo-floors logo-floors prices-points"
+                "icon-time-trip time-trip-text time-trip-text"
+                "btn-time-details btn-time-details see-seats";
+            padding: 10px;
+        }
+    }
+}
+@include media("xl") {
+    .__section__item {
+        width: 100%;
+        flex-direction: column;
+        height: auto;
+    }
+}

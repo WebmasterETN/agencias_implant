@@ -1,0 +1,64 @@
+@import "../_01-settings/variables";
+@import "../_02-tools/mixin";
+
+.__article-trip {
+    .__section__travel__title {
+        font-size: clamp(1em, 2vw, 1.25em);
+    }
+
+    .__section__travel__subtitle {
+        & .__section__travel__subtitle__text--bg {
+            background-color: $primary-color;
+        }
+    }
+
+    .__section__items {
+        height: 338px;
+        overflow-y: auto;
+        @include media ("xl") {
+            height: 400px;
+        }
+    }
+
+    .__section__direction {
+        background-color: #F0F0F0;
+        padding: 20px;
+        .icon-filled-pointer {
+            &::before{
+                color: $primary-color;
+            }
+        }
+        @include media("xl") {
+            width: 100%;
+            .main__section__direction__origin {
+                width: 100%;
+            }
+            .main__section__direction__destination {
+                width: 100%;
+            }
+        }
+    }
+
+    .__button__promo__code {
+        color: $primary-color;
+        border-color: $primary-color;
+        &:hover {
+            background-color: $primary-color;
+            color: #fff;
+        }
+    }
+
+    &.__button-dates {
+        height: 55px;
+        .icon-back-circle, .icon-next-circle {
+            &::before {
+                color: $primary-color;
+            }
+        }
+        .__btn-text {
+            &.__btn-text-size {
+                font-size: 8px;
+            }
+        }
+    }
+}

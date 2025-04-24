@@ -1,0 +1,43 @@
+@import '../_01-settings/variables';
+
+.header {
+    & .header__nav {
+        background-color: #003B5C;
+        & .header__nav__items {
+            & .header__nav__button--logo {
+                & .header__nav__button__logo__img {
+                    width: 200px;
+                }
+            }
+            & .header__nav__list {
+                list-style: none;
+                & .header__nav__list__button {
+                    & .header__nav__button--language {
+                        & .header__nav__button__language__icon {
+                            font-size: clamp(1.8em, 2.3vw, 2.5em);
+                        }
+                    }
+                }
+                & .header__nav__list_button--menu {
+                    &:focus,
+                    &:active,
+                    &:hover {
+                        outline: none;
+                        box-shadow: none;
+                        border: none;
+                    }
+                }
+                
+            }
+        }
+    }
+
+}
+
+@media (max-width: 991px) {
+    #navItems {
+        display: none;
+    }
+  }
+
+

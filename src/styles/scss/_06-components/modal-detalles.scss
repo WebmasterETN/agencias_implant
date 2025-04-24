@@ -1,0 +1,142 @@
+@import "../_01-settings/variables";
+
+.modal {
+  &.trip-details {
+    .modal-header {
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    .modal-body {
+      padding-top: 0;
+    }
+
+    .nav-tabs {
+      li {
+        width: 50%;
+        button {
+          width: 100%;
+          border-radius: 0;
+          border: none;
+          border-bottom: solid 2px lightgrey;
+          color: rgb(35, 35, 35);
+          font-size: 14px;
+
+          [class^="icon-"] {
+            margin-right: 5px;
+          }
+
+          &.active {
+            border-color: $color-primary;
+            font-weight: 700;
+          }
+        }
+      }
+    }
+
+    .tab-content {
+      margin-top: 20px;
+    }
+
+    .toast-info {
+      display: flex;
+      background-color: aliceblue;
+      align-items: center;
+      justify-content: flex-start;
+      border-width: 1px 1px 1px 5px;
+      border-style: solid;
+      border-color: $color-secondary;
+      border-image: initial;
+      border-radius: 5px;
+      padding: 5px 15px;
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      background-color: rgb(255, 255, 255);
+      box-shadow: rgba(120, 159, 144, 0.376) 0px 0px 10px;
+      width: 100%;
+      margin-bottom: 20px;
+      p {
+        color: rgb(35, 35, 35);
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      [class^="icon-"] {
+        margin-right: 10px;
+        color: $color-secondary;
+      }
+
+      .icon-info .path1:before {
+        color: $color-secondary;
+      }
+    }
+
+    .trip-details__itinerary__step {
+      display: flex;
+      margin-bottom: 20px;
+
+      .trip-details__itinerary__step--hour {
+        width: 20%;
+      }
+
+      .trip-details__itinerary__step--icon {
+        width: 10%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .trip-details__itinerary__step--place {
+        width: 70%;
+        border-radius: 5px;
+        background: rgba(230, 230, 230, 0.2);
+        padding: 10px 20px;
+        border: 1px solid rgb(230, 230, 230);
+        &::before {
+          background-color: var($primary-color);
+        }
+
+        .trip-details__itinerary__step--place__title {
+          color: rgb(35, 35, 35);
+          font-size: 18px;
+          font-weight: 700;
+        }
+
+        .trip-details__itinerary__step--place__from {
+          color: rgb(35, 35, 35);
+          font-size: 14px;
+          font-weight: 400;
+          margin: 5px 0;
+        }
+
+        .trip-details__itinerary__step--place__adress {
+          color: rgb(35, 35, 35);
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+
+      a {
+        font-size: 12px;
+        font-weight: 600;
+        text-decoration-line: underline;
+        transition: color 0.25s ease-out;
+        color: $color-primary;
+      }
+    }
+
+    .trip-details__itinerary__step--hour {
+      color: rgb(35, 35, 35);
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+}
