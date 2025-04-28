@@ -1,7 +1,7 @@
 class AppReportMov extends HTMLElement {
-    connectedCallback() {
-        this.innerHTML = `
-            <sectcion class="d-flex flex-column justify-content-center align-items-center w-100 h-100 p-3">
+  connectedCallback() {
+    this.innerHTML = `
+            <section class="d-flex flex-column justify-content-center align-items-center w-100 h-100 p-3">
                 <h2 class="w-100 text-center">Venta de boletos para agencias</h2>
                 <h3 class="text-center">REPORTE DE MOVIMIENTOS<h3>
                 <article class="d-flex justify-content-center align-items-center w-100 h-100 p-0 m-0">
@@ -19,8 +19,8 @@ class AppReportMov extends HTMLElement {
                         </fieldset>
                     </form>
                 </article>
-            </sectcion>
+            </section>
         `;
-    }
+  }
 }
 customElements.define("app-report-mov", AppReportMov);

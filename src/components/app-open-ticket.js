@@ -1,6 +1,6 @@
-class AppOpenTicket extends HTMLElemtent {
-    connectedCallback() {
-        this.innerHTML = `
+class AppOpenTicket extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `
             <section class="d-flex flex-column justify-content-center align-items-center w-100 h-100 p-3">
                 <h2 class="w-100 text-center">Venta de boletos para agencias</h2>
                 <article class="d-flex justify-content-center align-items-center w-100 h-100 p-0 m-0">
@@ -98,7 +98,7 @@ class AppOpenTicket extends HTMLElemtent {
                 </article>
             </section>
         `;
-    }
+  }
 }
 
 customElements.define("app-open-ticket", AppOpenTicket);
