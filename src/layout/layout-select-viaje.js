@@ -9,18 +9,18 @@ class AppSelectViaje extends HTMLElement {
                         <label for="origen">Origen</label>
                         <select id="origen" name="origen" class="form-select" aria-label="Default select example" required>
                             <option value="">Selecciona un origen</option>
-                            <option value="viaje1">Viaje 1</option>
-                            <option value="viaje2">Viaje 2</option>
-                            <option value="viaje3">Viaje 3</option>
+                            <option value="viaje3">4 caminos mich</option>
+                            <option value="viaje1">acapulco</option>
+                            <option value="viaje2">acapulco diamante</option>
                         </select>
                     </fieldset>
                     <fieldset class="fieldset-select-viaje col-xl col-12 d-flex flex-column p-0">
                         <label for="destino">Destino</label>
                         <select id="destino" name="destino" class="form-select" aria-label="Default select example" required>
                             <option value="">Selecciona un destino</option>
-                            <option value="viaje1">Viaje 1</option>
-                            <option value="viaje2">Viaje 2</option>
-                            <option value="viaje3">Viaje 3</option>
+                            <option value="viaje1">chilpancingo</option>
+                            <option value="viaje2">cuernavaca</option>
+                            <option value="viaje3">guadalajara</option>
                         </select>
                     </fieldset>
                     <fieldset class="fieldset-select-viaje col-xl col-12 d-flex flex-column p-0">
