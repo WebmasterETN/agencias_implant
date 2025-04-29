@@ -13,13 +13,18 @@ $breakpoints: (
   'xxl': 1400px // Pantallas grandes
 );
 
-// Colors primarys
-$primary-color: #1e3b5a;
-$secondary-color: #98ced6;
+// Colors primarys marca
+$primary-color: #002037;
+$secondary-color: #00737a;
+$tertiary-color: #003A5D;
+$quaternary-color: #81ffbd;
+$quinary-color: #00bbce;
+
+// Colors bottom
 $bottom-top-color: #eee;
 
 // Colors hover
-$hover-header-color: #2f6e76;
+$hover-header-color: #5d8084;
 $hover-primary-color: #275280;
 
 //------modal detalles
@@ -30,6 +35,9 @@ $color-secondary: #4D87A1;
 $color-text: #fff; // Color del texto
 $color-text--hover: #fff; // Color del texto al hacer hover
 $color-text--fuerte: #1e3b5a; // Color del texto fuerte
+
+//------ Background colors
+$bg-primary: #eee;
 
 //other colors
 
