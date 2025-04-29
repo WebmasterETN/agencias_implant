@@ -14,7 +14,7 @@ class AppSelectViaje extends HTMLElement {
                 <h2 class="w-100 text-center">Venta de boletos para agencias</h2>
                 <p class="text-center mb-4">Selecciona el viaje que deseas realizar</p> 
                 <article class="d-flex justify-content-center align-items-center w-100 p-0 m-0">
-                    <form class="row justify-content-center align-items-end w-100 gap-3 p-0" id="form-select-viaje" novalidate>
+                    <form class="row justify-content-center align-items-end w-100 gap-3 p-0" id="form-select-viaje">
 
                         <div class="col-xl col-12 d-flex flex-column p-0">
                             <label for="origen-viaje" class="form-label">Origen</label> 
@@ -86,11 +86,13 @@ class AppSelectViaje extends HTMLElement {
 
                 // Reemplaza el contenido actual con el componente layout-select-time
                 const parent = this.parentElement;
-                 if (parent) {
-                    parent.innerHTML = "<layout-select-time></layout-select-time>";
-                 } else {
+                if (parent) {
+                    const layoutSelectTime = document.createElement("layout-select-time");
+                    parent.replaceChild(layoutSelectTime, this);
+                } else {
+                    alert("Error: No se encontró el elemento padre para reemplazar el contenido.");
                     console.error("No se encontró el elemento padre para reemplazar el contenido.");
-                 }
+                }
 
             });
         } else {
