@@ -48,7 +48,7 @@
     position: relative;
 }
 
-.dropdown-toggle {
+.__menu-dropdown {
     background-color: #003B5C;
     border: none;
     color: black;
@@ -61,7 +61,7 @@
     border-radius: 0.5rem;
 }
 
-.dropdown-toggle:hover {
+.__menu-dropdown:hover {
     transform: scale(1.02);
 }
 

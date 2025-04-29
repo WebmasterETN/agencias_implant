@@ -10,7 +10,7 @@ class AppSelectViaje extends HTMLElement {
 
     render() {
         this.innerHTML = `
-            <section class="d-flex flex-column justify-content-center align-items-center w-100 h-100 p-3">
+            <section id="select-viaje" class="d-flex flex-column justify-content-center align-items-center w-100 h-100 p-3">
                 <h2 class="w-100 text-center">Venta de boletos para agencias</h2>
                 <p class="text-center mb-4">Selecciona el viaje que deseas realizar</p> 
                 <article class="d-flex justify-content-center align-items-center w-100 p-0 m-0">
