@@ -29,6 +29,7 @@ import "../components/app-admin-ticktes.js";
 import "../components/app-open-ticket.js";
 import "../components/app-change-ticktes.js";
 import "../components/app-cancel-ticktes.js";
+import "../components/app-change-password.js";
 
 //js de librerias y funciones globales
 import "../js/dynamic-tabs.js";

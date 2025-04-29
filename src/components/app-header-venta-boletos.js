@@ -201,8 +201,8 @@ class AppHeader extends HTMLElement {
               <header class="header container-fluid flex-column justify-content-center align-items-center fixed-top text-white mt-5 p-0 bg-body-tertiary z-1">
                   <nav class="navbar navbar-expand-lg w-100">
                       <div class="container-fluid p-0">
-                          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAgency" aria-controls="navbarNavAgency" aria-expanded="false" aria-label="Toggle navigation">
-                              <span class="navbar-toggler-icon"></span>
+                          <button id="customNavbarToggle" class="navbar-toggler" type="button" aria-controls="navbarNavAgency" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
                           </button>
                           <div class="collapse navbar-collapse" id="navbarNavAgency">
                               <ul class="navbar-nav justify-content-between align-items-center w-100">
@@ -219,7 +219,7 @@ class AppHeader extends HTMLElement {
                                           <li><a class="dropdown-item agency-menu-item" href="#" data-component="app-open-ticket">Boleto Abierto</a></li>
                                           <li><a class="dropdown-item agency-menu-item" href="#" data-component="app-change-ticktes">Modifique su Itinerario</a></li>
                                           <li><a class="dropdown-item agency-menu-item" href="#" data-component="app-cancel-ticktes">Cancelación</a></li>
-                                          <li><a class="dropdown-item agency-menu-item" href="#" data-component="layout-cambiar-password">Cambiar Contraseña</a></li>
+                                          <li><a class="dropdown-item agency-menu-item" href="#" data-component="app-change-password">Cambiar Contraseña</a></li>
                                           <li><a class="dropdown-item agency-menu-item" href="#" data-component="app-report-mov">Movimiento</a></li>
                                           
                                       </ul>
@@ -252,6 +252,37 @@ class AppHeader extends HTMLElement {
   }
 
   addEventListeners() {
+    const toggleBtn = document.querySelector("#customNavbarToggle");
+    const navbarCollapse = document.querySelector("#navbarNavAgency");
+    const navbarItems = navbarCollapse.querySelectorAll(".agency-menu-item"); // Selecciona los elementos con la clase 'agency-menu-item'
+    const agencyDropdownToggle = document.querySelector(
+      "#agencyDropdownToggle"
+    ); // El enlace "Menú Agencias"
+
+    // Cierra el menú cuando se hace clic en un enlace de 'agency-menu-item'
+    navbarItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        // Solo cierra si el navbar está expandido
+        if (navbarCollapse.classList.contains("show")) {
+          navbarCollapse.classList.remove("show");
+          toggleBtn.setAttribute("aria-expanded", "false");
+        }
+      });
+    });
+
+    // Impide que el clic en el "Menú Agencias" cierre el menú
+    if (agencyDropdownToggle) {
+      agencyDropdownToggle.addEventListener("click", (e) => {
+        e.stopPropagation(); 
+      });
+    }
+    if (toggleBtn && navbarCollapse) {
+      toggleBtn.addEventListener("click", () => {
+        const isExpanded = navbarCollapse.classList.toggle("show");
+        toggleBtn.setAttribute("aria-expanded", isExpanded.toString());
+      });
+    }
+
     const logoutButton = this.querySelector("#logout-button");
     if (logoutButton) {
       logoutButton.addEventListener("click", this.handleLogout.bind(this));
@@ -275,19 +306,17 @@ class AppHeader extends HTMLElement {
       );
     }
 
-    // --- Aquí agregamos el comportamiento manual del dropdown ---
+    // --- Comportamiento manual del dropdown ---
     const dropdownToggle = this.querySelector("#agencyDropdownToggle");
     const dropdownMenu = this.querySelector("#agencyDropdownMenu");
 
     if (dropdownToggle && dropdownMenu) {
       dropdownToggle.addEventListener("click", (e) => {
-        e.preventDefault(); // Prevenir comportamiento default del enlace
+        e.preventDefault();
         dropdownMenu.classList.toggle("show");
       });
 
-      // Cerrar el menú si se hace clic fuera (ya existente)
       document.addEventListener("click", (e) => {
-        // Asegúrate que el clic NO fue dentro del propio header Y que el menú está visible
         if (
           !this.contains(e.target) &&
           dropdownMenu.classList.contains("show")
@@ -299,27 +328,22 @@ class AppHeader extends HTMLElement {
       console.error("Dropdown toggle o menu no encontrados en app-header.");
     }
 
-    // --- NUEVO: Listeners para los items del Menú Agencias ---
+    // --- Listeners para los items del Menú Agencias ---
     const agencyMenuItems = this.querySelectorAll(
       "#agencyDropdownMenu .agency-menu-item"
     );
     agencyMenuItems.forEach((item) => {
-      // Añadimos el listener llamando a un nuevo método handleAgencyMenuClick
-      // Usamos .bind(this) para asegurar que 'this' dentro del handler se refiera al componente
       item.addEventListener("click", this.handleAgencyMenuClick.bind(this));
     });
   }
 
   handleAgencyMenuClick(event) {
-    event.preventDefault(); // Prevenir la navegación del enlace '#'
-    const targetElement = event.currentTarget; // El elemento <a> que fue clickeado
-    const componentToLoad = targetElement.dataset.component; // Obtener 'layout-admin', etc.
-    const dropdownMenu = this.querySelector("#agencyDropdownMenu"); // Para cerrarlo después
+    event.preventDefault();
+    const targetElement = event.currentTarget;
+    const componentToLoad = targetElement.dataset.component;
+    const dropdownMenu = this.querySelector("#agencyDropdownMenu");
 
     if (componentToLoad) {
-      // --- ¡¡IMPORTANTE!! ---
-      // Busca el contenedor principal donde quieres cargar el contenido.
-      // DEBES tener un elemento en tu HTML principal con este ID.
       const mainContentArea = document.getElementById("main-content");
       // ---           ---
 
@@ -327,10 +351,7 @@ class AppHeader extends HTMLElement {
         console.log(
           `Cargando componente: <${componentToLoad}></${componentToLoad}>`
         );
-        // Reemplaza el contenido del área principal
         mainContentArea.innerHTML = `<${componentToLoad}></${componentToLoad}>`;
-
-        // Cierra el menú desplegable después de la selección (mejor UX)
         if (dropdownMenu) {
           dropdownMenu.classList.remove("show");
         }
@@ -340,7 +361,7 @@ class AppHeader extends HTMLElement {
         );
         alert(
           "Error: No se pudo encontrar el área principal para cargar el contenido."
-        ); // O alguna otra notificación al usuario
+        );
       }
     } else {
       console.warn(

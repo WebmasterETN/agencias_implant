@@ -1,15 +1,16 @@
-class AppOpenTicket extends HTMLElement { // Corregido: HTMLElement
-    constructor() {
-        super();
-    }
+class AppOpenTicket extends HTMLElement {
+  // Corregido: HTMLElement
+  constructor() {
+    super();
+  }
 
-    connectedCallback() {
-        this.render();
-        this.addFormSubmitListener();
-    }
+  connectedCallback() {
+    this.render();
+    this.addFormSubmitListener();
+  }
 
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
             <section class="d-flex flex-column justify-content-center align-items-center w-100 h-100 p-3">
                 <h2 class="w-100 text-center">Venta de boletos para agencias</h2>
                 <h3 class="w-100 text-center mb-4">Abrir Boleto</h3> 
@@ -104,20 +105,58 @@ class AppOpenTicket extends HTMLElement { // Corregido: HTMLElement
                 </article>
             </section>
         `;
-    }
+  }
 
-    addFormSubmitListener() {
-        const form = this.querySelector('#form-open-ticket');
-        if (form) {
-            form.addEventListener('submit', (event) => {
-                event.preventDefault(); // Previene el envío por defecto
+  addFormSubmitListener() {
+    // Es importante buscar el formulario DESPUÉS de que render() lo haya añadido al DOM
+    const form = this.querySelector("#form-open-ticket");
+    if (form) {
+      form.addEventListener("submit", (event) => {
+        event.preventDefault(); // Evitar el envío por defecto del formulario
 
-                const formData = new FormData(form);
-            });
-        } else {
-            console.error('No se encontró el elemento del formulario #form-open-ticket');
+        const formData = new FormData(form);
+
+        // Validación simple (puedes usar la validación de Bootstrap si quitas novalidate)
+        const origen = formData.get("origen");
+        const destino = formData.get("destino");
+        const servicio = formData.get("servicio");
+
+        if (!origen || !destino || !servicio) {
+          alert("Por favor, completa Origen, Destino y Servicio.");
+          // Podrías añadir aquí lógica para marcar los campos inválidos visualmente
+          return;
         }
+
+        // TODO: Implementar la lógica para enviar los datos al backend o procesarlos
+
+        // --- Lógica (ejemplo) ---
+        console.log("Buscando viaje...");
+        console.log("Origen:", origen);
+        console.log("Destino:", destino);
+        console.log("Servicio:", servicio);
+
+        //:", destino);
+
+        // Reemplaza el contenido actual con el componente layout-select-time
+        const parent = this.parentElement;
+        if (parent) {
+          const layoutSelectTime = document.createElement("layout-select-time");
+          parent.replaceChild(layoutSelectTime, this);
+        } else {
+          alert(
+            "Error: No se encontró el elemento padre para reemplazar el contenido."
+          );
+          console.error(
+            "No se encontró el elemento padre para reemplazar el contenido."
+          );
+        }
+      });
+    } else {
+      console.error(
+        "No se encontró el elemento del formulario #form-select-viaje"
+      );
     }
+  }
 }
 
 customElements.define("app-open-ticket", AppOpenTicket);
