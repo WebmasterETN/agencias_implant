@@ -1,3 +1,7 @@
+//--------- fonts 
+
+$font-primary: 'Open Sans', sans-serif;
+
 /*--------BREAKPOINTS--------*/
 $breakpoints: (
   'xs': 320px,
@@ -14,9 +18,9 @@ $breakpoints: (
 );
 
 // Colors primarys marca
-$primary-color: #002037;
+$primary-color: #003A5D;
 $secondary-color: #00737a;
-$tertiary-color: #003A5D;
+$tertiary-color: #002037;
 $quaternary-color: #81ffbd;
 $quinary-color: #00bbce;
 
@@ -27,35 +31,25 @@ $bottom-top-color: #eee;
 $hover-header-color: #5d8084;
 $hover-primary-color: #275280;
 
-//------modal detalles
-$color-primary: #1e3b5a;
-$color-secondary: #4D87A1;
-
 //------ Text colors
 $color-text: #fff; // Color del texto
-$color-text--hover: #fff; // Color del texto al hacer hover
-$color-text--fuerte: #1e3b5a; // Color del texto fuerte
+$color-apagado: #68849b;
 
 //------ Background colors
 $bg-primary: #eee;
 
-//other colors
+//------ Border radius
 
 $radio-borde: 10px;
-$radio-redodndo: 50px; // Radio de los bordes
+$radio-redondo: 50px; // Radio de los bordes
+
+//------ Boxshadow
 $sombra-normal: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra normal
 $sombra-hover: 0 6px 8px rgba(0, 0, 0, 0.2); // Sombra al hacer hover
 $sombra-fuerte: 10px 10px 30px rgba(0, 0, 0, 0.3);
+
+//------ Buttons BG color persinalizados
 $main_button_strong: #587C6E;
 $main_button: #789F90;
-$color-personalizado: #1e3b5a;
-$color-apagado: #68849b;
-$color--texto: white; // Color del texto
-$color-borde: #1e3b5a; // Color del borde
-$color-hover: #eee; // Color de hover
-$radio-borde: 10px;
-$radio-redodndo: 50px; // Radio de los bordes
-$sombra-normal: 0 4px 6px rgba(0, 0, 0, 0.1); // Sombra normal
-$sombra-hover: 0 6px 8px rgba(0, 0, 0, 0.2); // Sombra al hacer hover
-$font-primary: 'Open Sans', sans-serif;
 
+//other variables

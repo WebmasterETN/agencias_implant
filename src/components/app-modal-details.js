@@ -68,7 +68,7 @@ class AppModalDetail extends HTMLElement {
                                     <span class="icon-info"
                                         ><span class="path1"></span><span class="path2"></span
                                     ></span>
-                                    <p>Viaje de paso</p>
+                                    <p class="p-0 m-0">Viaje de paso</p>
                                 </div>
 
                                 <div class="trip-details__itinerary__step">

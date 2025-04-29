@@ -181,17 +181,17 @@ body {
 
 //
 .text-details {
-    color: $color-personalizado;
+    color: $primary-color;
 }
 
 /* Aplicar el color al enlace */
 .link-personalizada {
-    color: $color-personalizado;
+    color: $primary-color;
 
     &:hover {
-        color: $color-personalizado;
+        color: $primary-color;
         text-decoration: underline;
-        text-decoration-color: $color-personalizado;
+        text-decoration-color: $primary-color;
     }
 }
 
@@ -203,8 +203,8 @@ body {
 // Estilo personalizado del botón
 .btn-personalizado {
     background-color: transparent;
-    color: $color-personalizado;
-    border: 2px solid $color-borde;
+    color: $primary-color;
+    border: 2px solid $primary-color;
     border-radius: $radio-borde;
     padding: 5px 5px;
     font-size: 16px;
@@ -214,7 +214,7 @@ body {
 
     // Estilo cuando el ratón pasa por encima (hover)
     &:hover {
-        background-color: $color-hover;
+        background-color: $color-text;
         border-color: $color-apagado;
         box-shadow: $sombra-hover;
     }
@@ -223,9 +223,9 @@ body {
 .btn-regresar {
     height: 30px;
     width: 30%;
-    background-color: $color-hover;
-    color: $color-personalizado;
-    border-radius: $radio-redodndo;
+    background-color: $color-text;
+    color: $primary-color;
+    border-radius: $radio-redondo;
     padding: 1px 5px;
     font-size: 16px;
     font-weight: bold;
@@ -234,7 +234,7 @@ body {
 
     // Estilo cuando el ratón pasa por encima (hover)
     &:hover {
-        background-color: $color-hover;
+        background-color: $color-text;
         box-shadow: $sombra-hover;
     }
 }
@@ -243,8 +243,8 @@ body {
     height: 30px;
     width: 30px;
     background-color: transparent;
-    color: $color-personalizado;
-    border: 2px solid $color-personalizado;
+    color: $primary-color;
+    border: 2px solid $primary-color;
     border-radius: 5px;
     padding: 1px 5px;
     font-size: 16px;
@@ -256,14 +256,14 @@ body {
     &:hover {
         background-color: #eee;
         box-shadow: $sombra-hover;
-        border: 2px solid $color-personalizado;
+        border: 2px solid $primary-color;
     }
 }
 
 .btn-selected {
     height: 30px;
     width: 30px;
-    background-color: $color-personalizado;
+    background-color: $primary-color;
     border: 2px solid black;
     border-radius: 5px;
     padding: 1px 5px;
@@ -273,7 +273,7 @@ body {
     transition: all 0.3s ease;
 
     &:hover {
-        background-color: $color-personalizado;
+        background-color: $primary-color;
         border: 2px solid black;
     }
 }
@@ -302,7 +302,7 @@ body {
     height: 60px;
     width: 180px;
     background-color: transparent;
-    color: $color-personalizado;
+    color: $primary-color;
     border-radius: 20px;
     padding: 1px 5px;
     font-size: 20px;
@@ -392,8 +392,8 @@ body {
     width: 100%;
     align-items: center;
     background-color: white;
-    color: $color-personalizado;
-    border-radius: $radio-redodndo;
+    color: $primary-color;
+    border-radius: $radio-redondo;
     padding: 5px 5px;
     font-size: 16px;
     font-weight: bold;
@@ -402,7 +402,7 @@ body {
 
     // Estilo cuando el ratón pasa por encima (hover)
     &:hover {
-        background-color: $color-hover;
+        background-color: $color-text;
         box-shadow: $sombra-hover;
     }
 }
@@ -606,7 +606,7 @@ $font-primary: 'Open Sans', sans-serif;
     .selected {
         height: 50px;
         width: 50px;
-        background-color: $color-personalizado;
+        background-color: $primary-color;
         border: 2px solid black;
         border-radius: 5px;
         padding: 1px 5px;
@@ -617,7 +617,7 @@ $font-primary: 'Open Sans', sans-serif;
         cursor: pointer;
 
         &:hover {
-            background-color: $color-personalizado;
+            background-color: $primary-color;
             border: 2px solid black;
         }
     }
@@ -628,8 +628,8 @@ $font-primary: 'Open Sans', sans-serif;
         text-align: center;
         align-items: center;
         background-color: transparent;
-        color: $color-personalizado;
-        border: 2px solid $color-personalizado;
+        color: $primary-color;
+        border: 2px solid $primary-color;
         border-radius: 5px;
         font-size: 16px;
         font-weight: bold;
@@ -641,7 +641,7 @@ $font-primary: 'Open Sans', sans-serif;
         &:hover {
             background-color: #eee;
             box-shadow: $sombra-hover;
-            border: 2px solid $color-personalizado;
+            border: 2px solid $primary-color;
         }
     }
 
@@ -649,7 +649,7 @@ $font-primary: 'Open Sans', sans-serif;
         height: 50px;
         width: 50px;
         background-color: transparent;
-        color: $color-personalizado;
+        color: $primary-color;
         border: 2px solid transparent;
         border-radius: 5px;
         padding: 1px 5px;
@@ -663,7 +663,7 @@ $font-primary: 'Open Sans', sans-serif;
         width: 50px;
         text-align: center;
         background-color: transparent;
-        color: $color-personalizado;
+        color: $primary-color;
         border: 2px solid transparent;
         border-radius: 5px;
         padding: 1px 5px;

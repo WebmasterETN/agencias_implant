@@ -32,7 +32,7 @@ class AppChangePassword extends HTMLElement {
                         </div>
 
                         <div class="col-xl-auto col-12 d-flex p-0">
-                            <button type="submit" class="btn btn-primary btn-lg w-100">Guardar Cambios</button>
+                            <button type="submit" class="__btn-forms btn text-white btn-lg w-100">Guardar Cambios</button>
                         </div>
                     </form>
                 </article>

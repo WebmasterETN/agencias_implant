@@ -35,7 +35,7 @@
           }
 
           &.active {
-            border-color: $color-primary;
+            border-color: $primary-color;
             font-weight: 700;
           }
         }
@@ -53,7 +53,7 @@
       justify-content: flex-start;
       border-width: 1px 1px 1px 5px;
       border-style: solid;
-      border-color: $color-secondary;
+      border-color: $secondary-color;
       border-image: initial;
       border-radius: 5px;
       padding: 5px 15px;
@@ -72,11 +72,11 @@
 
       [class^="icon-"] {
         margin-right: 10px;
-        color: $color-secondary;
+        color: $secondary-color;
       }
 
       .icon-info .path1:before {
-        color: $color-secondary;
+        color: $secondary-color;
       }
     }
 
@@ -129,7 +129,7 @@
         font-weight: 600;
         text-decoration-line: underline;
         transition: color 0.25s ease-out;
-        color: $color-primary;
+        color: $primary-color;
       }
     }
 
