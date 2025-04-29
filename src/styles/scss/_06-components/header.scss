@@ -2,7 +2,7 @@
 
 .header {
     & .header__nav {
-        background-color: #003B5C;
+        background-color: $primary-color;
 
         & .header__nav__items {
             & .header__nav__button--logo {
@@ -98,7 +98,7 @@
 }
 
 .dropdown-item:hover {
-    color: #003b5c;
+    color: $primary-color;
     background-color: #cdc9c9;
 }
 

@@ -7,7 +7,7 @@
     border-radius: $radio-borde;
     @include button-common;
     &:hover {
-      background-color: $color-hover;
+      background-color: $color-text;
       border-color: $color-apagado;
       box-shadow: $sombra-hover;
     }
