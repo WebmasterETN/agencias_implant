@@ -102,6 +102,35 @@
     background-color: #cdc9c9;
 }
 
+/* Estilo del botón si no usas Bootstrap */
+.navbar-toggler {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.collapse {
+    display: none;
+}
+
+.collapse.show {
+    display: block;
+}
+
+/* Aplica solo al dropdown con clase personalizada */
+.custom-dropdown .dropdown-menu {
+    background-color: #f8f9fa;
+    /* color de fondo claro */
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
 @media (max-width: 991px) {
     #navItems {
         display: none;
