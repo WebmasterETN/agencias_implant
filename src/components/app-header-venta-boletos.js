@@ -206,8 +206,18 @@ class AppHeader extends HTMLElement {
                           </button>
                           <div class="collapse navbar-collapse" id="navbarNavAgency">
                               <ul class="navbar-nav justify-content-between align-items-center w-100">
-                                  <li class="nav-item"><a href="#" class="nav-link active">Agencia: </a></li>
-                                  <li class="nav-item"><a href="#" class="nav-link">Usuario: </a></li>
+                                    
+                            ${
+                              isLoggedIn
+                                ? `
+                                <li class="nav-item"><a href="#" class="nav-link active text-dark">Agencia: VIAJES BUMERAN</a></li>
+                                <li class="nav-item"><a href="#" class="nav-link text-dark">Usuario: CABRERA DAVID YAFTE</a></li>
+                            `
+                                : `
+                               
+                                <li class="nav-item me-auto"></li>
+                            `
+                            }
                                     <li class="nav-item dropdown">
                                       <a class="nav-link dropdown-toggle" href="#" id="agencyDropdownToggle" role="button" aria-expanded="false">
                                           Menú Agencias
@@ -273,7 +283,7 @@ class AppHeader extends HTMLElement {
     // Impide que el clic en el "Menú Agencias" cierre el menú
     if (agencyDropdownToggle) {
       agencyDropdownToggle.addEventListener("click", (e) => {
-        e.stopPropagation(); 
+        e.stopPropagation();
       });
     }
     if (toggleBtn && navbarCollapse) {
