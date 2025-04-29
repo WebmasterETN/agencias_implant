@@ -1,6 +1,10 @@
 @import '../_01-settings/variables';
 
 .header {
+    & .navbar {
+        background-color: $secondary-color;
+    }
+
     & .header__nav {
         background-color: #003B5C;
 
@@ -45,19 +49,20 @@
 }
 
 .dropdown-toggle {
-    background: none;
+    background-color: #003B5C;
     border: none;
     color: black;
     font-weight: 500;
     cursor: pointer;
     padding: 0.5rem 1rem;
     font-size: 1rem;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s ease;
+    border: 3px solid #003B5C;
+    border-radius: 0.5rem;
 }
 
 .dropdown-toggle:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 0.5rem;
+    transform: scale(1.02);
 }
 
 /* --- Animación de aparecer --- */
