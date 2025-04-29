@@ -199,18 +199,29 @@ class AppHeader extends HTMLElement {
                   </nav>
               </header>
               <header class="header container-fluid flex-column justify-content-center align-items-center fixed-top text-white mt-5 p-0 bg-body-tertiary z-1">
-                  <nav class="navbar navbar-expand-lg w-100">
+                  <nav class="navbar navbar-expand-lg w-100 mt-2">
                       <div class="container-fluid p-0">
                           <button id="customNavbarToggle" class="navbar-toggler" type="button" aria-controls="navbarNavAgency" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                           </button>
                           <div class="collapse navbar-collapse" id="navbarNavAgency">
-                              <ul class="navbar-nav justify-content-between align-items-center w-100">
-                                  <li class="nav-item"><a href="#" class="nav-link active">Agencia: </a></li>
-                                  <li class="nav-item"><a href="#" class="nav-link">Usuario: </a></li>
-                                    <li class="nav-item dropdown">
-                                      <a class="nav-link dropdown-toggle" href="#" id="agencyDropdownToggle" role="button" aria-expanded="false">
-                                          Menú Agencias
+                              <ul class="navbar-nav justify-content-between align-items-center w-100 ms-3 me-3">
+                                    
+                            ${
+                              isLoggedIn
+                                ? `
+                                <li class="nav-item"><a href="#" class="nav-link active text-white">Agencia: <strong>VIAJES BUMERAN</strong></a></li>
+                                <li class="nav-item"><a href="#" class="nav-link text-white">Usuario:<strong> CABRERA DAVID YAFTE</strong></a></li>
+
+                            `
+                                : `
+                               
+                                <li class="nav-item me-auto"></li>
+                            `
+                            }
+                                    <li class="nav-item dropdown ">
+                                      <a class="nav-link dropdown-toggle text-white" href="#" id="agencyDropdownToggle" role="button" aria-expanded="false" >
+                                          <strong>Menú Agencias</strong>
                                       </a>
                                       <ul class="dropdown-menu" id="agencyDropdownMenu">
                                          
@@ -273,7 +284,7 @@ class AppHeader extends HTMLElement {
     // Impide que el clic en el "Menú Agencias" cierre el menú
     if (agencyDropdownToggle) {
       agencyDropdownToggle.addEventListener("click", (e) => {
-        e.stopPropagation(); 
+        e.stopPropagation();
       });
     }
     if (toggleBtn && navbarCollapse) {
