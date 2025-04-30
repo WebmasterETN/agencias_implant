@@ -28,7 +28,7 @@ class AppLogin extends HTMLElement {
               autocomplete="current-password"
             >
           </div>
-          <button type="submit" class="__btn-login btn btn-primary w-100 rounded">Entrar</button>
+          <button type="submit" class="__btn-forms btn text-white w-100 rounded">Entrar</button>
         </form>
       </div>
     `;
