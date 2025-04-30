@@ -580,7 +580,7 @@ class AppHeader extends HTMLElement {
       if (mainContentArea) {
         mainContentArea.innerHTML = `<${componentToLoad}></${componentToLoad}>`;
       } else {
-        console.error("Contenedor '#main-content' no encontrado.");
+        console.error("Contenedor '#main-content' no encontradossss.");
         alert("Error: No se pudo encontrar el área principal.");
       }
     } else {
