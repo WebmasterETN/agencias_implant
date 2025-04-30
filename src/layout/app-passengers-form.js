@@ -2,7 +2,12 @@ import "../components/app-card-select-ticket.js";
 
 class AppPassangersForm extends HTMLElement {
   connectedCallback() {
+    // Bind the event handler method to the instance
+    this._handleContinueClick = this.handleContinueClick.bind(this);
+
     this.innerHTML = `
+            <article class="d-flex flex-column w-100">
+
                 <div class="row">
                   <div class="col-12">
                     <div class="p-4 border rounded fondo-card">
@@ -193,7 +198,7 @@ class AppPassangersForm extends HTMLElement {
                             </label>
                           </div>
                         </div>
-                        <button class="btn btn-continue d-flex align-items-center me-0 mt-5">
+                        <button id="continue-to-payment-btn" type="button" class="btn btn-continue d-flex align-items-center me-0 mt-5">
                           <label class="tab-content__onboard__continue">Continuar</label>
                           <div class="container">
                             <div class="arrow">&#62;</div>
@@ -205,7 +210,49 @@ class AppPassangersForm extends HTMLElement {
                     </div>
                   </div>
                 </div>
+            </article>
                 `;
+    // Add event listener after rendering
+    this.addEventListeners();
+  }
+
+  disconnectedCallback() {
+    this.removeEventListeners();
+  }
+
+  addEventListeners() {
+    const continueButton = this.querySelector("#continue-to-payment-btn");
+    if (continueButton) {
+      continueButton.addEventListener("click", this._handleContinueClick);
+    } else {
+      console.error("#continue-to-payment-btn not found in app-passengers-form.");
+    }
+  }
+
+  removeEventListeners() {
+    const continueButton = this.querySelector("#continue-to-payment-btn");
+    if (continueButton) {
+      continueButton.removeEventListener("click", this._handleContinueClick);
+    }
+  }
+
+  handleContinueClick() {
+    // --- INICIO: Validación (Ejemplo simple) ---
+    // Deberías implementar una validación más robusta según tus necesidades
+    const firstNameInput = this.querySelector('#passengers\\[0\\]\\.firstName'); // Escapar caracteres especiales para querySelector
+    const lastNameInput = this.querySelector('#passengers\\[0\\]\\.lastName');
+    const emailInput = this.querySelector('#passengers\\[0\\]\\.email');
+
+    if (!firstNameInput?.value || !lastNameInput?.value || !emailInput?.value) {
+        alert("Por favor, completa todos los campos obligatorios del pasajero.");
+        // Aquí podrías añadir lógica para resaltar los campos inválidos
+        return; // Detiene la ejecución si la validación falla
+    }
+    // --- FIN: Validación ---
+
+    console.log("Passenger form validation passed (basic check). Navigating to payment.");
+    // Si la validación pasa, dispara el evento
+    this.dispatchEvent(new CustomEvent('navigate-to-payment', { bubbles: true, composed: true }));
   }
 }
 customElements.define("app-passangers-form", AppPassangersForm);
