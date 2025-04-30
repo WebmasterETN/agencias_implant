@@ -237,8 +237,8 @@ class AppHeader extends HTMLElement {
                                 ${
                                   isLoggedIn
                                     ? `
-                                    <li class="nav-item"><a href="#" class="nav-link active text-white">Agencia: VIAJES BUMERAN</a></li>
-                                    <li class="nav-item"><a href="#" class="nav-link text-white">Usuario: CABRERA DAVID YAFTE </a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link active text-white">Agencia:<strong> VIAJES BUMERAN</strong></a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link text-white">Usuario:<strong> CABRERA DAVID YAFTE</strong> </a></li>
                                 `
                                     : `
                                     <li class="nav-item me-auto"></li>
