@@ -38,6 +38,162 @@ class AppAdminTicktes extends HTMLElement {
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>NG4L6C1</td>
+                                        <td>angel cruz betanzos</td>
+                                        <td class="text-center">
+                                            <div class="form-check d-flex justify-content-center">
+                                                <input class="form-check-input" type="checkbox" value="NG4L6C1" id="user-NG4L6C1" name="selected_users">
+                                                <label class="form-check-label visually-hidden" for="user-NG4L6C1">
+                                                    Elegir usuario NG4L6C1
+                                                </label>
+                                            </div>
+                                        </td>
+                                    </tr>
                                     
                                 </tbody>
                             </table>

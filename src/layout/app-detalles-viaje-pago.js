@@ -75,6 +75,22 @@ class AppDetallesViajePago extends HTMLElement {
               </footer>
             </article>
           `;
+          // logica para el boton de regresar
+          const backButton = this.querySelector('.btn-regresar');
+
+          // 2. Añadir el event listener
+          if (backButton) {
+            backButton.addEventListener('click', () => {
+              // 3. Disparar un evento personalizado para indicar la navegación
+              this.dispatchEvent(new CustomEvent('navigate-to-select-time', {
+                bubbles: true, // Permite que el evento suba por el árbol DOM
+                composed: true // Permite que el evento cruce los límites del Shadow DOM (si aplica)
+              }));
+              console.log('Evento navigate-to-select-time disparado'); // Para depuración
+            });
+          } else {
+            console.error('Botón .btn-regresar no encontrado en AppDetallesViajePago.');
+          }
   }
 }
 customElements.define("app-detalles-viaje-pago", AppDetallesViajePago);
