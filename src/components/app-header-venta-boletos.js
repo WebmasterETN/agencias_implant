@@ -108,98 +108,24 @@ class AppHeader extends HTMLElement {
                               </div>
                               <div class="header__nav__offcanvas__content__list offcanvas-body w-100">
                                   <ul class="header__nav__offcanvas__content__list__items navbar-nav list-group justify-content-end flex-grow-1">
-                                      <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action dropdown">
-
-                                        <a class="nav-link dropdown-toggle" href="#" id="boletosDropdownToggle" role="button" aria-haspopup="true" aria-expanded="false">
-                                          Boletos de autobus
-                                        </a>
-                                     
-                                        <ul class="dropdown-menu active" id="boletosDropdownMenu">
-                                           <li> <a class="dropdown-item" href="https://etn.com.mx/boletos-de-autobus.html">Tipos de Boleto</a></li>
-                                           <li> <a class="dropdown-item" href="https://etn.com.mx/donde-comprar-etn.html">¿Dónde comprar?</a></li>
-                                           <li><a class="dropdown-item" href="https://etn.com.mx/horarios-y-destinos-etn.html">Horarios</a></li>
-                                        </ul>
+                                      <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
+                                        <a class="nav-link" href="https://www.autovias.com.mx/gho.html">GHO</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/turismo/">Renta de autobuses</a>
-                                      </li>
-
-                                      <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action nav-item">
-                                        <a class="nav-link" href="https://etn.com.mx/destinos.html">Destinos</a>
-                                      </li>
-
-                                      <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action dropdown">
-
-                                        <a class="nav-link dropdown-toggle" href="#" id="dropdownTerminales" role="button" aria-haspopup="true" aria-expanded="false">
-                                          Terminales
-                                        </a>
-
-                                        <div class="dropdown-menu" aria-labelledby="dropdownTerminales">
-                                          <a class="dropdown-item" href="https://etn.com.mx/taquillas.html">Taquillas</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/salas-de-espera-vip.html">Salas de Espera</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/salidas-charters.html">Salidas Charters</a>
-                                        </div>
+                                        <a class="nav-link" href="https://venta.autovias.com.mx/request.aspx?PRGNAME=MiViaje">MI VIAJE</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/servicios-a-bordo.html">Servicios a bordo</a>
+                                        <a class="nav-link" href="https://venta.autovias.com.mx/request.aspx?PRGNAME=AccesoEx&ARGUMENTS=-AAG,-AH,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-AES">SOY AGENCIA DE VIAJES</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/promociones.html">Promociones</a>
+                                        <a class="nav-link" href="https://venta.autovias.com.mx/request.aspx?APPNAME=Navegante&PRGNAME=MiItinerario">IMPRIME TU PASE DE ABORDAR</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://venta.etn.com.mx/request.aspx?PRGNAME=AccesoEx&amp;ARGUMENTS=-AAG,-AH,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-AES">Agencias</a>
-                                      </li>
-
-                                      <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action dropdown">
-
-                                        <a class="nav-link dropdown-toggle" href="#" id="dropdownPagos" role="button" aria-haspopup="true" aria-expanded="false">
-                                          Pagos referenciados
-                                        </a>
-
-                                        <div class="dropdown-menu" aria-labelledby="dropdownPagos">
-                                          <a class="dropdown-item" href="https://etn.com.mx/pago-referenciado-walmart.html">WALMART</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/pago-referenciado-paynet.html">PAYNET</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/pago-referenciado-banamex.html">BANAMEX</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/pago-referenciado-oxxo.html">OXXO PAY</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/todito-cash.html">TODITO CASH</a>
-                                        </div>
-                                      </li>
-
-                                      <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/viajero-anticipado.html">Viajero Anticipado</a>
-                                      </li>
-
-                                      <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/viajero-protegido.html">Viajero Protegido</a>
-                                      </li>
-
-                                      <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://www.viajamas.com/">Viaja más</a>
-                                      </li>
-
-                                      <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/viaja-ahorrando.html">Viaja Ahorrando</a>
-                                      </li>
-
-                                      <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/blog/">BLOG</a>
-                                      </li>
-
-                                      <li  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action dropdown">
-
-                                        <a class="nav-link dropdown-toggle" href="#" id="dropdownOtros" role="button" aria-expanded="false">
-                                          Otros Servicios
-                                        </a>
-
-                                        <ul class="dropdown-menu bg-light" aria-labelledby="dropdownOtros">
-                                          <li><a class="dropdown-item" href="https://etn.com.mx/atencion-a-clientes-app/index.php">Atención a clientes</a></li>
-                                          <li><a class="dropdown-item" href="https://venta.etn.com.mx/request.aspx?PRGNAME=MiViaje">Mi viaje</a></li>
-                                          <li><a class="dropdown-item" href="https://venta.etn.com.mx/request.aspx?PRGNAME=AccesoEx&amp;ARGUMENTS=-AIA,-AV,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-AES">Utiliza tu Boleto Abierto</a></li>
-                                        </ul>
+                                        <a class="nav-link" href="https://venta.autovias.com.mx/request.aspx?APPNAME=Navegante&PRGNAME=AccesoEx&ARGUMENTS=-AIN,-AV,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-AES">MODIFICA TU ITINERARIO</a>
                                       </li>
 
                                       ${
