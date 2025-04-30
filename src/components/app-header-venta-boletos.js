@@ -611,7 +611,7 @@ class AppHeader extends HTMLElement {
     const iconMx = this.querySelector("#Lanaguage-Icon-Mx");
     const iconUs = this.querySelector("#Lanaguage-Icon-US");
     if (!iconMx || !iconUs) {
-      console.error("Iconos de idioma no encontrados.");
+      console.error("Iconos de idioma no encontradosss.");
       return;
     }
     const isMxHidden = iconMx.classList.contains("d-none");
