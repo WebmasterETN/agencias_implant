@@ -115,18 +115,14 @@ class AppHeader extends HTMLElement {
                                         </a>
                                      
                                         <ul class="dropdown-menu active" id="boletosDropdownMenu">
-                                           <li> <a class="dropdown-item" href="https://etn.com.mx/boletos-de-autobus.html">Tipos de Boleto</a></li>
-                                           <li> <a class="dropdown-item" href="https://etn.com.mx/donde-comprar-etn.html">¿Dónde comprar?</a></li>
-                                           <li><a class="dropdown-item" href="https://etn.com.mx/horarios-y-destinos-etn.html">Horarios</a></li>
+                                           <li> <a class="dropdown-item" href="https://costaline.com.mx/boletos-de-autobus.html">Tipos de Boleto</a></li>
+                                           <li> <a class="dropdown-item" href="https://costaline.com.mx/donde-comprar-costaline.html">¿Dónde comprar?</a></li>
+                                           
                                         </ul>
                                       </li>
 
-                                      <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/turismo/">Renta de autobuses</a>
-                                      </li>
-
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action nav-item">
-                                        <a class="nav-link" href="https://etn.com.mx/destinos.html">Destinos</a>
+                                        <a class="nav-link" href="https://costaline.com.mx/destinos.html">Destinos</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action dropdown">
@@ -136,22 +132,21 @@ class AppHeader extends HTMLElement {
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownTerminales">
-                                          <a class="dropdown-item" href="https://etn.com.mx/taquillas.html">Taquillas</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/salas-de-espera-vip.html">Salas de Espera</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/salidas-charters.html">Salidas Charters</a>
+                                          <a class="dropdown-item" href="https://costaline.com.mx/taquillas.html">Taquillas</a>
+                                          <a class="dropdown-item" href="https://costaline.com.mx/salas-de-espera-vip.html">Salas de Espera</a>
                                         </div>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/servicios-a-bordo.html">Servicios a bordo</a>
+                                        <a class="nav-link" href="https://costaline.com.mx/servicios-a-bordo.html">Servicios a bordo</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/promociones.html">Promociones</a>
+                                        <a class="nav-link" href="https://costaline.com.mx/promociones.html">Promociones</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://venta.etn.com.mx/request.aspx?PRGNAME=AccesoEx&amp;ARGUMENTS=-AAG,-AH,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-AES">Agencias</a>
+                                        <a class="nav-link" href="https://ventas.costaline.com.mx/request.aspx?APPNAME=Navegante&PRGNAME=AccesoEx&ARGUMENTS=-AAG,-AH,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-AES&_ga=2.70363408.1421465980.1688335622-27413750.1682467979">Agencias</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action dropdown">
@@ -161,32 +156,31 @@ class AppHeader extends HTMLElement {
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownPagos">
-                                          <a class="dropdown-item" href="https://etn.com.mx/pago-referenciado-walmart.html">WALMART</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/pago-referenciado-paynet.html">PAYNET</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/pago-referenciado-banamex.html">BANAMEX</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/pago-referenciado-oxxo.html">OXXO PAY</a>
-                                          <a class="dropdown-item" href="https://etn.com.mx/todito-cash.html">TODITO CASH</a>
+                                          <a class="dropdown-item" href="https://costaline.com.mx/pago-referenciado-oxxo.html">OXXO PAY</a>
+                                          <a class="dropdown-item" href="https://costaline.com.mx/pago-referenciado-paynet.html">PAYNET</a>
+                                          <a class="dropdown-item" href="https://costaline.com.mx/pago-referenciado-walmart.html">WALMART</a>
+                                        
                                         </div>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/viajero-anticipado.html">Viajero Anticipado</a>
+                                        <a class="nav-link" href="https://costaline.com.mx/viajero-anticipado/">Viajero Anticipado</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/viajero-protegido.html">Viajero Protegido</a>
+                                        <a class="nav-link" href="https://costaline.com.mx/viajero-protegido.html">Viajero Protegido</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://www.viajamas.com/">Viaja más</a>
+                                        <a class="nav-link" href="https://www.reservamos.mx/">Viaja más</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/viaja-ahorrando.html">Viaja Ahorrando</a>
+                                        <a class="nav-link" href="https://costaline.com.mx/viaja-ahorrando.html">Viaja Ahorrando</a>
                                       </li>
 
                                       <li class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action">
-                                        <a class="nav-link" href="https://etn.com.mx/blog/">BLOG</a>
+                                        <a class="nav-link" href="https://costaline.com.mx/blog/">BLOG</a>
                                       </li>
 
                                       <li  class="header__nav__offcanvas__content__list__items__item nav-item list-group-item-action dropdown">
@@ -196,9 +190,8 @@ class AppHeader extends HTMLElement {
                                         </a>
 
                                         <ul class="dropdown-menu bg-light" aria-labelledby="dropdownOtros">
-                                          <li><a class="dropdown-item" href="https://etn.com.mx/atencion-a-clientes-app/index.php">Atención a clientes</a></li>
-                                          <li><a class="dropdown-item" href="https://venta.etn.com.mx/request.aspx?PRGNAME=MiViaje">Mi viaje</a></li>
-                                          <li><a class="dropdown-item" href="https://venta.etn.com.mx/request.aspx?PRGNAME=AccesoEx&amp;ARGUMENTS=-AIA,-AV,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-A,-AES">Utiliza tu Boleto Abierto</a></li>
+                                          <li><a class="dropdown-item" href="https://costaline.com.mx/atencion-a-clientes-costaline.html">Atención a clientes</a></li>
+
                                         </ul>
                                       </li>
 
@@ -227,7 +220,7 @@ class AppHeader extends HTMLElement {
               </header>
 
               <header class="header container-fluid flex-column justify-content-center align-items-center fixed-top text-white mt-5 p-0 bg-body-tertiary z-1">
-                  <nav class="navbar navbar-expand-lg w-100 mt-2">
+                  <nav class="navbar navbar-expand-lg w-100 mt-4">
                       <div class="container-fluid p-0">
                           <button id="customNavbarToggle" class="navbar-toggler" type="button" aria-controls="navbarNavAgency" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>

@@ -42,7 +42,7 @@ class AppDetallesViajePago extends HTMLElement {
                         <label class="details-tittle">Viaje de regreso</label>
                         <div class="list-group-item__main__section__item__logo">
                           <img
-                            src="src/assets/img/logos/compañia/logo.svg"
+                            src="src/assets/img/logos/compañia/Logo.svg"
                             class="main__section__item__logo__img"
                             alt="logo de amealcenses"
                             style="max-width:170px; width: 100%;"
@@ -75,22 +75,26 @@ class AppDetallesViajePago extends HTMLElement {
               </footer>
             </article>
           `;
-          // logica para el boton de regresar
-          const backButton = this.querySelector('.btn-regresar');
+    // logica para el boton de regresar
+    const backButton = this.querySelector(".btn-regresar");
 
-          // 2. Añadir el event listener
-          if (backButton) {
-            backButton.addEventListener('click', () => {
-              // 3. Disparar un evento personalizado para indicar la navegación
-              this.dispatchEvent(new CustomEvent('navigate-to-select-time', {
-                bubbles: true, // Permite que el evento suba por el árbol DOM
-                composed: true // Permite que el evento cruce los límites del Shadow DOM (si aplica)
-              }));
-              console.log('Evento navigate-to-select-time disparado'); // Para depuración
-            });
-          } else {
-            console.error('Botón .btn-regresar no encontrado en AppDetallesViajePago.');
-          }
+    // 2. Añadir el event listener
+    if (backButton) {
+      backButton.addEventListener("click", () => {
+        // 3. Disparar un evento personalizado para indicar la navegación
+        this.dispatchEvent(
+          new CustomEvent("navigate-to-select-time", {
+            bubbles: true, // Permite que el evento suba por el árbol DOM
+            composed: true, // Permite que el evento cruce los límites del Shadow DOM (si aplica)
+          })
+        );
+        console.log("Evento navigate-to-select-time disparado"); // Para depuración
+      });
+    } else {
+      console.error(
+        "Botón .btn-regresar no encontrado en AppDetallesViajePago."
+      );
+    }
   }
 }
 customElements.define("app-detalles-viaje-pago", AppDetallesViajePago);

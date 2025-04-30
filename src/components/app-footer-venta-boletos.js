@@ -5,42 +5,39 @@ class AppFooterVentaBoletos extends HTMLElement {
         <nav class="navbar navbar-expand-lg navbar-light d-flex flex-column w-100 justify-content-center align-items-center gap-3">
           <ul class="navbar-nav w-100 justify-content-center align-items-center ">
             <li class="nav-item">
-              <a class="nav-link" href="https://etn.com.mx/quienes-somos.html">¿Quienes somos?</a>
+              <a class="nav-link" href="https://costaline.com.mx/acerca-de-nosotros.html">¿Quienes somos?</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://etn.com.mx/preguntas-frecuentes.html">Preguntas frecuentes</a>
+              <a class="nav-link" href="https://costaline.com.mx/preguntas-frecuentes.html">Preguntas frecuentes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://etn.com.mx/certificaciones.html">Certificados</a>
+              <a class="nav-link" href="https://costaline.com.mx/bolsa-trabajo.html">Bolsa de trabajo</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://etn.com.mx/bolsa-de-trabajo-etn-turistar.html">Bolsa de trabajo</a>
+              <a class="nav-link" href="https://costaline.com.mx/aviso-privacidad.html">Aviso de privacidad</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="https://etn.com.mx/aviso-privacidad.html">Aviso de privacidad</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://etn.com.mx/terminos-condiciones.html">Términos y condiciones</a>
+              <a class="nav-link" href="https://costaline.com.mx/terminos-condiciones.html">Términos y condiciones</a>
             </li>
           </ul>
           <ul class="list-inline d-flex justify-content-center align-items-center w-100 gap-3 text-center">
             <li class="list-inline-item d-flex justify-content-center align-items-center">
-              <a href="https://www.facebook.com/etnturistar" class="text-decoration-none">
+              <a href="https://www.facebook.com/costaline" class="text-decoration-none">
                 <i class="icon-fb text-black fs-3"></i>
               </a>
             </li>
             <li class="list-inline-item d-flex justify-content-center align-items-center">
-              <a href="https://twitter.com/ETNTURISTAR" class="text-decoration-none">
+              <a href="https://x.com/CostaLine_AERS" class="text-decoration-none">
                 <i class="icon-x text-black fs-3"></i>
               </a>
             </li>
             <li class="list-inline-item d-flex justify-content-center align-items-center">
-              <a href="https://instagram.com/etn_turistar" class="text-decoration-none">
+              <a href="https://www.instagram.com/costalineaers" class="text-decoration-none">
                 <i class="icon-ig text-black fs-3"></i>
               </a>
             </li>
             <li class="list-inline-item d-flex justify-content-center align-items-center">
-              <a href="https://www.youtube.com/ETNTuristarLujo" class="text-decoration-none">
+              <a href="https://www.youtube.com/channel/UCmKqIk6luXc6mHD1zsbjOFw" class="text-decoration-none">
                 <i class="icon-yt text-black fs-3"></i>
               </a>
             </li>

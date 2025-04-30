@@ -21,9 +21,9 @@ class AppOpenTicket extends HTMLElement {
                             <label for="origen" class="form-label">Origen</label>
                             <select id="origen" name="origen" class="form-select form-select-lg" required>
                                 <option value="" selected>Selecciona un origen</option> 
-                                <option value="4 Caminos Mich">4 Caminos Mich</option>
-                                <option value="Acapulco">Acapulco</option>
-                                <option value="Acapulco diamante">Acapulco diamante</option>
+                                <option value="Mexico Sur, Ciudad de México">Mexico Sur, Ciudad de México</option>
+                                <option value="Acapulco Papagayo, Guerrero">Acapulco Papagayo, Guerrero</option>
+                                <option value="Cuernavaca, Morelos">Cuernavaca, Morelos</option>
                             </select>
                         </div>
 
@@ -31,9 +31,9 @@ class AppOpenTicket extends HTMLElement {
                             <label for="destino" class="form-label">Destino</label>
                             <select id="destino" name="destino" class="form-select form-select-lg" required>
                                 <option value="" selected>Selecciona un destino</option> 
-                                <option value="Aereopuerto Guadalajara">Aereopuerto Guadalajara</option>
-                                <option value="México norte">México norte</option>
-                                <option value="México póniente">México póniente</option>
+                                <option value="Chilpancingo, Guerrero">Chilpancingo, Guerrero</option>
+                                <option value="Toluca, Estado de México">Toluca, Estado de México</option>
+                                <option value="Acapulco Papagayo, Guerrero">Acapulco Papagayo, Guerrero</option>
                             </select>
                         </div>
 
@@ -41,7 +41,10 @@ class AppOpenTicket extends HTMLElement {
                             <label for="servicio" class="form-label">Servicio</label> 
                             <select id="servicio" name="servicio" class="form-select form-select-lg" required> 
                                 <option value="" selected>Selecciona un servicio</option> 
-                                <option value="Dos pisos ETN">Dos pisos ETN</option>
+                                <option value="Dos pisos CL">Costa Line 2 pisos</option>
+                                <option value="Dos pisos Futura">Futura 2 pisos</option>
+                                <option value="Turistar">Turistar 1 piso</option>
+                                <option value="AMS">AMS 1 piso</option>
                                 <option value="Otro Servicio">Otro Servicio</option> 
                             </select>
                         </div>

@@ -3,6 +3,7 @@
 .header {
     & .navbar {
         background-color: $secondary-color;
+
     }
 
     & .header__nav {
@@ -46,7 +47,6 @@
 /* --- Dropdown bonito con animación --- */
 .dropdown {
     position: relative;
-    z-index: 0;
 }
 
 .__menu-dropdown {
@@ -58,9 +58,7 @@
     padding: 0.5rem 1rem;
     font-size: 1rem;
     transition: transform 0.3s ease;
-    border: 3px solid $primary-color;
     border-radius: 0.5rem;
-    z-index: 0;
 }
 
 .__menu-dropdown:hover {
@@ -75,7 +73,7 @@
     right: 10px;
     min-width: 200px;
     margin-top: 0.5rem;
-    background-color: $bg-primary;
+    background-color: #ffffff;
     border: none;
     border-radius: 0.5rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -89,7 +87,6 @@
 
 .dropdown-menu.show {
     opacity: 1;
-    background-color: $bg-primary;
     transform: translateY(0);
     pointer-events: auto;
 }
@@ -136,10 +133,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.header__nav__offcanvas__content__list__items__item {
-    max-height: 40px;
-    height: 100%;
-}
+
 
 
 @media (max-width: 991px) {

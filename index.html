@@ -1,46 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Las mejores opciones para tus viajes</title>
 
-    <!-- Import components -->
-    <script type="module" src="main.js"></script>
-    <script src="./src/js/dynamic-tabs.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Las mejores opciones para tus viajes</title>
 
-    <!-- Import Styles -->
-    <link
-      rel="stylesheet"
-      href="src\styles\css\css-librerias\bootstrap\bootstrap.min.css?v=1.0.1"
-    />
-    <link
-      rel="stylesheet"
-      href="src/styles/css/css-components/styles.min.css?v=1.0.0"
-    />
-  </head>
+  <!-- Import components -->
+  <script type="module" src="main.js"></script>
+  <script src="./src/js/dynamic-tabs.js"></script>
 
-  <body>
-    <app-header-venta-boletos
-      logo='{
+  <!-- Import Styles -->
+  <link rel="stylesheet" href="src\styles\css\css-librerias\bootstrap\bootstrap.min.css?v=1.0.1" />
+  <link rel="stylesheet" href="src/styles/css/css-components/styles.min.css?v=1.0.0" />
+</head>
+
+<body>
+  <app-header-venta-boletos logo='{
         "src": "./src/assets/img/logos/compañia/Logo Hor blanco.webp", 
-        "alt": "Logo de Etn Turistar Lujo",
-        "href": "https://etn.com.mx/"
-      }'
-    ></app-header-venta-boletos>
+        "alt": "Logo de Costaline",
+        "href": "https://costaline.com.mx/"
+      }'></app-header-venta-boletos>
 
-    <!-- Login Section -->
-    <layout-login></layout-login>
+  <!-- Login Section -->
+  <layout-login></layout-login>
 
-    <!-- Main Content Section (Initially Hidden) -->
-    <main
-      id="main-content"
-      class="main d-none container justify-content-center align-items-center"
-    >
-      <layout-select-viaje></layout-select-viaje>
-    </main>
-    <app-footer-venta-boletos></app-footer-venta-boletos>
-    <script src="src/js/bootstrap.bundle.min.js?v1.0.1"></script>
-    <script src="src/js/login-handler.js"></script>
-  </body>
+  <!-- Main Content Section (Initially Hidden) -->
+  <main id="main-content" class="main d-none container justify-content-center align-items-center">
+    <layout-select-viaje></layout-select-viaje>
+  </main>
+  <app-footer-venta-boletos></app-footer-venta-boletos>
+  <script src="src/js/bootstrap.bundle.min.js?v1.0.1"></script>
+  <script src="src/js/login-handler.js"></script>
+</body>
+
 </html>
