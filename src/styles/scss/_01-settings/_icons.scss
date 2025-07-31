@@ -22,6 +22,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-currency-dollar:before {
+  content: "\e968";
+}
+.icon-download:before {
+  content: "\e969";
+}
+.icon-inbox-download:before {
+  content: "\e96a";
+}
+.icon-printer:before {
+  content: "\e96c";
+}
+.icon-save-disk:before {
+  content: "\e96d";
+}
 .icon-front-bus .path1:before {
   content: "\e95f";
   color: rgb(217, 217, 217);
@@ -1043,13 +1058,4 @@
 }
 .icon-yt:before {
   content: "\e908";
-}
-.icon-coin-dollar:before {
-  content: "\e968";
-}
-.icon-printer:before {
-  content: "\e969";
-}
-.icon-floppy-disk:before {
-  content: "\e96a";
 }
