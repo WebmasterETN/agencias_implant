@@ -417,6 +417,9 @@ class AppPaymentForm extends HTMLElement {
                       Finalizar compra por
                       <div class="container justify-content-start m-0">
                         <div class="arrow">&gt;</div>
+                        <div class="arrow">&gt;</div>
+                        <div class="arrow">&gt;</div>
+
                       </div>
                     </button>
                 </form>
