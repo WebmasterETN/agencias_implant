@@ -40,7 +40,7 @@ class AppPaginationPago extends HTMLElement {
               </section>
             
     `;
-    // Use setTimeout to ensure child elements are potentially rendered and Bootstrap might be ready
+    // Se usa setTimeout para asegurarse de que el DOM esté completamente cargado
     setTimeout(() => {
       this.addEventListeners();
       this.initializeTabStatus();
@@ -71,7 +71,7 @@ class AppPaginationPago extends HTMLElement {
     if (statusText) {
       // Comprueba si statusText se encontró
       tabLinks.forEach((link, index) => {
-        // Store the handler reference for removal
+        // Almacena el manejador de eventos en el elemento para evitar duplicados
         link._tabShownHandler = () => {
           statusText.textContent = `Paso ${index + 1} de ${tabLinks.length}`;
         };
@@ -84,7 +84,7 @@ class AppPaginationPago extends HTMLElement {
       );
     }
 
-    // Listen for navigation events from children
+    // Escucha los eventos de navegación del componente
     this.addEventListener(
       "navigate-to-passengers",
       this._handleNavigateToPassengers
@@ -100,11 +100,10 @@ class AppPaginationPago extends HTMLElement {
     tabLinks.forEach((link) => {
       if (link._tabShownHandler) {
         link.removeEventListener("shown.bs.tab", link._tabShownHandler);
-        delete link._tabShownHandler; // Clean up the stored handler
+        delete link._tabShownHandler; 
       }
     });
 
-    // Remove navigation event listeners
     this.removeEventListener(
       "navigate-to-passengers",
       this._handleNavigateToPassengers
@@ -135,9 +134,6 @@ class AppPaginationPago extends HTMLElement {
   }
 
   handleNavigateToPassengers(event) {
-    // Detenemos la propagación para que este evento no sea capturado por
-    // otros listeners de más alto nivel (como el de dynamic-tabs.js)
-    // que podrían recargar toda la vista.
     event.stopPropagation();
 
     console.log(
@@ -160,9 +156,6 @@ class AppPaginationPago extends HTMLElement {
   }
 
   handleNavigateToPayment(event) {
-    // Detenemos la propagación para que este evento no sea capturado por
-    // otros listeners de más alto nivel (como el de dynamic-tabs.js)
-    // que podrían recargar toda la vista.
     event.stopPropagation();
 
     const paymentTabLink = this.querySelector("#payment-tab");
