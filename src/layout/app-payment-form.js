@@ -155,6 +155,7 @@ class AppPaymentForm extends HTMLElement {
                     </fieldset>
 
                     <fieldset class="form-group d-flex flex-column gap-3 mb-3">
+                        <label for="first-name" class="form-label fs-4 fw-semibold text-black">Datos del comprador</label>
                         <fieldset class="row mb-3">
                           <!-- Nombres -->
                           <div class="col-12 col-xl">
@@ -522,11 +523,28 @@ class AppPaymentForm extends HTMLElement {
                 </form>
             </article>
         `;
-        // Bloquear letras en el campo de número de tarjeta
-        const numTarget = this.querySelector("#num-target");
-        numTarget.addEventListener("input", (e) => {
-            e.target.value = e.target.value.replace(/\D/g, ""); // Permitir solo números
-        });
+    }
+
+    addEventListeners() {
+        this.querySelector("#num-target")?.addEventListener("input", this._handleNumericInput);
+        this.querySelector("#cvv")?.addEventListener("input", this._handleNumericInput);
+        this.querySelector("#payment-form")?.addEventListener("submit", this._handleSubmit);
+    }
+
+    removeEventListeners() {
+        this.querySelector("#num-target")?.removeEventListener("input", this._handleNumericInput);
+        this.querySelector("#cvv")?.removeEventListener("input", this._handleNumericInput);
+        this.querySelector("#payment-form")?.removeEventListener("submit", this._handleSubmit);
+    }
+
+    _handleNumericInput(event) {
+        // Reemplaza cualquier caracter que no sea un dígito
+        event.target.value = event.target.value.replace(/\D/g, "");
+    }
+
+    _handleSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
 
         // Lógica de validación de Bootstrap
         if (!form.checkValidity()) {
@@ -545,24 +563,6 @@ class AppPaymentForm extends HTMLElement {
                 console.log(`${key}: ${value}`);
             }
             alert('¡Compra finalizada con éxito! (Simulación)');
-        }
-
-        // Lógica para la selección de método de pago
-        const paymentMethodsContainer = this.querySelector("#payment-methods-container");
-        if (paymentMethodsContainer) {
-            paymentMethodsContainer.addEventListener('click', (e) => {
-                const clickedButton = e.target.closest('button');
-                if (!clickedButton) return; // Salir si el clic no fue en un botón
-
-                // Encontrar todos los botones dentro del contenedor
-                const allButtons = paymentMethodsContainer.querySelectorAll('button');
-
-                // Remover la clase 'selected' de todos los botones
-                allButtons.forEach(btn => btn.classList.remove('selected'));
-
-                // Añadir la clase 'selected' al botón presionado
-                clickedButton.classList.add('selected');
-            });
         }
     }
 }
