@@ -45,7 +45,7 @@ class AppPassangersForm extends HTMLElement {
                         </div>
                       </div>
 
-                      <form>
+                      <form id="passenger-form-0">
                         <div class="row mb-3">
                           <!-- Nombres -->
                           <div class="col-12 col-xl">
@@ -102,23 +102,23 @@ class AppPassangersForm extends HTMLElement {
                             </div>
                           </div>
                         </div>
-                      </form>
-                      <span><strong>Categoría (Adulto, INSEN, Estudiante,
-                          etc...)</strong></span>
-                      <div class="container max-ancho mt-3 mb-3">
-                        <div class="d-flex align-items-center flex-wrap gap-2">
-                          <input type="radio" class="btn-check" id="check1" name="checkGroup" />
-                          <label class="btn-check-label" for="check1">Adulto</label>
+                        <span><strong>Categoría (Adulto, INSEN, Estudiante,
+                            etc...)</strong></span>
+                        <div class="container max-ancho mt-3 mb-3">
+                          <div class="d-flex align-items-center flex-wrap gap-2">
+                            <input type="radio" class="btn-check" id="check1" name="checkGroup" />
+                            <label class="btn-check-label" for="check1">Adulto</label>
 
-                          <input type="radio" class="btn-check" id="check2" name="checkGroup" />
-                          <label class="btn-check-label" for="check2">INSEN</label>
+                            <input type="radio" class="btn-check" id="check2" name="checkGroup" />
+                            <label class="btn-check-label" for="check2">INSEN</label>
 
-                          <label class="text__advertise">
-                            <span class="icon-block"></span>
-                            Estudiante, profesor, PCD, no disponibles
-                          </label>
+                            <label class="text__advertise">
+                              <span class="icon-block"></span>
+                              Estudiante, profesor, PCD, no disponibles
+                            </label>
+                          </div>
                         </div>
-                      </div>
+                      </form> 
                       <span>
 
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16">
@@ -237,20 +237,38 @@ class AppPassangersForm extends HTMLElement {
   }
 
   handleContinueClick() {
-    // --- INICIO: Validación (Ejemplo simple) ---
-    // Deberías implementar una validación más robusta según tus necesidades
-    const firstNameInput = this.querySelector('#passengers\\[0\\]\\.firstName'); // Escapar caracteres especiales para querySelector
+    // --- INICIO: Validación robusta ---
+    const firstNameInput = this.querySelector('#passengers\\[0\\]\\.firstName');
     const lastNameInput = this.querySelector('#passengers\\[0\\]\\.lastName');
     const emailInput = this.querySelector('#passengers\\[0\\]\\.email');
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const categorySelected = this.querySelector('input[name="checkGroup"]:checked');
 
-    if (!firstNameInput?.value || !lastNameInput?.value || !emailInput?.value) {
-        alert("Por favor, completa todos los campos obligatorios del pasajero.");
+    const errors = [];
+
+    if (!firstNameInput?.value.trim()) {
+      errors.push("el nombre");
+    }
+    if (!lastNameInput?.value.trim()) {
+      errors.push("el apellido paterno");
+    }
+    if (!emailInput?.value.trim()) {
+      errors.push("el correo electrónico");
+    } else if (!emailRegex.test(emailInput.value)) {
+      errors.push("un formato de correo electrónico válido");
+    }
+
+    if (!categorySelected) {
+      errors.push("la categoría del pasajero");
+    }
+
+    if (errors.length > 0) {
+        alert(`Por favor, completa los siguientes campos: ${errors.join(', ')}.`);
         // Aquí podrías añadir lógica para resaltar los campos inválidos
         return; // Detiene la ejecución si la validación falla
     }
-    // --- FIN: Validación ---
-
-    console.log("Passenger form validation passed (basic check). Navigating to payment.");
+    // --- FIN: Validación ---    
+    console.log("Passenger form validation passed. Navigating to payment.");
     // Si la validación pasa, dispara el evento
     this.dispatchEvent(new CustomEvent('navigate-to-payment', { bubbles: true, composed: true }));
   }

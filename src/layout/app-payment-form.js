@@ -76,8 +76,8 @@ class AppPaymentForm extends HTMLElement {
                         <fieldset class="row mb-3">
                           <!-- Nombres -->
                           <div class="col-12 col-xl">
-                            <label for="passengers[0].firstName" class="form-label">Nombre (s) *</label>
-                            <input id="passengers[0].firstName" type="text" name="passengers[0].firstName" placeholder="Nombre (s)" class="form-control form-control-lg" value="">
+                            <label for="buyer.firstName" class="form-label">Nombre (s) *</label>
+                            <input id="buyer.firstName" type="text" name="buyer.firstName" placeholder="Nombre (s)" class="form-control form-control-lg" value="" required>
                             <div class="valid-feedback">
                                 Porfavor ingrese su nombre!
                             </div>
@@ -85,15 +85,15 @@ class AppPaymentForm extends HTMLElement {
                           <!-- Apellido Paterno -->
                           <div class="col-12 col-xl">
                             <div class="field-renderer">
-                              <label for="passengers[0].lastName" class="form-label">Apellido Paterno *</label>
-                              <input id="passengers[0].lastName" type="text" name="passengers[0].lastName" placeholder="Apellido Paterno" class="form-control form-control-lg" value="">
+                              <label for="buyer.lastName" class="form-label">Apellido Paterno *</label>
+                              <input id="buyer.lastName" type="text" name="buyer.lastName" placeholder="Apellido Paterno" class="form-control form-control-lg" value="" required>
                             </div>
                           </div>
                           <!-- Apellido Materno (mitad del ancho) -->
                           <div class="col-12 col-xl">
                             <div class="field-renderer">
-                              <label for="passengers[0].secondLastName" class="form-label">Apellido Materno</label>
-                              <input id="passengers[0].secondLastName" type="text" name="passengers[0].secondLastName" placeholder="Apellido Materno (opcional)" class="form-control form-control-lg" value="">
+                              <label for="buyer.secondLastName" class="form-label">Apellido Materno</label>
+                              <input id="buyer.secondLastName" type="text" name="buyer.secondLastName" placeholder="Apellido Materno (opcional)" class="form-control form-control-lg" value="">
                             </div>
                           </div>
                         </fieldset>
@@ -362,7 +362,7 @@ class AppPaymentForm extends HTMLElement {
                             <!-- Celular -->
                             <div class="col-6">
                                 <input id="phone" type="tel" name="phone" placeholder="Teléfono celular" class="form-control form-control-lg" value=""/>
-                            </div<
+                            </div>
                         </fieldset>
                     </fieldset>
 

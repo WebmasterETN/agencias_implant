@@ -11,8 +11,8 @@ class AppMainPasarelaPago extends HTMLElement {
                          <article class="col-xl-8 col p-0">
                             <app-pagination-pago></app-pagination-pago>
                          </article>
-                    </secton>
-                </artcile>
+                    </section>
+                </article>
             </section>
             `;
   }

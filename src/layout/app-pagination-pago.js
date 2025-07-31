@@ -12,13 +12,13 @@ class AppPaginationPago extends HTMLElement {
                 <nav>
                   <ul class="nav nav-tabs w-100 main-tabs" id="myTab" role="tablist">
                     <li class="nav-item flex-fill" role="presentation">
-                      <a class="nav-link text-black active" id="home-tab" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" >Asientos de ida</a>
+                      <button class="nav-link text-black active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Asientos de ida</button>
                     </li>
                     <li class="nav-item flex-fill" role="presentation">
-                      <a class="nav-link text-black" id="profile-tab" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" >Pasajeros</a>
+                      <button class="nav-link text-black" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Pasajeros</button>
                     </li>
                     <li class="nav-item flex-fill" role="presentation">
-                      <a class="nav-link text-black" id="payment-tab" data-bs-toggle="tab" href="#payment" role="tab" aria-controls="contact" aria-selected="false" >Pago</a>
+                      <button class="nav-link text-black" id="payment-tab" data-bs-toggle="tab" data-bs-target="#payment" type="button" role="tab" aria-controls="payment" aria-selected="false">Pago</button>
                     </li>
                     <li class="nav-item ms-auto nav-item-small" id="tabStatus">
                       <span class="nav-link disabled" aria-current="page" id="statusText">Paso 1 de 3</span>
@@ -32,7 +32,7 @@ class AppPaginationPago extends HTMLElement {
                   <section class="tab-pane fade w-100 p-0" id="profile" role="tabpanel" aria-labelledby="profile-tab" >
                       <app-passangers-form></app-passangers-form>
                   </section>
-                  <section class="tab-pane fade w-100 p-0" id="payment" role="tabpanel" aria-labelledby="contact-tab">
+                  <section class="tab-pane fade w-100 p-0" id="payment" role="tabpanel" aria-labelledby="payment-tab">
                     <app-payment-form></app-payment-form>
                   </section>
                 </article>
@@ -104,6 +104,7 @@ class AppPaginationPago extends HTMLElement {
 
   handleNavigateToPassengers(event) {
     console.log("navigate-to-passengers event caught by app-pagination-pago", event.detail);
+    event.stopPropagation(); // Evita que el evento se propague y sea capturado por otros listeners.
     const passengersTabLink = this.querySelector('#profile-tab');
     if (passengersTabLink && typeof bootstrap !== 'undefined' && bootstrap.Tab) {
       const tabInstance = bootstrap.Tab.getOrCreateInstance(passengersTabLink);
@@ -115,6 +116,7 @@ class AppPaginationPago extends HTMLElement {
 
   handleNavigateToPayment(event) {
     console.log("navigate-to-payment event caught by app-pagination-pago", event.detail);
+    event.stopPropagation(); // Evita que el evento se propague y sea capturado por otros listeners.
     const paymentTabLink = this.querySelector('#payment-tab');
      if (paymentTabLink && typeof bootstrap !== 'undefined' && bootstrap.Tab) {
       const tabInstance = bootstrap.Tab.getOrCreateInstance(paymentTabLink);
