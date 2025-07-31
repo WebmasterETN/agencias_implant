@@ -219,7 +219,7 @@ class AppHeader extends HTMLElement {
                   </nav>
               </header>
 
-              <header class="header container-fluid flex-column justify-content-center align-items-center fixed-top text-white mt-5 p-0 bg-body-tertiary z-1">
+              <header class="header container-fluid flex-column justify-content-center align-items-center fixed-top text-white mt-5 p-0 bg-body-tertiary z-3">
                   <nav class="navbar navbar-expand-lg w-100 mt-4">
                       <div class="container-fluid p-0">
                           <button id="customNavbarToggle" class="navbar-toggler" type="button" aria-controls="navbarNavAgency" aria-expanded="false" aria-label="Toggle navigation">
