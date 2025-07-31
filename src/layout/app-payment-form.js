@@ -130,7 +130,7 @@ class AppPaymentForm extends HTMLElement {
 
                     <fieldset class="form-group d-flex flex-column gap-3 mb-3">
                         <label for="method-payment" class="form-label fs-4 fw-semibold text-black">Selecciona tu forma de pago</label>
-                        <fieldset class="d-flex flex-wrap gap-3" id="payment-methods-container" @click="${this._handlePaymentMethodClick}">
+                        <fieldset class="d-flex flex-wrap gap-3" id="payment-methods-container">
                             <div class="method-payment-wrapper __payment-selector-badge">
                                 <button type="button" class="btn bg-light shadow" style="max-width: 200px; min-width: 130px; width: 100%; height: 100px;">
                                     <div class="d-flex justify-content-center align-items-center gap-1 w-100">
