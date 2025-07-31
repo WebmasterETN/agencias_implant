@@ -17,6 +17,75 @@ class AppPaymentForm extends HTMLElement {
         this.removeEventListeners();
     }
 
+    addEventListeners() {
+        const form = this.querySelector('#payment-form');
+        if (form) {
+            form.addEventListener('submit', this._handleSubmit);
+        }
+
+        const numericInputs = this.querySelectorAll('input[type="numeric"], input[inputmode="numeric"]');
+        numericInputs.forEach(input => {
+            input.addEventListener('input', this._handleNumericInput);
+        });
+
+        const paymentMethodsContainer = this.querySelector("#payment-methods-container");
+        if (paymentMethodsContainer) {
+            // Guardar la referencia a la función para poder removerla después
+            this._handlePaymentMethodClick = (e) => {
+                const clickedButton = e.target.closest('button');
+                if (!clickedButton) return;
+
+                const allButtons = paymentMethodsContainer.querySelectorAll('button');
+                allButtons.forEach(btn => btn.classList.remove('selected')); // 'selected' class should be defined in CSS
+                clickedButton.classList.add('selected');
+            };
+            paymentMethodsContainer.addEventListener('click', this._handlePaymentMethodClick);
+        }
+    }
+
+    removeEventListeners() {
+        const form = this.querySelector('#payment-form');
+        if (form) {
+            form.removeEventListener('submit', this._handleSubmit);
+        }
+
+        const numericInputs = this.querySelectorAll('input[type="numeric"], input[inputmode="numeric"]');
+        numericInputs.forEach(input => {
+            input.removeEventListener('input', this._handleNumericInput);
+        });
+
+        const paymentMethodsContainer = this.querySelector("#payment-methods-container");
+        if (paymentMethodsContainer && this._handlePaymentMethodClick) {
+            paymentMethodsContainer.removeEventListener('click', this._handlePaymentMethodClick);
+        }
+    }
+
+    _handleNumericInput(event) {
+        // Reemplaza cualquier caracter que no sea un dígito
+        event.target.value = event.target.value.replace(/\D/g, "");
+    }
+
+    _handleSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+
+        if (!form.checkValidity()) {
+            event.stopPropagation();
+            console.log("El formulario no es válido.");
+        } else {
+            console.log("Formulario válido, procesando pago...");
+            // Aquí iría la lógica para procesar el pago
+            const formData = new FormData(form);
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+            alert('¡Compra finalizada con éxito! (Simulación)');
+        }
+
+        // Siempre agregar la clase para mostrar los mensajes de validación de Bootstrap
+        form.classList.add('was-validated');
+    }
+
     render() {
         this.innerHTML = `
             <article class="payment-form">
@@ -53,8 +122,8 @@ class AppPaymentForm extends HTMLElement {
 
                     <fieldset class="form-group d-flex flex-column gap-3 mb-3">
                         <label for="method-payment" class="form-label fs-4 fw-semibold text-black">Selecciona tu forma de pago</label>
-                        <fieldset class="d-flex gap-3">
-                            <div id="method-payment" class="method-payment-wrapper __payment-selector-badge">
+                        <fieldset class="d-flex gap-3" id="payment-methods-container">
+                            <div class="method-payment-wrapper __payment-selector-badge">
                                 <button type="button" class="btn bg-light shadow" style="max-width: 200px; width: 100%; height: 100px;">
                                     <div class="d-flex justify-content-center align-items-center gap-1 w-100">
                                         <span class="__method-payment-icon icon-currency-dollar"></span>
@@ -62,7 +131,7 @@ class AppPaymentForm extends HTMLElement {
                                     <p title="" class="m-0 p-0">Efectivo</p>
                                 </button>
                             </div>
-                            <div id="method-payment" class="method-payment-wrapper __payment-selector-badge">
+                            <div class="method-payment-wrapper __payment-selector-badge">
                                 <button type="button" class="btn bg-light shadow text-center" style="max-width: 200px; width: 100%; height: 100px;">
                                     <div class="__new-method">
                                         <span>Nuevo</span>
@@ -73,7 +142,7 @@ class AppPaymentForm extends HTMLElement {
                                     <p title="" class="m-0 p-0">Préstamo a plazos</p>
                                 </button>
                             </div>
-                            <div id="method-payment" class="method-payment-wrapper __payment-selector-badge">
+                            <div class="method-payment-wrapper __payment-selector-badge">
                                 <button type="button" class="btn bg-light shadow align-items-center" style="max-width: 200px; width: 100%; height: 100px;">
                                     <div class="d-flex justify-content-center align-items-center gap-1 w-100">
                                         <span class="__method-payment-one-icon icon-paypal"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
@@ -86,7 +155,6 @@ class AppPaymentForm extends HTMLElement {
                     </fieldset>
 
                     <fieldset class="form-group d-flex flex-column gap-3 mb-3">
-                        <label for="first-name" class="form-label fs-4 fw-semibold text-black">Datos del comprador</label>
                         <fieldset class="row mb-3">
                           <!-- Nombres -->
                           <div class="col-12 col-xl">
