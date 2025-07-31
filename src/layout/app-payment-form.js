@@ -1,10 +1,26 @@
 import "../components/app-card-select-ticket.js";
 
 class AppPaymentForm extends HTMLElement {
+    constructor() {
+        super();
+        // Vincular métodos para asegurar que 'this' se refiera a la instancia de la clase
+        this._handleNumericInput = this._handleNumericInput.bind(this);
+        this._handleSubmit = this._handleSubmit.bind(this);
+    }
+
     connectedCallback() {
+        this.render();
+        this.addEventListeners();
+    }
+
+    disconnectedCallback() {
+        this.removeEventListeners();
+    }
+
+    render() {
         this.innerHTML = `
             <article class="payment-form">
-                <form id="payment-form" class="needs-validation"  novalidate>
+                <form id="payment-form" class="needs-validation" novalidate>
                     <label class="form-label fs-4 fw-semibold text-black text-left">¡Asegura tus asientos!</label>
 
                     <fieldset class="__direction-trip">
@@ -38,7 +54,7 @@ class AppPaymentForm extends HTMLElement {
                     <fieldset class="form-group d-flex flex-column gap-3 mb-3">
                         <label for="method-payment" class="form-label fs-4 fw-semibold text-black">Selecciona tu forma de pago</label>
                         <fieldset class="d-flex gap-3">
-                            <div id="method-payment" class="__payment-selector-badge">
+                            <div class="method-payment-wrapper __payment-selector-badge">
                                 <button type="button" class="btn bg-light shadow" style="max-width: 200px; width: 100%; height: 100px;">
                                     <div class="d-flex justify-content-center align-items-center gap-1 w-100">
                                         <span class="__method-payment-icon icon-visa"><span class="path1"></span><span class="path2"></span></span>
@@ -48,7 +64,7 @@ class AppPaymentForm extends HTMLElement {
                                     <p title="" class="m-0 p-0">Crédito o débito</p>
                                 </button>
                             </div>
-                            <div id="method-payment" class="__payment-selector-badge">
+                            <div class="method-payment-wrapper __payment-selector-badge">
                                 <button type="button" class="btn bg-light shadow text-center" style="max-width: 200px; width: 100%; height: 100px;">
                                     <div class="__new-method">
                                         <span>Nuevo</span>
@@ -59,7 +75,7 @@ class AppPaymentForm extends HTMLElement {
                                     <p title="" class="m-0 p-0">Préstamo a plazos</p>
                                 </button>
                             </div>
-                            <div id="method-payment" class="__payment-selector-badge">
+                            <div class="method-payment-wrapper __payment-selector-badge">
                                 <button type="button" class="btn bg-light shadow align-items-center" style="max-width: 200px; width: 100%; height: 100px;">
                                     <div class="d-flex justify-content-center align-items-center gap-1 w-100">
                                         <span class="__method-payment-one-icon icon-paypal"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
@@ -77,16 +93,19 @@ class AppPaymentForm extends HTMLElement {
                           <!-- Nombres -->
                           <div class="col-12 col-xl">
                             <label for="passengers[0].firstName" class="form-label">Nombre (s) *</label>
-                            <input id="passengers[0].firstName" type="text" name="passengers[0].firstName" placeholder="Nombre (s)" class="form-control form-control-lg" value="">
-                            <div class="valid-feedback">
-                                Porfavor ingrese su nombre!
+                            <input id="passengers[0].firstName" type="text" name="passengers[0].firstName" placeholder="Nombre (s)" class="form-control form-control-lg" value="" required>
+                            <div class="invalid-feedback">
+                                Por favor ingrese su nombre.
                             </div>
                           </div>
                           <!-- Apellido Paterno -->
                           <div class="col-12 col-xl">
                             <div class="field-renderer">
                               <label for="passengers[0].lastName" class="form-label">Apellido Paterno *</label>
-                              <input id="passengers[0].lastName" type="text" name="passengers[0].lastName" placeholder="Apellido Paterno" class="form-control form-control-lg" value="">
+                              <input id="passengers[0].lastName" type="text" name="passengers[0].lastName" placeholder="Apellido Paterno" class="form-control form-control-lg" value="" required>
+                              <div class="invalid-feedback">
+                                Por favor ingrese su apellido paterno.
+                              </div>
                             </div>
                           </div>
                           <!-- Apellido Materno (mitad del ancho) -->
@@ -102,7 +121,7 @@ class AppPaymentForm extends HTMLElement {
                             
                             <label for="phone" class="form-label">Teléfono celular *</label>
                             <div class="col">
-                                <select name="phoneCountry" class="form-select form-select-lg" id="phoneCountry" required>
+                                <select name="phoneCountry" class="form-select form-select-lg" id="phoneCountry" required >
                                     <option value="" disabled="">Código de país</option>
                                     <optgroup label="Más usados">
                                         <option value="US">Estados Unidos +1</option>
@@ -361,8 +380,11 @@ class AppPaymentForm extends HTMLElement {
                             </div>
                             <!-- Celular -->
                             <div class="col-6">
-                                <input id="phone" type="tel" name="phone" placeholder="Teléfono celular" class="form-control form-control-lg" value=""/>
-                            </div<
+                                <input id="phone" type="tel" name="phone" placeholder="Teléfono celular" class="form-control form-control-lg" value="" required/>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese su número de teléfono.
+                                </div>
+                            </div>
                         </fieldset>
                     </fieldset>
 
@@ -370,7 +392,10 @@ class AppPaymentForm extends HTMLElement {
 
                         <label for="num-target" class="form-label">Número de la tarjeta *</label>
                         <input type="numeric" class="form-control form-control-lg" id="num-target" placeholder="Número de la tarjeta" required>
-                        
+                        <div class="invalid-feedback">
+                            Por favor ingrese el número de la tarjeta.
+                        </div>
+
                         <label for="expirationMonth" class="form-label">Fecha de vencimiento *</label>
                         <fieldset class="d-flex gap-3">
 
@@ -405,12 +430,21 @@ class AppPaymentForm extends HTMLElement {
                                 <option value="2035">2035</option>
                             </select>
                         </fieldset>
+                        <div class="invalid-feedback d-block" style="margin-top: -1rem;">
+                           Por favor seleccione mes y año de vencimiento.
+                        </div>
 
                         <label for="cvv" class="form-label">CVV *</label>
-                        <input type="text" id="cvv" name="cvv" class="form-control form-control-lg" placeholder="CVV" maxlength="4" inputmode="numeric" pattern="/d{3,4}"  required>
+                        <input type="text" id="cvv" name="cvv" class="form-control form-control-lg" placeholder="CVV" maxlength="4" inputmode="numeric" pattern="\\d{3,4}"  required>
+                        <div class="invalid-feedback">
+                            Por favor ingrese el CVV.
+                        </div>
 
                         <label for="name-target" class="form-label">Nombre del titular *</label>
                         <input type="text" class="form-control form-control-lg" id="name-target" placeholder="Nombre del titular" required>
+                        <div class="invalid-feedback">
+                            Por favor ingrese el nombre del titular.
+                        </div>
                     </fieldset>
 
                     <button class="btn btn-continue d-flex justify-content-between align-items-center text-light" type="submit">
@@ -422,17 +456,47 @@ class AppPaymentForm extends HTMLElement {
                 </form>
             </article>
         `;
-        // Bloquear letras en el campo de número de tarjeta
-        const numTarget = this.querySelector("#num-target");
-        numTarget.addEventListener("input", (e) => {
-            e.target.value = e.target.value.replace(/\D/g, ""); // Permitir solo números
-        });
+    }
 
-        // Bloquear letras en el campo de CVV
-        const cvv = this.querySelector("#cvv");
-        cvv.addEventListener("input", (e) => {
-            e.target.value = e.target.value.replace(/\D/g, ""); // Permitir solo números
-        });
+    addEventListeners() {
+        this.querySelector("#num-target")?.addEventListener("input", this._handleNumericInput);
+        this.querySelector("#cvv")?.addEventListener("input", this._handleNumericInput);
+        this.querySelector("#payment-form")?.addEventListener("submit", this._handleSubmit);
+    }
+
+    removeEventListeners() {
+        this.querySelector("#num-target")?.removeEventListener("input", this._handleNumericInput);
+        this.querySelector("#cvv")?.removeEventListener("input", this._handleNumericInput);
+        this.querySelector("#payment-form")?.removeEventListener("submit", this._handleSubmit);
+    }
+
+    _handleNumericInput(event) {
+        // Reemplaza cualquier caracter que no sea un dígito
+        event.target.value = event.target.value.replace(/\D/g, "");
+    }
+
+    _handleSubmit(event) {
+        event.preventDefault();
+        const form = event.target;
+
+        // Lógica de validación de Bootstrap
+        if (!form.checkValidity()) {
+            event.stopPropagation();
+            form.classList.add('was-validated');
+            console.log("El formulario no es válido.");
+            // Opcional: mostrar una alerta o mensaje general
+            // alert('Por favor, complete todos los campos requeridos.');
+        } else {
+            form.classList.add('was-validated');
+            console.log("Formulario válido, procesando pago...");
+            // Aquí iría la lógica para procesar el pago
+            // Por ejemplo, recolectar los datos y enviarlos a un backend
+            const formData = new FormData(form);
+            for (let [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+            alert('¡Compra finalizada con éxito! (Simulación)');
+        }
     }
 }
 customElements.define("app-payment-form", AppPaymentForm);
