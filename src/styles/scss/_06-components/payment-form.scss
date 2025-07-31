@@ -12,10 +12,17 @@
     text-align: center;
     position: relative;
 
-    .__method-payment-icon {
+    .icon-coin-dollar {
       font-size: clamp(1.5rem, 5vw, 2.5rem);
+      color: $primary-color;
     }
-    
+
+    .__method-payment-icon,
+    .icon-coin-dollar {
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      color: $primary-color;
+    }
+
     .__method-payment-one-icon {
       font-size: clamp(0.9rem, 3vw, 2rem);
     }
@@ -35,6 +42,15 @@
     }
   }
 }
+
 .__btn-continue {
   background-color: $primary-color;
+}
+
+.__payment-selector-badge .btn.selected {
+  border: 2px solid $primary-color;
+}
+
+.btn.selected:active {
+  border: 2px solid $primary-color;
 }

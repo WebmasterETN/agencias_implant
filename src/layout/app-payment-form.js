@@ -36,19 +36,17 @@ class AppPaymentForm extends HTMLElement {
                     </fieldset>
 
                     <fieldset class="form-group d-flex flex-column gap-3 mb-3">
-                        <label for="method-payment" class="form-label fs-4 fw-semibold text-black">Selecciona tu forma de pago</label>
-                        <fieldset class="d-flex gap-3">
-                            <div id="method-payment" class="__payment-selector-badge">
-                                <button type="button" class="btn bg-light shadow" style="max-width: 200px; width: 100%; height: 100px;">
+                        <label class="form-label fs-4 fw-semibold text-black">Selecciona tu forma de pago</label>
+                        <fieldset id="payment-methods-container" class="d-flex flex-wrap gap-3">
+                            <div class="__payment-selector-badge">
+                                <button type="button" class="btn bg-light shadow" style="max-width: 200px; min-width: 130px; width: 100%; height: 100px;">
                                     <div class="d-flex justify-content-center align-items-center gap-1 w-100">
-                                        <span class="__method-payment-icon icon-visa"><span class="path1"></span><span class="path2"></span></span>
-                                        <span class="__method-payment-icon icon-mastercard"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
-                                        <span class="__method-payment-icon icon-american-express"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+                                        <span class="__method-payment-icon icon-currency-dollar"></span>
                                     </div>
-                                    <p title="" class="m-0 p-0">Crédito o débito</p>
+                                    <p title="" class="m-0 p-0">Efectivo</p>
                                 </button>
                             </div>
-                            <div id="method-payment" class="__payment-selector-badge">
+                            <div class="__payment-selector-badge">
                                 <button type="button" class="btn bg-light shadow text-center" style="max-width: 200px; width: 100%; height: 100px;">
                                     <div class="__new-method">
                                         <span>Nuevo</span>
@@ -59,7 +57,17 @@ class AppPaymentForm extends HTMLElement {
                                     <p title="" class="m-0 p-0">Préstamo a plazos</p>
                                 </button>
                             </div>
-                            <div id="method-payment" class="__payment-selector-badge">
+                            <div class="__payment-selector-badge">
+                                <button type="button" class="btn bg-light shadow" style="max-width: 200px; width: 100%; height: 100px;">
+                                    <div class="d-flex justify-content-center align-items-center gap-1 w-100">
+                                        <span class="__method-payment-icon icon-visa"><span class="path1"></span><span class="path2"></span></span>
+                                        <span class="__method-payment-icon icon-mastercard"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                                        <span class="__method-payment-icon icon-american-express"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+                                    </div>
+                                    <p title="" class="m-0 p-0">Crédito o débito</p>
+                                </button>
+                            </div>
+                            <div class="__payment-selector-badge">
                                 <button type="button" class="btn bg-light shadow align-items-center" style="max-width: 200px; width: 100%; height: 100px;">
                                     <div class="d-flex justify-content-center align-items-center gap-1 w-100">
                                         <span class="__method-payment-one-icon icon-paypal"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
@@ -433,6 +441,24 @@ class AppPaymentForm extends HTMLElement {
         cvv.addEventListener("input", (e) => {
             e.target.value = e.target.value.replace(/\D/g, ""); // Permitir solo números
         });
+
+        // Lógica para la selección de método de pago
+        const paymentMethodsContainer = this.querySelector("#payment-methods-container");
+        if (paymentMethodsContainer) {
+            paymentMethodsContainer.addEventListener('click', (e) => {
+                const clickedButton = e.target.closest('button');
+                if (!clickedButton) return; // Salir si el clic no fue en un botón
+
+                // Encontrar todos los botones dentro del contenedor
+                const allButtons = paymentMethodsContainer.querySelectorAll('button');
+
+                // Remover la clase 'selected' de todos los botones
+                allButtons.forEach(btn => btn.classList.remove('selected'));
+
+                // Añadir la clase 'selected' al botón presionado
+                clickedButton.classList.add('selected');
+            });
+        }
     }
 }
 customElements.define("app-payment-form", AppPaymentForm);
