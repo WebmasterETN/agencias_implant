@@ -2,7 +2,8 @@ class AppPaginationPago extends HTMLElement {
   constructor() {
     super();
     // Bind event handlers to the instance
-    this._handleNavigateToPassengers = this.handleNavigateToPassengers.bind(this);
+    this._handleNavigateToPassengers =
+      this.handleNavigateToPassengers.bind(this);
     this._handleNavigateToPayment = this.handleNavigateToPayment.bind(this);
   }
   connectedCallback() {
@@ -39,10 +40,19 @@ class AppPaginationPago extends HTMLElement {
               </section>
             
     `;
-    // Use setTimeout to ensure child elements are potentially rendered and Bootstrap might be ready
+    // Se usa setTimeout para asegurarse de que el DOM esté completamente cargado
     setTimeout(() => {
       this.addEventListeners();
       this.initializeTabStatus();
+      // Si hay extras guardados, pásalos al formulario de pago
+      const paymentForm = this.querySelector("app-payment-form");
+      if (
+        paymentForm &&
+        typeof paymentForm.setExtras === "function" &&
+        this._extras
+      ) {
+        paymentForm.setExtras(this._extras);
+      }
     }, 0);
   }
 
@@ -52,75 +62,119 @@ class AppPaginationPago extends HTMLElement {
   }
 
   addEventListeners() {
-    const tabLinks = this.querySelectorAll('.main-tabs .nav-link:not(.disabled)'); // Excluimos el disabled
-    const statusText = this.querySelector('#statusText'); // Busca el ID dentro del componente
+    const tabLinks = this.querySelectorAll(
+      ".main-tabs .nav-link:not(.disabled)"
+    ); // Excluimos el disabled
+    const statusText = this.querySelector("#statusText"); // Busca el ID dentro del componente
 
     // 3. Añade los event listeners
-    if (statusText) { // Comprueba si statusText se encontró
+    if (statusText) {
+      // Comprueba si statusText se encontró
       tabLinks.forEach((link, index) => {
-        // Store the handler reference for removal
+        // Almacena el manejador de eventos en el elemento para evitar duplicados
         link._tabShownHandler = () => {
           statusText.textContent = `Paso ${index + 1} de ${tabLinks.length}`;
         };
         // Escucha el evento 'shown.bs.tab' de Bootstrap que se dispara DESPUÉS de que la pestaña se muestra
-        link.addEventListener('shown.bs.tab', link._tabShownHandler);
+        link.addEventListener("shown.bs.tab", link._tabShownHandler);
       });
     } else {
-      console.error("Elemento #statusText no encontrado dentro de app-pagination-pago.");
+      console.error(
+        "Elemento #statusText no encontrado dentro de app-pagination-pago."
+      );
     }
 
-    // Listen for navigation events from children
-    this.addEventListener('navigate-to-passengers', this._handleNavigateToPassengers);
-    this.addEventListener('navigate-to-payment', this._handleNavigateToPayment);
+    // Escucha los eventos de navegación del componente
+    this.addEventListener(
+      "navigate-to-passengers",
+      this._handleNavigateToPassengers
+    );
+    this.addEventListener("navigate-to-payment", this._handleNavigateToPayment);
     console.log("Navigation event listeners added to app-pagination-pago");
   }
 
   removeEventListeners() {
-    const tabLinks = this.querySelectorAll('.main-tabs .nav-link:not(.disabled)');
-    tabLinks.forEach(link => {
+    const tabLinks = this.querySelectorAll(
+      ".main-tabs .nav-link:not(.disabled)"
+    );
+    tabLinks.forEach((link) => {
       if (link._tabShownHandler) {
-        link.removeEventListener('shown.bs.tab', link._tabShownHandler);
-        delete link._tabShownHandler; // Clean up the stored handler
+        link.removeEventListener("shown.bs.tab", link._tabShownHandler);
+        delete link._tabShownHandler; 
       }
     });
 
-    // Remove navigation event listeners
-    this.removeEventListener('navigate-to-passengers', this._handleNavigateToPassengers);
-    this.removeEventListener('navigate-to-payment', this._handleNavigateToPayment);
+    this.removeEventListener(
+      "navigate-to-passengers",
+      this._handleNavigateToPassengers
+    );
+    this.removeEventListener(
+      "navigate-to-payment",
+      this._handleNavigateToPayment
+    );
     console.log("Navigation event listeners removed from app-pagination-pago");
   }
 
   initializeTabStatus() {
-    const activeTabLink = this.querySelector('.main-tabs .nav-link.active:not(.disabled)');
-    const tabLinks = this.querySelectorAll('.main-tabs .nav-link:not(.disabled)');
-    const statusText = this.querySelector('#statusText');
+    const activeTabLink = this.querySelector(
+      ".main-tabs .nav-link.active:not(.disabled)"
+    );
+    const tabLinks = this.querySelectorAll(
+      ".main-tabs .nav-link:not(.disabled)"
+    );
+    const statusText = this.querySelector("#statusText");
     if (activeTabLink && statusText) {
       const activeIndex = Array.from(tabLinks).indexOf(activeTabLink);
       if (activeIndex !== -1) {
-        statusText.textContent = `Paso ${activeIndex + 1} de ${tabLinks.length}`;
+        statusText.textContent = `Paso ${activeIndex + 1} de ${
+          tabLinks.length
+        }`;
       }
     }
   }
 
   handleNavigateToPassengers(event) {
-    console.log("navigate-to-passengers event caught by app-pagination-pago", event.detail);
-    const passengersTabLink = this.querySelector('#profile-tab');
-    if (passengersTabLink && typeof bootstrap !== 'undefined' && bootstrap.Tab) {
+    event.stopPropagation();
+
+    console.log(
+      "navigate-to-passengers event caught by app-pagination-pago",
+      event.detail
+    );
+    const passengersTabLink = this.querySelector("#profile-tab");
+    if (
+      passengersTabLink &&
+      typeof bootstrap !== "undefined" &&
+      bootstrap.Tab
+    ) {
       const tabInstance = bootstrap.Tab.getOrCreateInstance(passengersTabLink);
       tabInstance.show();
     } else {
-      console.error("Could not find passengers tab link or Bootstrap Tab is not available.");
+      console.error(
+        "Could not find passengers tab link or Bootstrap Tab is not available."
+      );
     }
   }
 
   handleNavigateToPayment(event) {
-    console.log("navigate-to-payment event caught by app-pagination-pago", event.detail);
-    const paymentTabLink = this.querySelector('#payment-tab');
-     if (paymentTabLink && typeof bootstrap !== 'undefined' && bootstrap.Tab) {
+    event.stopPropagation();
+
+    const paymentTabLink = this.querySelector("#payment-tab");
+    if (paymentTabLink && typeof bootstrap !== "undefined" && bootstrap.Tab) {
       const tabInstance = bootstrap.Tab.getOrCreateInstance(paymentTabLink);
       tabInstance.show();
-    } else {
-      console.error("Could not find payment tab link or Bootstrap Tab is not available.");
+    }
+    // Guarda los extras para usarlos después
+    if (event.detail && event.detail.extras) {
+      this._extras = event.detail.extras;
+    }
+    // Intenta pasar los extras si el componente ya existe
+    const paymentForm = this.querySelector("app-payment-form");
+    if (
+      paymentForm &&
+      typeof paymentForm.setExtras === "function" &&
+      this._extras
+    ) {
+      paymentForm.setExtras(this._extras);
     }
   }
 }
