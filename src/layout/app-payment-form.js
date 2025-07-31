@@ -541,6 +541,18 @@ class AppPaymentForm extends HTMLElement {
                 </form>
             </article>
         `;
+
+        // Bloquear letras en el campo de número de tarjeta
+        const numTarget = this.querySelector("#num-target");
+        numTarget.addEventListener("input", (e) => {
+            e.target.value = e.target.value.replace(/\D/g, ""); // Permitir solo números
+        });
+
+        // Bloquear letras en el campo de CVV
+        const cvv = this.querySelector("#cvv");
+        cvv.addEventListener("input", (e) => {
+            e.target.value = e.target.value.replace(/\D/g, ""); // Permitir solo números
+        });
     }
 
     
