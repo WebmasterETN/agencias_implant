@@ -419,7 +419,6 @@ class AppPaymentForm extends HTMLElement {
                         <div class="arrow">&gt;</div>
                         <div class="arrow">&gt;</div>
                         <div class="arrow">&gt;</div>
-
                       </div>
                     </button>
                 </form>
