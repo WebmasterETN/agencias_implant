@@ -8,10 +8,9 @@
   font-display: block;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: "icomoon" !important;
+  font-family: 'icomoon' !important;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -1044,4 +1043,13 @@
 }
 .icon-yt:before {
   content: "\e908";
+}
+.icon-coin-dollar:before {
+  content: "\e968";
+}
+.icon-printer:before {
+  content: "\e969";
+}
+.icon-floppy-disk:before {
+  content: "\e96a";
 }
