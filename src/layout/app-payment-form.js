@@ -85,6 +85,14 @@ class AppPaymentForm extends HTMLElement {
         // Siempre agregar la clase para mostrar los mensajes de validación de Bootstrap
         form.classList.add('was-validated');
     }
+    _handlePaymentMethodClick(e) {
+        const clickedButton = e.target.closest('button');
+        if (!clickedButton) return;
+        const paymentMethodsContainer = this.querySelector("#payment-methods-container");
+        const allButtons = paymentMethodsContainer.querySelectorAll('button');
+        allButtons.forEach(btn => btn.classList.remove('selected'));
+        clickedButton.classList.add('selected');
+    }
 
     render() {
         this.innerHTML = `
@@ -122,9 +130,9 @@ class AppPaymentForm extends HTMLElement {
 
                     <fieldset class="form-group d-flex flex-column gap-3 mb-3">
                         <label for="method-payment" class="form-label fs-4 fw-semibold text-black">Selecciona tu forma de pago</label>
-                        <fieldset class="d-flex gap-3" id="payment-methods-container">
+                        <fieldset class="d-flex flex-wrap gap-3" id="payment-methods-container" @click="${this._handlePaymentMethodClick}">
                             <div class="method-payment-wrapper __payment-selector-badge">
-                                <button type="button" class="btn bg-light shadow" style="max-width: 200px; width: 100%; height: 100px;">
+                                <button type="button" class="btn bg-light shadow" style="max-width: 200px; min-width: 130px; width: 100%; height: 100px;">
                                     <div class="d-flex justify-content-center align-items-center gap-1 w-100">
                                         <span class="__method-payment-icon icon-currency-dollar"></span>
                                     </div>
@@ -140,6 +148,16 @@ class AppPaymentForm extends HTMLElement {
                                         <span class="__method-payment-one-icon icon-kueskipay"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span><span class="path14"></span></span>
                                     </div>
                                     <p title="" class="m-0 p-0">Préstamo a plazos</p>
+                                </button>
+                            </div>
+                            <div class="method-payment-wrapper __payment-selector-badge">
+                                <button type="button" class="btn bg-light shadow" style="max-width: 200px; width: 100%; height: 100px;">
+                                    <div class="d-flex justify-content-center align-items-center gap-1 w-100">
+                                        <span class="__method-payment-icon icon-visa"><span class="path1"></span><span class="path2"></span></span>
+                                        <span class="__method-payment-icon icon-mastercard"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                                        <span class="__method-payment-icon icon-american-express"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span></span>
+                                    </div>
+                                    <p title="" class="m-0 p-0">Crédito o débito</p>
                                 </button>
                             </div>
                             <div class="method-payment-wrapper __payment-selector-badge">
@@ -525,45 +543,6 @@ class AppPaymentForm extends HTMLElement {
         `;
     }
 
-    addEventListeners() {
-        this.querySelector("#num-target")?.addEventListener("input", this._handleNumericInput);
-        this.querySelector("#cvv")?.addEventListener("input", this._handleNumericInput);
-        this.querySelector("#payment-form")?.addEventListener("submit", this._handleSubmit);
-    }
-
-    removeEventListeners() {
-        this.querySelector("#num-target")?.removeEventListener("input", this._handleNumericInput);
-        this.querySelector("#cvv")?.removeEventListener("input", this._handleNumericInput);
-        this.querySelector("#payment-form")?.removeEventListener("submit", this._handleSubmit);
-    }
-
-    _handleNumericInput(event) {
-        // Reemplaza cualquier caracter que no sea un dígito
-        event.target.value = event.target.value.replace(/\D/g, "");
-    }
-
-    _handleSubmit(event) {
-        event.preventDefault();
-        const form = event.target;
-
-        // Lógica de validación de Bootstrap
-        if (!form.checkValidity()) {
-            event.stopPropagation();
-            form.classList.add('was-validated');
-            console.log("El formulario no es válido.");
-            // Opcional: mostrar una alerta o mensaje general
-            // alert('Por favor, complete todos los campos requeridos.');
-        } else {
-            form.classList.add('was-validated');
-            console.log("Formulario válido, procesando pago...");
-            // Aquí iría la lógica para procesar el pago
-            // Por ejemplo, recolectar los datos y enviarlos a un backend
-            const formData = new FormData(form);
-            for (let [key, value] of formData.entries()) {
-                console.log(`${key}: ${value}`);
-            }
-            alert('¡Compra finalizada con éxito! (Simulación)');
-        }
-    }
+    
 }
 customElements.define("app-payment-form", AppPaymentForm);

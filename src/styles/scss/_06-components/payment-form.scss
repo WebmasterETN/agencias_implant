@@ -4,6 +4,8 @@
   button {
     max-width: 200px;
     width: 100%;
+    /* Añadimos un borde transparente para evitar que el layout "salte" al seleccionarlo. */
+    border: 2px solid transparent;
     height: 100px;
     display: flex;
     flex-direction: column;
