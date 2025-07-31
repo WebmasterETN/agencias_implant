@@ -5,6 +5,7 @@ class AppPaymentForm extends HTMLElement {
         super();
         // Vincular métodos para asegurar que 'this' se refiera a la instancia de la clase
         this._handleNumericInput = this._handleNumericInput.bind(this);
+        this._handlePaymentMethodClick = this._handlePaymentMethodClick.bind(this);
         this._handleSubmit = this._handleSubmit.bind(this);
     }
 
@@ -30,15 +31,6 @@ class AppPaymentForm extends HTMLElement {
 
         const paymentMethodsContainer = this.querySelector("#payment-methods-container");
         if (paymentMethodsContainer) {
-            // Guardar la referencia a la función para poder removerla después
-            this._handlePaymentMethodClick = (e) => {
-                const clickedButton = e.target.closest('button');
-                if (!clickedButton) return;
-
-                const allButtons = paymentMethodsContainer.querySelectorAll('button');
-                allButtons.forEach(btn => btn.classList.remove('selected')); // 'selected' class should be defined in CSS
-                clickedButton.classList.add('selected');
-            };
             paymentMethodsContainer.addEventListener('click', this._handlePaymentMethodClick);
         }
     }
@@ -55,7 +47,7 @@ class AppPaymentForm extends HTMLElement {
         });
 
         const paymentMethodsContainer = this.querySelector("#payment-methods-container");
-        if (paymentMethodsContainer && this._handlePaymentMethodClick) {
+        if (paymentMethodsContainer) {
             paymentMethodsContainer.removeEventListener('click', this._handlePaymentMethodClick);
         }
     }
@@ -85,6 +77,7 @@ class AppPaymentForm extends HTMLElement {
         // Siempre agregar la clase para mostrar los mensajes de validación de Bootstrap
         form.classList.add('was-validated');
     }
+
     _handlePaymentMethodClick(e) {
         const clickedButton = e.target.closest('button');
         if (!clickedButton) return;
@@ -482,9 +475,8 @@ class AppPaymentForm extends HTMLElement {
                         </div>
 
                         <label for="expirationMonth" class="form-label">Fecha de vencimiento *</label>
-                        <fieldset class="d-flex gap-3">
-
-                            <select name="expirationMonth" id="expirationMonth" class="form-select form-select-lg" required>
+                        <div class="input-group has-validation">
+                            <select name="expirationMonth" id="expirationMonth" class="form-select form-select-lg" aria-label="Mes de vencimiento" required>
                                 <option value="" disabled selected>Mes</option>
                                 <option value="01">01</option>
                                 <option value="02">02</option>
@@ -500,7 +492,7 @@ class AppPaymentForm extends HTMLElement {
                                 <option value="12">12</option>
                             </select>
 
-                            <select name="expirationYear" id="expirationYear" class="form-select form-select-lg" required>
+                            <select name="expirationYear" id="expirationYear" class="form-select form-select-lg" aria-label="Año de vencimiento" required>
                                 <option value="" disabled selected>Año</option>
                                 <option value="2025">2025</option>
                                 <option value="2026">2026</option>
@@ -514,9 +506,9 @@ class AppPaymentForm extends HTMLElement {
                                 <option value="2034">2034</option>
                                 <option value="2035">2035</option>
                             </select>
-                        </fieldset>
-                        <div class="invalid-feedback d-block" style="margin-top: -1rem;">
-                           Por favor seleccione mes y año de vencimiento.
+                            <div class="invalid-feedback">
+                               Por favor seleccione mes y año de vencimiento.
+                            </div>
                         </div>
 
                         <label for="cvv" class="form-label">CVV *</label>
@@ -541,18 +533,6 @@ class AppPaymentForm extends HTMLElement {
                 </form>
             </article>
         `;
-
-        // Bloquear letras en el campo de número de tarjeta
-        const numTarget = this.querySelector("#num-target");
-        numTarget.addEventListener("input", (e) => {
-            e.target.value = e.target.value.replace(/\D/g, ""); // Permitir solo números
-        });
-
-        // Bloquear letras en el campo de CVV
-        const cvv = this.querySelector("#cvv");
-        cvv.addEventListener("input", (e) => {
-            e.target.value = e.target.value.replace(/\D/g, ""); // Permitir solo números
-        });
     }
 }
 customElements.define("app-payment-form", AppPaymentForm);
