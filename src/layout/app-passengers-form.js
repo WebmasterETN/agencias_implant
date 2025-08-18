@@ -52,9 +52,9 @@ class AppPassangersForm extends HTMLElement {
                             <div class="field-renderer ">
                               <div>
                                 <div class="css-1ildg7g">
-                                  <div class="css-bjn8wh"><input id="passengers-form-firstName" type="text"
+                                  <div class="css-bjn8wh"><input id="passengers[0].firstName" type="text"
                                       name="passengers[0].firstName" placeholder="Nombre (s)" class="css-za6xmu" value=""></div><label
-                                    for="passengers-form-firstName" class="css-1habs1z">Nombre (s)</label>
+                                    for="passengers[0].firstName" class="css-1habs1z">Nombre (s)</label>
                                 </div>
                               </div>
                             </div>
@@ -67,9 +67,9 @@ class AppPassangersForm extends HTMLElement {
                             <div class="field-renderer ">
                               <div>
                                 <div class="css-1ildg7g">
-                                  <div class="css-bjn8wh"><input id="passengers-form-lastName" type="text" name="passengers[0].lastName"
+                                  <div class="css-bjn8wh"><input id="passengers[0].lastName" type="text" name="passengers[0].lastName"
                                       placeholder="Apellido Paterno" class="css-za6xmu" value=""></div><label
-                                    for="passengers-form-lastName" class="css-1habs1z">Apellido Paterno</label>
+                                    for="passengers[0].lastName" class="css-1habs1z">Apellido Paterno</label>
                                 </div>
                               </div>
                             </div>
@@ -80,9 +80,9 @@ class AppPassangersForm extends HTMLElement {
                             <div class="field-renderer ">
                               <div>
                                 <div class="css-1ildg7g">
-                                  <div class="css-bjn8wh"><input id="passengers-form-secondLastName" type="text"
+                                  <div class="css-bjn8wh"><input id="passengers[0].secondLastName" type="text"
                                       name="passengers[0].secondLastName" placeholder="Apellido Materno" class="css-za6xmu" value="">
-                                  </div><label for="passengers-form-secondLastName" class="css-1habs1z">Apellido Materno</label>
+                                  </div><label for="passengers[0].secondLastName" class="css-1habs1z">Apellido Materno</label>
                                 </div>
                               </div>
                             </div>
@@ -94,9 +94,9 @@ class AppPassangersForm extends HTMLElement {
                             <div class="field-renderer ">
                               <div>
                                 <div class="css-1ildg7g">
-                                  <div class="css-bjn8wh"><input id="passengers-form-email" type="text" name="passengers[0].email"
+                                  <div class="css-bjn8wh"><input id="passengers[0].email" type="text" name="passengers[0].email"
                                       placeholder="Correo electrónico" class="css-za6xmu" value=""></div><label
-                                    for="passengers-form-email" class="css-1habs1z">Correo electrónico</label>
+                                    for="passengers[0].email" class="css-1habs1z">Correo electrónico</label>
                                 </div>
                               </div>
                             </div>
@@ -239,9 +239,9 @@ class AppPassangersForm extends HTMLElement {
   handleContinueClick() {
     // --- INICIO: Validación (Ejemplo simple) ---
     // Deberías implementar una validación más robusta según tus necesidades
-    const firstNameInput = this.querySelector('#passengers-form-firstName');
-    const lastNameInput = this.querySelector('#passengers-form-lastName');
-    const emailInput = this.querySelector('#passengers-form-email');
+    const firstNameInput = this.querySelector('#passengers\\[0\\]\\.firstName'); // Escapar caracteres especiales para querySelector
+    const lastNameInput = this.querySelector('#passengers\\[0\\]\\.lastName');
+    const emailInput = this.querySelector('#passengers\\[0\\]\\.email');
 
     if (!firstNameInput?.value || !lastNameInput?.value || !emailInput?.value) {
         alert("Por favor, completa todos los campos obligatorios del pasajero.");
