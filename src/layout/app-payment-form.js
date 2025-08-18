@@ -1,94 +1,153 @@
 import "../components/app-card-select-ticket.js";
 
 class AppPaymentForm extends HTMLElement {
-    constructor() {
-        super();
-        // Vincular métodos para asegurar que 'this' se refiera a la instancia de la clase
-        this._handleNumericInput = this._handleNumericInput.bind(this);
-        this._handlePaymentMethodClick = this._handlePaymentMethodClick.bind(this);
-        this._handleSubmit = this._handleSubmit.bind(this);
+  constructor() {
+    super();
+    this._handleNumericInput = this._handleNumericInput.bind(this);
+    this._handlePaymentMethodClick = this._handlePaymentMethodClick.bind(this);
+    this._handleSubmit = this._handleSubmit.bind(this);
+
+      this.metodoPago = "tarjeta"; // valor por defecto
+
+  }
+
+  _handlePaymentMethodClick(e) {
+    const clickedButton = e.target.closest("button");
+    if (!clickedButton) return;
+
+    const paymentMethodsContainer = this.querySelector(
+      "#payment-methods-container"
+    );
+    const allButtons = paymentMethodsContainer.querySelectorAll("button");
+    allButtons.forEach((btn) => btn.classList.remove("selected"));
+    clickedButton.classList.add("selected");
+
+    if (clickedButton.id === "hidden-form") {
+      this.metodoPago = "efectivo";
+      this.querySelector("#form-card").style.display = "none";
+      this.querySelectorAll("#form-card input, #form-card select").forEach(
+        (input) => input.removeAttribute("required")
+      );
+    } else if (clickedButton.id === "view-form-card") {
+      this.metodoPago = "tarjeta";
+      this.querySelector("#form-card").style.display = "block";
+      this.querySelectorAll("#form-card input, #form-card select").forEach(
+        (input) => input.setAttribute("required", "true")
+      );
+    } else if (clickedButton.id === "view-form-paypal") {
+      this.metodoPago = "Pay pal";
+      this.querySelector("#form-card").style.display = "block";
+      this.querySelectorAll("#form-card input, #form-card select").forEach(
+        (input) => input.setAttribute("required", "true")
+      );
+    } else if (clickedButton.id === "view-form-kueski") {
+      this.metodoPago = "Kueski";
+      this.querySelector("#form-card").style.display = "block";
+      this.querySelectorAll("#form-card input, #form-card select").forEach(
+        (input) => input.setAttribute("required", "true")
+      );
+    }
+  }
+
+  _handleSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+
+    let valido = true;
+
+    const camposAValidar = form.querySelectorAll("input, select, textarea");
+
+    camposAValidar.forEach((campo) => {
+      if (campo.closest("#form-card") && this.metodoPago === "efectivo") return;
+
+      if (!campo.checkValidity()) valido = false;
+    });
+
+    if (!valido) {
+      event.stopPropagation();
+      console.log("El formulario no es válido.");
+    } else {
+      console.log("Formulario válido, procesando pago...");
+      const formData = new FormData(form);
+      for (let [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+      }
+      alert(`¡Compra finalizada con éxito! (Pago: ${this.metodoPago})`);
     }
 
-    connectedCallback() {
-        this.render();
-        this.addEventListeners();
-    }
+    form.classList.add("was-validated");
+  }
 
-    disconnectedCallback() {
-        this.removeEventListeners();
-    }
-
-    addEventListeners() {
-        const form = this.querySelector('#payment-form');
-        if (form) {
-            form.addEventListener('submit', this._handleSubmit);
+  connectedCallback() {
+    this.render();
+      this.addEventListeners();
+      requestAnimationFrame(() => {
+        const btnTarjeta = this.querySelector("#view-form-card");
+        if (btnTarjeta) {
+          btnTarjeta.click(); // 🔹 Simula que el usuario ya dio clic
         }
+      });
+  }
 
-        const numericInputs = this.querySelectorAll('input[type="numeric"], input[inputmode="numeric"]');
-        numericInputs.forEach(input => {
-            input.addEventListener('input', this._handleNumericInput);
-        });
+  disconnectedCallback() {
+    this.removeEventListeners();
+  }
 
-        const paymentMethodsContainer = this.querySelector("#payment-methods-container");
-        if (paymentMethodsContainer) {
-            paymentMethodsContainer.addEventListener('click', this._handlePaymentMethodClick);
-        }
+  addEventListeners() {
+    const form = this.querySelector("#payment-form");
+    if (form) {
+      form.addEventListener("submit", this._handleSubmit);
     }
 
-    removeEventListeners() {
-        const form = this.querySelector('#payment-form');
-        if (form) {
-            form.removeEventListener('submit', this._handleSubmit);
-        }
+    const numericInputs = this.querySelectorAll(
+      'input[type="numeric"], input[inputmode="numeric"]'
+    );
+    numericInputs.forEach((input) => {
+      input.addEventListener("input", this._handleNumericInput);
+    });
 
-        const numericInputs = this.querySelectorAll('input[type="numeric"], input[inputmode="numeric"]');
-        numericInputs.forEach(input => {
-            input.removeEventListener('input', this._handleNumericInput);
-        });
+    const paymentMethodsContainer = this.querySelector(
+      "#payment-methods-container"
+    );
+    if (paymentMethodsContainer) {
+      paymentMethodsContainer.addEventListener(
+        "click",
+        this._handlePaymentMethodClick
+      );
+    }
+  }
 
-        const paymentMethodsContainer = this.querySelector("#payment-methods-container");
-        if (paymentMethodsContainer) {
-            paymentMethodsContainer.removeEventListener('click', this._handlePaymentMethodClick);
-        }
+  removeEventListeners() {
+    const form = this.querySelector("#payment-form");
+    if (form) {
+      form.removeEventListener("submit", this._handleSubmit);
     }
 
-    _handleNumericInput(event) {
-        // Reemplaza cualquier caracter que no sea un dígito
-        event.target.value = event.target.value.replace(/\D/g, "");
+    const numericInputs = this.querySelectorAll(
+      'input[type="numeric"], input[inputmode="numeric"]'
+    );
+    numericInputs.forEach((input) => {
+      input.removeEventListener("input", this._handleNumericInput);
+    });
+
+    const paymentMethodsContainer = this.querySelector(
+      "#payment-methods-container"
+    );
+    if (paymentMethodsContainer) {
+      paymentMethodsContainer.removeEventListener(
+        "click",
+        this._handlePaymentMethodClick
+      );
     }
+  }
 
-    _handleSubmit(event) {
-        event.preventDefault();
-        const form = event.target;
+  _handleNumericInput(event) {
+    // Reemplaza cualquier caracter que no sea un dígito
+    event.target.value = event.target.value.replace(/\D/g, "");
+  }
 
-        if (!form.checkValidity()) {
-            event.stopPropagation();
-            console.log("El formulario no es válido.");
-        } else {
-            console.log("Formulario válido, procesando pago...");
-            // Aquí iría la lógica para procesar el pago
-            const formData = new FormData(form);
-            for (let [key, value] of formData.entries()) {
-                console.log(`${key}: ${value}`);
-            }
-            alert('¡Compra finalizada con éxito! (Simulación)');
-        }
-
-        // Siempre agregar la clase para mostrar los mensajes de validación de Bootstrap
-        form.classList.add('was-validated');
-    }
-
-    _handlePaymentMethodClick(e) {
-        const clickedButton = e.target.closest('button');
-        if (!clickedButton) return;
-        const paymentMethodsContainer = this.querySelector("#payment-methods-container");
-        const allButtons = paymentMethodsContainer.querySelectorAll('button');
-        allButtons.forEach(btn => btn.classList.remove('selected'));
-        clickedButton.classList.add('selected');
-    }
-
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
             <article class="payment-form">
                 <form id="payment-form" class="needs-validation" novalidate>
                     <label class="form-label fs-4 fw-semibold text-black text-left">¡Asegura tus asientos!</label>
@@ -125,7 +184,7 @@ class AppPaymentForm extends HTMLElement {
                         <label for="method-payment" class="form-label fs-4 fw-semibold text-black">Selecciona tu forma de pago</label>
                         <fieldset class="d-flex flex-wrap gap-3" id="payment-methods-container">
                             <div class="method-payment-wrapper __payment-selector-badge">
-                                <button type="button" class="btn bg-light shadow" style="max-width: 200px; min-width: 130px; width: 100%; height: 100px;">
+                                <button id="hidden-form" type="button" class="btn bg-light shadow" style="max-width: 200px; min-width: 130px; width: 100%; height: 100px;">
                                     <div class="d-flex justify-content-center align-items-center gap-1 w-100">
                                         <span class="__method-payment-icon icon-currency-dollar"></span>
                                     </div>
@@ -133,7 +192,7 @@ class AppPaymentForm extends HTMLElement {
                                 </button>
                             </div>
                             <div class="method-payment-wrapper __payment-selector-badge">
-                                <button type="button" class="btn bg-light shadow text-center" style="max-width: 200px; width: 100%; height: 100px;">
+                                <button id="view-form-kueski" type="button" class="btn bg-light shadow text-center" style="max-width: 200px; width: 100%; height: 100px;">
                                     <div class="__new-method">
                                         <span>Nuevo</span>
                                     </div>
@@ -144,7 +203,7 @@ class AppPaymentForm extends HTMLElement {
                                 </button>
                             </div>
                             <div class="method-payment-wrapper __payment-selector-badge">
-                                <button type="button" class="btn bg-light shadow" style="max-width: 200px; width: 100%; height: 100px;">
+                                <button id="view-form-card" type="button" class="btn bg-light shadow" style="max-width: 200px; width: 100%; height: 100px;">
                                     <div class="d-flex justify-content-center align-items-center gap-1 w-100">
                                         <span class="__method-payment-icon icon-visa"><span class="path1"></span><span class="path2"></span></span>
                                         <span class="__method-payment-icon icon-mastercard"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
@@ -154,7 +213,7 @@ class AppPaymentForm extends HTMLElement {
                                 </button>
                             </div>
                             <div class="method-payment-wrapper __payment-selector-badge">
-                                <button type="button" class="btn bg-light shadow align-items-center" style="max-width: 200px; width: 100%; height: 100px;">
+                                <button id="view-form-paypal" type="button" class="btn bg-light shadow align-items-center" style="max-width: 200px; width: 100%; height: 100px;">
                                     <div class="d-flex justify-content-center align-items-center gap-1 w-100">
                                         <span class="__method-payment-one-icon icon-paypal"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span></span>
                                     </div>
@@ -194,9 +253,8 @@ class AppPaymentForm extends HTMLElement {
                             </div>
                           </div>
                         </fieldset>
-                        <fieldset class="row mb-3">
+                        <fieldset id="form-data"class="row mb-3">
                             <!-- input phone -->
-                            
                             <label for="phone" class="form-label">Teléfono celular *</label>
                             <div class="col">
                                 <select name="phoneCountry" class="form-select form-select-lg" id="phoneCountry" required >
@@ -466,17 +524,17 @@ class AppPaymentForm extends HTMLElement {
                         </fieldset>
                     </fieldset>
 
-                    <fieldset class="form-group mb-4">
+                    <fieldset id="form-card" class="form-group mb-4">
 
                         <label for="num-target" class="form-label">Número de la tarjeta *</label>
-                        <input type="numeric" class="form-control form-control-lg" id="num-target" placeholder="Número de la tarjeta" required>
+                        <input title="optional" type="numeric" class="form-control form-control-lg" id="num-target" placeholder="Número de la tarjeta" required>
                         <div class="invalid-feedback">
                             Por favor ingrese el número de la tarjeta.
                         </div>
 
                         <label for="expirationMonth" class="form-label">Fecha de vencimiento *</label>
                         <div class="input-group has-validation">
-                            <select name="expirationMonth" id="expirationMonth" class="form-select form-select-lg" aria-label="Mes de vencimiento" required>
+                            <select title="optional" name="expirationMonth" id="expirationMonth" class="form-select form-select-lg" aria-label="Mes de vencimiento" required>
                                 <option value="" disabled selected>Mes</option>
                                 <option value="01">01</option>
                                 <option value="02">02</option>
@@ -492,7 +550,7 @@ class AppPaymentForm extends HTMLElement {
                                 <option value="12">12</option>
                             </select>
 
-                            <select name="expirationYear" id="expirationYear" class="form-select form-select-lg" aria-label="Año de vencimiento" required>
+                            <select title="optional" name="expirationYear" id="expirationYear" class="form-select form-select-lg" aria-label="Año de vencimiento" required>
                                 <option value="" disabled selected>Año</option>
                                 <option value="2025">2025</option>
                                 <option value="2026">2026</option>
@@ -512,13 +570,13 @@ class AppPaymentForm extends HTMLElement {
                         </div>
 
                         <label for="cvv" class="form-label">CVV *</label>
-                        <input type="text" id="cvv" name="cvv" class="form-control form-control-lg" placeholder="CVV" maxlength="4" inputmode="numeric" pattern="\\d{3,4}"  required>
+                        <input title="optional" type="text" id="cvv" name="cvv" class="form-control form-control-lg" placeholder="CVV" maxlength="4" inputmode="numeric" pattern="\\d{3,4}"  required>
                         <div class="invalid-feedback">
                             Por favor ingrese el CVV.
                         </div>
 
                         <label for="name-target" class="form-label">Nombre del titular *</label>
-                        <input type="text" class="form-control form-control-lg" id="name-target" placeholder="Nombre del titular" required>
+                        <input title="optional" type="text" class="form-control form-control-lg" id="name-target" placeholder="Nombre del titular" required>
                         <div class="invalid-feedback">
                             Por favor ingrese el nombre del titular.
                         </div>
@@ -533,6 +591,6 @@ class AppPaymentForm extends HTMLElement {
                 </form>
             </article>
         `;
-    }
+  }
 }
 customElements.define("app-payment-form", AppPaymentForm);
